@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.Clients {
+    padding: 10px;
+    background-color: rgb(240, 240, 240);
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    transition: all .3s linear;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.Clients-Title {
+    padding: 10px;
+    background-color: rgb(55 66 250);
+    color: white;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.Clients-Title>div {
+    flex: 1;
+}
+
+.Clients-Title>.StatusFriend {
+    flex: .5;
+    text-align: center;
+}
+
+.Clients>div {
+    flex: 1;
+}
+
+.Clients i {
+    font-size: 24px;
+}
+
+.Clients .StatusFriend {
+    flex: .5;
+    display: flex;
+    justify-content: center;
+}
+
+.Clients:hover {
+    transform: scale(1.005);
+    background-color: rgb(243, 247, 255);
+    border: 1px solid rgb(210, 217, 255);
+}
+
+/* popup */
+.Client_More-id {
+    padding: 32px 0 16px 0;
+}
+
+.Client_More-id h1 {
+    font-size: 20px;
+}
+
+
+.Client_More-Status h1 {
+    width: max-content;
+    font-size: 20px;
+}
+
+.Client_More-Status select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(24, 24, 24);
+    cursor: pointer;
+}
+
+.Client_More-DayTest h1 {
+    width: max-content;
+    font-size: 20px;
+}
+
+.Client_More-DayTest select {
+    width: 100%;
+}
+
+.Client_More-title {
+    background: rgb(57, 87, 255);
+    margin: -16px;
+    padding: 16px;
+}
+
+.Client_More-title>h1 {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.Client_More-Save {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.Client_More-Save button {
+    border-radius: 3px;
+    background-color: #3957ff;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    transition: all .3s linear;
+}
+
+.Client_More-Save button:hover {
+    transform: scale(1.03);
+}
+
+#Time_Client {
+    width: max-content;
+    height: 2.5rem !important;
+    background-color: #ebecfe;
+    border: none;
+    border-radius: 8px;
+    padding: 0 1rem;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#Time_Client>input {
+    background: #ebecfe;
+    border: none;
+    outline: none;
+}
+
+.Client_Menu {
+    padding-bottom: 32px;
+    display: flex;
+    gap: 16px;
+}
+
+#ClientsWrap {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: -5px;
+}
+
+#ClientsWrap::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+#ClientsWrap::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: rgb(55 66 250);
+    border-radius: 5px;
+}
+
+.GiaiDoan_nav {
+    padding: 5px 20px;
+    color: #3957ff;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s linear;
+    border: 1px solid #3957ff;
+}
+
+.GiaiDoan_nav.on {
+    background-color: #3957ff;
+    color: white;
+    border: 1px solid #3957ff;
+    padding: 5px 25px;
+}
+
+.GiaiDoan_nav>h1 {
+    font-size: 18px;
+    margin: 0;
+}

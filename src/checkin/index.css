@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+#main {
+    padding: 16px;
+    background-color: rgb(249, 249, 249);
+}
+
+#checkin {
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#checkin_nk {
+    padding: 10px 16px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+
+    font-family: "Roboto", sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#checkin_nk h1 {
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    font-weight: 500;
+    align-items: center;
+}
+
+#checkin_listclass-wrap {
+    flex: 1;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    height: 100%;
+}
+
+#checkin_listclass {
+    background-color: white;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.3%;
+    height: 100%;
+    padding: 0 3px;
+    overflow-y: auto;
+}
+
+#checkin_listclass::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+#checkin_listclass::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: rgb(194, 194, 194);
+    border-radius: 5px;
+}
+
+.checkin_class {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    width: 24%;
+    height: max-content;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+}
+
+.checkin_class:nth-last-child(1) {
+    background-color: rgb(249, 249, 249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s linear;
+}
+
+.checkin_class:nth-last-child(1) i {
+    font-size: 36px;
+    transition: all .3s linear;
+}
+
+.checkin_class:nth-last-child(1):hover>i {
+    transform: scale(1.1);
+}
+
+#addclass:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.checkin_class img {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+}
+
+.checkin_class-content {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: white;
+    transition: all .3s linear;
+    position: relative;
+    z-index: 2;
+}
+
+.checkin_class h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.checkin_class:hover .checkin_more {
+    transform: translateY(0);
+}
+
+.checkin_more {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    z-index: 4;
+    transition: all .3s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(100%);
+}
+
+.checkin_more button {
+    padding: 5px 25px;
+    background-color: #ffffff;
+    color: rgb(35, 35, 35);
+    font-size: 24px;
+    border-radius: 8px;
+    border: none;
+    transition: all .3s linear;
+}
+
+.checkin_more button:hover {
+    transform: scale(1.03);
+}
