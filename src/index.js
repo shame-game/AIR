@@ -11,10 +11,8 @@ for (let i = 0; i < g.length; i++) {
 }
 
 if (h == 0) {
-    window.location.href = "http://127.0.0.1:5501/login.html"
+    window.location.href = "https://shame-game.github.io/AIR/Login"
 }
-
-
 
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
