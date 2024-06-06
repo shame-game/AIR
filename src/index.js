@@ -9,11 +9,11 @@ for (let i = 0; i < g.length; i++) {
         h++
     }
 }
-/*
+
 if (h == 0) {
-    window.location.href = "https://shame-game.github.io/AIR/Login"
+    window.location.href = "https://shame-game.github.io/AIR/Login/"
 }
-*/
+
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
 
