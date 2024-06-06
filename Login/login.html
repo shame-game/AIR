@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance sheet</title>
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>AIR Login</title>
     <style>
         #Form_Login {
             width: 100%;
@@ -91,19 +88,36 @@
             </div>
         </div>
     </main>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>
         document.querySelector('#login').onclick = () => {
             let tk = document.querySelector('#Form_Login>input[name="tk"]').value
             let mk = document.querySelector('#Form_Login>input[name="mk"]').value
-            fetch(`https://script.google.com/macros/s/AKfycbxD01vGivKcOyk4zukvtpd0TkoqnhE6PnLheDOO8a9ipEaUGBGlBA19-3DJwuhQBJPyQQ/exec?tk=${tk}&mk=${mk}`, { method: 'Get' })
+            fetch(`https://script.google.com/macros/s/AKfycbxdQjmmNKWVD4mbBsskbIvNFMuyRmSMwuwQH_yynMcn6EQv-nC8tC9Bbc6_VzHCTSzJNQ/exec?tk=${tk}&mk=${mk}`, { method: 'Get' })
                 .then(response => response.json())
                 .then((data) => {
-                    console.log(data)
+                    console.log(data);
+                    if (data.status == 'error') {
+                        alert(data.message)
+                    }
+                    else if (data.status != 'error') {
+                        function checkCookie() {
+                            const characters = 'vamnaone';
+                            let result = '';
+                            const charactersLength = characters.length;
+                            for (let i = 0; i < 24; i++) {
+                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                            }
+                            const date = new Date();
+                            date.setTime(date.getTime() + (30 * 1000));
+                            expires = "; expires=" + date.toUTCString();
+                            document.cookie = 'vamnaone' + "=" + (result || "") + expires + "; path=/";
+                            return
+                        }
+                        checkCookie()
+                        window.location.href = "http://127.0.0.1:5501"
+                    }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => alert('Lỗi: ' + error));
         }
     </script>
 </body>

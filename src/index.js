@@ -1,3 +1,19 @@
+let g = document.cookie.split(';');
+
+let h = 0
+
+for (let i = 0; i < g.length; i++) {
+    let cookie = g[i].trim();
+    console.log(cookie);
+    if (cookie.indexOf('vamnaone' + '=') === 0) {
+        h++
+    }
+}
+
+if (h == 0) {
+    window.location.href = "http://127.0.0.1:5501/login.html"
+}
+
 
 
 const vam = document.querySelector.bind(document);
