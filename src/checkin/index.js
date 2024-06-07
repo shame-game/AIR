@@ -4,8 +4,14 @@ function listclass(data) {
         items +=
             `<div class="checkin_class">
                 <img src="https://lh3.googleusercontent.com/d/1xaA7E-XNGzEI9SsfY4i1k9CgjRjMiqKF">
-                <div class="checkin_more">
-                    <button class="checkin_in" data-class="${t['ID']}">Điểm danh</button>
+                <div class="chechin_more" >
+                    <div class="class_more">
+                        <i class="bi bi-three-dots-vertical"></i>
+                    </div>
+                    <div class="class_more-content">
+                        <p class="checking_diemdanh" data-class="${t['NameClass']}">Điểm danh</p>
+                        <p class="checking_danhsachlop" data-class="${t['NameClass']}">Danh sách lớp</p>
+                    </div>
                 </div>
                 <div class="checkin_class-content">
                     <h1>Lớp: <span>${t['NameClass']}</span></h1>
@@ -15,6 +21,41 @@ function listclass(data) {
             </div>`
     })
     return items
+}
+
+function listStudent(data, g) {
+    let items = ''
+    function getf(datas) {
+        vam('.diemdanh_listStudent>div').innerHTML += `<div class="diemdanh_Student"><p>${datas[0]['ID']}${datas[0]['Name']}</p></div>`
+    }
+    data.forEach((t) => {
+        let idclass = t['ID']
+        if (t['NameClass'] == g) {
+            fetchSheet
+                .fetch({
+                    gSheetId: idclass,
+                    wSheetName: 'Điểm danh'
+                }).then((rows) => {
+                    Object.values(rows).forEach((t) => {
+                        Object.keys(t).forEach((j) => {
+                            if (j.slice(0, 2) == 'AI') {
+                                let h = []
+                                fetchSheet
+                                    .fetch({
+                                        gSheetId: idclass,
+                                        wSheetName: j
+                                    }).then((detail_Student) => {
+                                        h = h.concat(detail_Student)
+                                        getf(h)
+                                    })
+                            }
+                        })
+
+                    });
+                })
+        }
+    })
+    return ''
 }
 
 function AddClass() {

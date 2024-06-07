@@ -127,24 +127,6 @@
     font-weight: 600;
 }
 
-.checkin_class:hover .checkin_more {
-    transform: translateY(0);
-}
-
-.checkin_more {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    left: 0;
-    z-index: 4;
-    transition: all .3s linear;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(100%);
-}
 
 .checkin_more button {
     padding: 5px 25px;
@@ -158,4 +140,134 @@
 
 .checkin_more button:hover {
     transform: scale(1.03);
+}
+
+.class_more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    aspect-ratio: 1 / 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    color: white
+}
+
+.checkin_class:hover .class_more {
+    animation: more .3s linear forwards;
+}
+
+@keyframes more {
+    0% {
+        opacity: 0;
+
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        background-color: rgba(13, 13, 13, 0.212);
+    }
+}
+
+.class_more-content::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 0;
+    height: 10px;
+    min-width: 120px;
+}
+
+.class_more-content {
+    position: absolute;
+    background-color: white;
+    top: 45px;
+    right: 10px;
+    min-width: 120px;
+    height: max-content;
+    width: max-content;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 99;
+    flex-direction: column;
+    display: none;
+}
+
+
+.class_more:hover+.class_more-content {
+    display: flex;
+}
+
+.class_more-content:hover {
+    display: flex;
+}
+
+.class_more-content>p {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.class_more-content>p:hover {
+    background-color: #00000014;
+}
+
+/* Điểm danh */
+
+.diemdanh_nav {
+    padding: 12px;
+    background: #d3d6db;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.diemdanh_listStudent {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.diemdanh_Student-add {
+    padding: 5px;
+    background-color: rgba(9, 9, 9, 0.058);
+    height: 50px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.diemdanh_Student-add p {
+    font-size: 16px;
+    flex: .5;
+}
+
+.diemdanh_Student-add p:nth-child(1),
+.diemdanh_Student-add p:nth-child(2) {
+    text-align: start;
+    padding: 0 10px;
+}
+
+.diemdanh_Student {
+    padding: 16px;
+    background-color: white;
+    height: 50px;
+}
+
+.diemdanh_listStudent>div {
+    height: 100%;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
 }

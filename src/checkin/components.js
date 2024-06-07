@@ -16,7 +16,29 @@ function checkin(classlist) {
             </div>
         </div>`
     AddClass(classlist)
+
+    vams('.checking_diemdanh').forEach((t) => {
+        t.onclick = () => {
+            let g = t.getAttribute('data-class')
+            vam('#checkin').innerHTML = `
+                <div class="diemdanh_nav">
+                    <p>Quản lý lớp > Điểm danh lớp ${g}</p>
+                </div>
+                <div class="diemdanh_listStudent">
+                    <div>
+                        ${listStudent(classlist, g)} 
+                        <div class="diemdanh_Student-add">
+                            <p>ID</p>
+                            <p style="flex:1">Họ và Tên</p>
+                            <p style="flex:1"></p>
+                            <p>Có mặt</p>
+                            <p>Vắng mặt</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        }
+    })
+
 }
-
-
 

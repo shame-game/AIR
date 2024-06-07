@@ -4,15 +4,14 @@ let h = 0
 
 for (let i = 0; i < g.length; i++) {
     let cookie = g[i].trim();
-    console.log(cookie);
     if (cookie.indexOf('vamnaone' + '=') === 0) {
         h++
     }
 }
-
+/*
 if (h == 0) {
     window.location.href = "https://shame-game.github.io/AIR/Login/"
-}
+}*/
 
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
@@ -47,7 +46,7 @@ var urlGD1 = 'https://script.google.com/macros/s/AKfycbwUpTAo4i4IblEaZBr-8UPVZXX
 var urlLoadClass = 'https://script.google.com/macros/s/AKfycbzbnj0iU5eMXrh9i4g7285ryzMiK6Vv4YzIB9x4FJgfP0hoeLOYUaG9HC8YdAK885iZmA/exec'
 getlistclass((callback, data) => {
     document.querySelector('.loadweb').remove();
-    manager(data)
+    checkin(callback)
     vams('.sidebar__item').forEach((y) => {
         y.onclick = () => {
             vam('.topbar__title').innerText = y.innerText
@@ -86,7 +85,6 @@ function getlistclass(callback) {
                                 gSheetId: '1H0R5zQ4B9VkcBzXpeFbXNLgXVuMWoRu5IDRAC8ROgeI',
                                 wSheetName: 'Data',
                             }).then((data) => {
-                                console.log(data);
                                 callback(dataclass, data)
                             })
                     })
