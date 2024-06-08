@@ -11,6 +11,7 @@ function listclass(data) {
                     <div class="class_more-content">
                         <p class="checking_diemdanh" data-class="${t['NameClass']}">Điểm danh</p>
                         <p class="checking_danhsachlop" data-class="${t['NameClass']}">Danh sách lớp</p>
+                        <p class="checking_detail" data-class="${t['NameClass']}">Thông tin lớp</p>
                     </div>
                 </div>
                 <div class="checkin_class-content">
@@ -23,35 +24,82 @@ function listclass(data) {
     return items
 }
 
+
+// Điểm danh lớp
 function listStudent(data, g) {
     let items = ''
-    function getf(datas) {
-        vam('.diemdanh_listStudent>div').innerHTML += `<div class="diemdanh_Student"><p>${datas[0]['ID']}${datas[0]['Name']}</p></div>`
+    // Hiển thị giao diện điểm danh
+    function getf(datas, int, kh) {
+        if (vam('.diemdanh_listStudent>div') != null) {
+            vam('.diemdanh_listStudent>div').innerHTML +=
+                `<div class="diemdanh_Student" data-kh="${kh}">
+                <p>${datas[0]['ID']}</p>
+                <p style="flex:1">${datas[0]['Name']}</p>
+                <p style="flex:1"></p>
+                <input id="getbool_checkin" value="true" name="bool${int}" type="radio" style="accent-color: #009d3c;">
+                <input value="false" name="bool${int}" type="radio" checked>
+            </div>`
+        }
+        else {
+            vam('.quanlylop_listStudent>div').innerHTML +=
+                `<div class="diemdanh_Student">
+                <p>${datas[0]['ID']}</p>
+                <p style="flex:1">${datas[0]['Name']}</p>
+                <p style="flex:1"></p>
+                <input id="getbool_checkin" value="true" name="bool${int}" type="radio" style="accent-color: #009d3c;">
+                <input value="false" name="bool${int}" type="radio" checked>
+            </div>`
+        }
     }
     data.forEach((t) => {
         let idclass = t['ID']
         if (t['NameClass'] == g) {
+            let i = 0
             fetchSheet
                 .fetch({
                     gSheetId: idclass,
-                    wSheetName: 'Điểm danh'
-                }).then((rows) => {
-                    Object.values(rows).forEach((t) => {
-                        Object.keys(t).forEach((j) => {
-                            if (j.slice(0, 2) == 'AI') {
-                                let h = []
-                                fetchSheet
-                                    .fetch({
-                                        gSheetId: idclass,
-                                        wSheetName: j
-                                    }).then((detail_Student) => {
-                                        h = h.concat(detail_Student)
-                                        getf(h)
-                                    })
-                            }
-                        })
+                    wSheetName: 'Trang tính1'
+                }).then((khoahoc) => {
+                    const keysWithValue2 = [];
+                    for (let key in khoahoc[0]) {
+                        if (khoahoc[0][key] == 2) {
+                            keysWithValue2.push(key);
+                        }
+                    }
+                    fetchSheet
+                        .fetch({
+                            gSheetId: idclass,
+                            wSheetName: keysWithValue2
+                        }).then((rows) => {
+                            Object.values([rows[0]]).forEach((t) => {
+                                async function processKeys(t, idclass) {
+                                    for (const j of Object.keys(t)) {
+                                        if (j.slice(0, 2) === 'AI') {
+                                            console.log(j);
+                                            const gh = j;
+                                            let h = [];
 
-                    });
+                                            async function gsd() {
+                                                try {
+                                                    const detail_Student = await fetchSheet.fetch({
+                                                        gSheetId: idclass,
+                                                        wSheetName: gh
+                                                    });
+                                                    h = h.concat(detail_Student);
+                                                    getf(h, i, keysWithValue2);
+                                                    i++;
+                                                } catch (error) {
+                                                    console.error('Error fetching sheet:', error);
+                                                }
+                                            }
+
+                                            await gsd();
+                                        }
+                                    }
+                                }
+                                processKeys(t, idclass);
+                            });
+                        })
                 })
         }
     })

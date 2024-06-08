@@ -8,10 +8,10 @@ for (let i = 0; i < g.length; i++) {
         h++
     }
 }
-/*
+
 if (h == 0) {
     window.location.href = "https://shame-game.github.io/AIR/Login/"
-}*/
+}
 
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
@@ -44,7 +44,9 @@ else {
 
 var urlGD1 = 'https://script.google.com/macros/s/AKfycbwUpTAo4i4IblEaZBr-8UPVZXXH-1ZoewQCRoKxsXN_nR_1bpmH70JwhQaSlSD8X6Dxpw/exec'
 var urlLoadClass = 'https://script.google.com/macros/s/AKfycbzbnj0iU5eMXrh9i4g7285ryzMiK6Vv4YzIB9x4FJgfP0hoeLOYUaG9HC8YdAK885iZmA/exec'
-getlistclass((callback, data) => {
+const urlQll = 'https://script.google.com/macros/s/AKfycbxBYoitEhrZcpkLWAfjaXzDJ2OHMowxy6RBX6FAK56qtatihdO7zpRWXiybKGfp0ABu/exec'
+
+/*getlistclass((callback, data) => {
     document.querySelector('.loadweb').remove();
     checkin(callback)
     vams('.sidebar__item').forEach((y) => {
@@ -59,35 +61,17 @@ getlistclass((callback, data) => {
             }
         }
     })
-})
+})*/
 
 // Lấy dữ liệu lớp
-function getlistclass(callback) {
+function getlistclass() {
     var url = urlLoadClass + "?" + 'clas=test2&action=getlistclass';
     fetch(url, {
         method: 'GET'
     }).then(
         (response) => {
             if (response.ok) {
-                fetchSheet
-                    .fetch({
-                        gSheetId: '1BgcahpJSkCLv0nV5Lb8_qLYgGPD_RF6GMUh4dA5nbew',
-                        wSheetName: 'All Class',
-                    }).then((rows) => {
-                        let dataclass = []
-                        rows.forEach((t) => {
-                            if (t['ID'] != '0') {
-                                dataclass = dataclass.concat(t)
-                            }
-                        })
-                        fetchSheet
-                            .fetch({
-                                gSheetId: '1H0R5zQ4B9VkcBzXpeFbXNLgXVuMWoRu5IDRAC8ROgeI',
-                                wSheetName: 'Data',
-                            }).then((data) => {
-                                callback(dataclass, data)
-                            })
-                    })
+
             } else {
                 console.log('Lỗi trong giai đoạn lưu lớp');
             }
@@ -95,6 +79,33 @@ function getlistclass(callback) {
     )
 }
 
+window.onload = () => document.querySelector('.loadweb').remove();
+
+function Class() {
+    fetchSheet
+        .fetch({
+            gSheetId: '1BgcahpJSkCLv0nV5Lb8_qLYgGPD_RF6GMUh4dA5nbew',
+            wSheetName: 'All Class',
+        }).then((rows) => {
+            let dataclass = []
+            rows.forEach((t) => {
+                if (t['ID'] != '0') {
+                    dataclass = dataclass.concat(t)
+                }
+            })
+            checkin(dataclass)
+
+            /*
+            fetchSheet
+                .fetch({
+                    gSheetId: '1H0R5zQ4B9VkcBzXpeFbXNLgXVuMWoRu5IDRAC8ROgeI',
+                    wSheetName: 'Data',
+                }).then((data) => {
+                    checkin(dataclass)
+                })*/
+        })
+}
+Class()
 function SetAttibute(element, Attribute, Value) {
     vam(element).setAttribute(Attribute, Value)
 }

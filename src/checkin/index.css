@@ -180,10 +180,11 @@
 .class_more-content::after {
     content: '';
     position: absolute;
-    top: -10px;
-    right: 0;
-    height: 10px;
-    min-width: 120px;
+    top: -25%;
+    right: -25%;
+    height: 150%;
+    z-index: -1;
+    width: 150%;
 }
 
 .class_more-content {
@@ -199,6 +200,7 @@
     z-index: 99;
     flex-direction: column;
     display: none;
+    z-index: 10;
 }
 
 
@@ -220,24 +222,102 @@
     background-color: #00000014;
 }
 
-/* Điểm danh */
+/* 
+/* Điểm danh ------------------- */
+/* 
 
+/* điểm danh - nav */
 .diemdanh_nav {
     padding: 12px;
-    background: #d3d6db;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.diemdanh_nav>div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.diemdanh_nav_left {
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.diemdanh_nav_left:hover {
+    color: #3742fa;
+    gap: 13px;
+}
+
+#diemdanh_update {
+    padding: 5px 25px;
+    background: #3742fa;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.popup_updatecheckin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.popup_updatecheckin input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px 25px;
     font-size: 16px;
 }
 
-.diemdanh_listStudent {
+.popup_updatecheckin button {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #3742fa;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    transition: all .3s linear;
+    box-shadow: 0;
+}
+
+.popup_updatecheckin button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* điểm danh - list */
+
+.diemdanh_listStudent,
+.quanlylop_listStudent {
     flex: 1;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.diemdanh_listStudent>div::-webkit-scrollbar {
+    background: rgba(9, 9, 9, 0.058);
+    width: 5px;
+}
+
+.diemdanh_listStudent>div::-webkit-scrollbar-thumb {
+    background: #3742fa;
+    border-radius: 5px;
+    width: 5px;
 }
 
 .diemdanh_Student-add {
     padding: 5px;
-    background-color: rgba(9, 9, 9, 0.058);
+    background-color: rgb(215, 215, 215);
     height: 50px;
     border-radius: 5px;
     align-items: center;
@@ -246,26 +326,43 @@
     font-size: 24px;
     gap: 10px;
     cursor: pointer;
+    position: sticky;
+    top: 0;
 }
 
-.diemdanh_Student-add p {
+
+.diemdanh_Student-add p,
+.diemdanh_Student p {
     font-size: 16px;
     flex: .5;
+    text-align: center;
+}
+
+.diemdanh_Student input {
+    cursor: pointer;
+    accent-color: red;
+    flex: .5
 }
 
 .diemdanh_Student-add p:nth-child(1),
-.diemdanh_Student-add p:nth-child(2) {
+.diemdanh_Student-add p:nth-child(2),
+.diemdanh_Student p:nth-child(1),
+.diemdanh_Student p:nth-child(2) {
     text-align: start;
     padding: 0 10px;
 }
 
 .diemdanh_Student {
-    padding: 16px;
+    padding: 16px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: white;
-    height: 50px;
+    border-bottom: 1px solid rgb(198, 198, 198);
 }
 
-.diemdanh_listStudent>div {
+.diemdanh_listStudent>div,
+.quanlylop_listStudent>div {
     height: 100%;
     overflow-y: auto;
     background-color: white;

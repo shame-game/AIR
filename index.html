@@ -16,12 +16,20 @@
 </head>
 
 <body>
+    <div class="load" style="display: none;">
+        <div><img src="https://lh3.googleusercontent.com/d/1uoHzj9hBN0wKXGYPzC5B4UUKS5Lx914E">
+            <p>loading
+            <div id="load1"></div>
+            <div id="load2"></div>
+            <div id="load3"></div>
+            </p>
+        </div>
+    </div>
     <div class="loadweb">
         <div></div>
     </div>
     <div id="popup" style="display: none;">
-        <div class="popup_main">
-        </div>
+        <div class="popup_main"></div>
         <div class="popup_background"></div>
     </div>
     <div id="app" class="app__container">
@@ -55,7 +63,7 @@
             <div class="sidebar">
                 <div class="sidebar__items">
                     <a class="sidebar__item sidebar__item--actived" get-data="checkin"><i
-                            class="bi bi-house-fill"></i>Điểm danh</a>
+                            class="bi bi-house-fill"></i>Lớp học</a>
                     <a class="sidebar__item  " get-data="manager"><i class="bi bi-info-circle-fill"></i>Tuyển sinh</a>
 
                 </div>
@@ -72,7 +80,7 @@
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                     </svg>
                 </button>
-                <h3 class="topbar__title">Tuyển sinh</h3>
+                <h3 class="topbar__title">Quản lý lớp học</h3>
             </div>
             <!-- content -->
             <main class="main" id="main"></main>
@@ -81,7 +89,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
-    <script src="./index.js"></script>
     <!-- All -->
     <script src="./src/index.js"></script>
     <!-- Checkin -->
