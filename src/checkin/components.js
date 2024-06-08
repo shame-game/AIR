@@ -77,6 +77,7 @@ function checkin(classlist) {
                         method: 'GET'
                     }).then(response => response.json())
                         .then((data) => {
+                            SetAttibute('#popup', 'style', 'display:none')
                             SetAttibute('.load', 'style', 'display:none')
                             alert('điểm danh thành công')
                         })
