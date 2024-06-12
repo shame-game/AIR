@@ -295,7 +295,6 @@
 }
 
 /* điểm danh - list */
-
 .diemdanh_listStudent,
 .quanlylop_listStudent {
     flex: 1;
@@ -305,7 +304,7 @@
 }
 
 .diemdanh_listStudent>div::-webkit-scrollbar {
-    background: rgba(9, 9, 9, 0.058);
+    background: rgba(255, 255, 255, 0.058);
     width: 5px;
 }
 
@@ -367,4 +366,280 @@
     overflow-y: auto;
     background-color: white;
     padding: 10px;
+}
+
+/* Class-detail_detailClass */
+.Class-detail_detailClass {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+    transition: all .3s linear;
+}
+
+.Class-detail_detailClass>div {
+    height: max-content;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+}
+
+.Class-detail_detailClass .detailclass_tt h1 {
+    font-size: 16px;
+}
+
+.Class-detail_detailClass .detailclass_title {
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+#Class-detail_detailClass-avt {
+    width: 15%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Class-detail_detailClass_content {
+    flex: 1;
+    padding: 0 16px;
+}
+
+#Class-detail_detailClass-avt img {
+    width: 90%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* Class-detail_allStudent */
+.Class-detail_allStudent {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+    transition: all .3s linear;
+}
+
+.Class-detail_allStudent>div {
+    height: max-content;
+    background-color: white;
+}
+
+#Class-detail_allStudent_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdfdfd;
+    padding: 16px;
+    cursor: pointer;
+}
+
+#Class-detail_allStudent_title h1 {
+    font-size: 20px;
+    margin: 0;
+
+}
+
+#Class-detail_allStudent_listWrap {
+    padding: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    transition: all .3s linear;
+}
+
+#Class-detail_allStudent_listWrap.g1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    padding: 0;
+}
+
+#Class-detail_allStudent_listWrap.g1:hover {
+    background-color: white;
+}
+
+#Class-detail_allStudent_listWrap.g1>div {
+    border-bottom: 1px solid rgb(240, 240, 240);
+    gap: 10px;
+    justify-content: start;
+    display: flex;
+    width: 100%;
+    padding: 16px
+}
+
+#Class-detail_allStudent_listWrap i {
+    font-size: 20px;
+}
+
+#Class-detail_allStudent_listWrap p {
+    font-size: 16px;
+    margin: 0;
+}
+
+#Class-detail_allStudent_listWrap:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Khóa học */
+.Class-detail_course {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+}
+
+.Class-detail_course>div {
+    height: max-content;
+    background-color: white;
+}
+
+#Class-detail_course_title h1 {
+    font-size: 20px;
+    margin: 0;
+
+}
+
+#Class-detail_course_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 16px;
+}
+
+/* */
+
+#Class-detail_course_listWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: .5%;
+}
+
+#Class-detail_course_listWrap>div {
+    width: 33%;
+    padding: 16px;
+}
+
+.Class-detail_course_box {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+#checkin.course {
+    overflow-y: auto;
+    display: block;
+}
+
+#checkin.course::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#checkin.course::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: rgb(48, 110, 255);
+    border-radius: 3px;
+}
+
+/* Thêm Class */
+#addClass-wrap,
+#addStudent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#addClass {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#addClass-wrap input,
+#addStudent input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px 25px;
+    font-size: 16px;
+}
+
+#addClass-wrap p,
+#addStudent p {
+    font-size: 24px;
+}
+
+#addClass-wrap button,
+#addStudent button {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #3742fa;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    transition: all .3s linear;
+}
+
+/* Danh sách học sinh */
+#Class-detail_allStudent_list {
+    margin: 16px 0;
+}
+
+#Class-detail_allStudent_list-add p {
+    margin: 0;
+
+}
+
+#Class-detail_allStudent_list-add {
+    background-color: #eaedf0;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#Class-detail_allStudent_list-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.Class-detail_allStudent_list-mainbox {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+.Class-detail_allStudent_list-mainbox img {
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
 }

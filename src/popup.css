@@ -32,3 +32,92 @@
     top: 0;
     left: 0;
 }
+
+/* load web */
+.loadweb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    background-color: white;
+}
+
+.load {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    background-color: #000000ee;
+}
+
+.load>div {
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.load img {
+    width: 50px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#load1 {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    transform: translateY(8px);
+    animation: loadd 1.3s linear infinite;
+}
+
+#load2 {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    transform: translateY(8px);
+    animation: loadd 1.3s .3s linear infinite;
+}
+
+#load3 {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    transform: translateY(8px);
+    animation: loadd 1.3s .6s linear infinite;
+}
+
+@keyframes loadd {
+    0% {
+        transform: translateY(8px);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(8px);
+    }
+}
+
+.load p {
+    color: white;
+    font-size: 32px;
+    font-weight: 600;
+}

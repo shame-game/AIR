@@ -71,9 +71,19 @@
             color: #6e6e6e;
         }
     </style>
+    <link rel="stylesheet" href="../src/popup.css">
 </head>
 
 <body>
+    <div class="load" style="display: none;">
+        <div><img src="https://lh3.googleusercontent.com/d/1uoHzj9hBN0wKXGYPzC5B4UUKS5Lx914E">
+            <p>loading
+            <div id="load1"></div>
+            <div id="load2"></div>
+            <div id="load3"></div>
+            </p>
+        </div>
+    </div>
     <main>
         <div class="main">
             <div id="Form_Title">
@@ -90,12 +100,13 @@
     </main>
     <script>
         document.querySelector('#login').onclick = () => {
+            document.querySelector('.load').setAttribute('style', 'display:block')
             let tk = document.querySelector('#Form_Login>input[name="tk"]').value
             let mk = document.querySelector('#Form_Login>input[name="mk"]').value
             fetch(`https://script.google.com/macros/s/AKfycbxdQjmmNKWVD4mbBsskbIvNFMuyRmSMwuwQH_yynMcn6EQv-nC8tC9Bbc6_VzHCTSzJNQ/exec?tk=${tk}&mk=${mk}`, { method: 'Get' })
                 .then(response => response.json())
                 .then((data) => {
-                    console.log(data);
+                    document.querySelector('.load').setAttribute('style', 'display:none')
                     if (data.status == 'error') {
                         alert(data.message)
                     }

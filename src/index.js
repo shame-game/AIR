@@ -42,26 +42,7 @@ else {
     });
 }
 
-var urlGD1 = 'https://script.google.com/macros/s/AKfycbwUpTAo4i4IblEaZBr-8UPVZXXH-1ZoewQCRoKxsXN_nR_1bpmH70JwhQaSlSD8X6Dxpw/exec'
-var urlLoadClass = 'https://script.google.com/macros/s/AKfycbzbnj0iU5eMXrh9i4g7285ryzMiK6Vv4YzIB9x4FJgfP0hoeLOYUaG9HC8YdAK885iZmA/exec'
-const urlQll = 'https://script.google.com/macros/s/AKfycbxBYoitEhrZcpkLWAfjaXzDJ2OHMowxy6RBX6FAK56qtatihdO7zpRWXiybKGfp0ABu/exec'
-
-/*getlistclass((callback, data) => {
-    document.querySelector('.loadweb').remove();
-    checkin(callback)
-    vams('.sidebar__item').forEach((y) => {
-        y.onclick = () => {
-            vam('.topbar__title').innerText = y.innerText
-            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
-            y.classList.add('sidebar__item--actived')
-            if (y.innerText == 'Điểm danh') {
-                checkin(callback)
-            } else if (y.innerText == 'Tuyển sinh') {
-                manager(data)
-            }
-        }
-    })
-})*/
+const urlBackend = 'https://script.google.com/macros/s/AKfycbxGftEOtMtmPeDxGi0SrN7-Af0f1fkE5Wu0An-dhRDtQk-2tScouJlEOaxqW8pWyl9z4A/exec'
 
 // Lấy dữ liệu lớp
 function getlistclass() {
@@ -71,7 +52,6 @@ function getlistclass() {
     }).then(
         (response) => {
             if (response.ok) {
-
             } else {
                 console.log('Lỗi trong giai đoạn lưu lớp');
             }
@@ -84,27 +64,20 @@ window.onload = () => document.querySelector('.loadweb').remove();
 function Class() {
     fetchSheet
         .fetch({
-            gSheetId: '1BgcahpJSkCLv0nV5Lb8_qLYgGPD_RF6GMUh4dA5nbew',
+            gSheetId: '1A53zGraoK0hsQlq_9C5VJm-asnsDmIi6V9orApgc55E',
             wSheetName: 'All Class',
-        }).then((rows) => {
-            let dataclass = []
-            rows.forEach((t) => {
-                if (t['ID'] != '0') {
-                    dataclass = dataclass.concat(t)
-                }
-            })
-            checkin(dataclass)
-
-            /*
+        }).then((dataClass) => {
             fetchSheet
                 .fetch({
-                    gSheetId: '1H0R5zQ4B9VkcBzXpeFbXNLgXVuMWoRu5IDRAC8ROgeI',
-                    wSheetName: 'Data',
-                }).then((data) => {
-                    checkin(dataclass)
-                })*/
+                    gSheetId: '10HZ2XKw97d21uyI_gdmBgN7dI_DbRQAa0EUlPSfZIkc',
+                    wSheetName: 'All Student',
+                }).then((dataStudent) => {
+                    checkin(dataClass, dataStudent)
+                })
         })
 }
+
+
 Class()
 function SetAttibute(element, Attribute, Value) {
     vam(element).setAttribute(Attribute, Value)
