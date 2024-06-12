@@ -26,7 +26,16 @@ function checkin(dataClass, dataStudent) {
     // Thêm class
     AddClass(dataClass)
     vam('#addClass_affter').onclick = () => {
-
+        SetAttibute('.load', 'style', 'display:block')
+        let urlnew = urlBackend + "?action=addClassfake";
+        fetch(urlnew, {
+            method: 'GET'
+        }).then(response => response.json())
+            .then((data) => {
+                window.open(data['message'], '_blank');
+                SetAttibute('.load', 'style', 'display:none')
+            })
+            .catch(error => alert('Lỗi: ' + error));
     }
     vam('#addClass_affterDetail').onclick = () => {
         window.open('https://drive.google.com/drive/folders/1jWdNA1srZOBS_bAw45qnMVg20Ej7S9he', '_blank');

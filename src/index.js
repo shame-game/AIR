@@ -42,7 +42,7 @@ else {
     });
 }
 
-const urlBackend = 'https://script.google.com/macros/s/AKfycbxC83rjQ1rEZJWqf_yMIlVsO_3jK-jI39GbFvhMW-Bg9_mow8A1kHNJI5eBdC-fxAXkXA/exec'
+const urlBackend = 'https://script.google.com/macros/s/AKfycbxf5T8ag2azGD9sUs8xMmfG7A_sz3LIV42CWrAABnjXSdN2bZTXkQ9dHt4iuqalD0-tnw/exec'
 
 // Lấy dữ liệu lớp
 function getlistclass() {
