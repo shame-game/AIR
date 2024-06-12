@@ -191,10 +191,10 @@ function listStudent(dataStudent, nameClass) {
                 <p>${student['ID']}</p>
                 <p style="flex:1">${student['Name']}</p>
                 <p style="flex:1"></p>
-                <input id="getbool_checkin" value="true" name="bool${int}" type="radio" style="accent-color: #009d3c;">
+                <input class="getbool_checkin" value="true" name="bool${int}" type="radio" data-note='' style="accent-color: #009d3c;">
                 <input value="false" name="bool${int}" type="radio" checked>
-            </div>
-            `
+                <div class="checkin_note" index="${int}"><i class="bi bi-journal-plus"></i></div>
+            </div>`
             int++
         }
     })

@@ -16,6 +16,12 @@
 }
 
 #checkin_nk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nienkhoa {
     padding: 10px 16px;
     font-size: 18px;
     display: flex;
@@ -23,18 +29,77 @@
     background-color: white;
     border-radius: 3px;
     cursor: pointer;
-
+    width: max-content;
     font-family: "Roboto", sans-serif;
+    gap: 10px;
+    align-items: center;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-#checkin_nk h1 {
+#nienkhoa h1 {
     font-size: 18px;
     display: flex;
     gap: 10px;
     margin: 0;
     font-weight: 500;
     align-items: center;
+}
+
+#nienkhoa i {
+    display: flex;
+    align-items: center;
+}
+
+#moreg0 i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+#moreg0 {
+    position: relative;
+}
+
+#moreg0 i:hover~div,
+#moreg0>div:hover {
+    display: block;
+}
+
+#moreg0>div {
+    position: absolute;
+    top: calc(100% + 10px);
+    display: none;
+    width: max-content;
+    right: 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 2;
+}
+
+#moreg0>div::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 160%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#moreg0>div>p {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#moreg0>div>p:hover {
+    background-color: rgb(236, 236, 236);
 }
 
 #checkin_listclass-wrap {
@@ -241,6 +306,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    width: max-content;
 }
 
 .diemdanh_nav_left {
@@ -343,6 +409,28 @@
     flex: .5
 }
 
+#diemdanh_img {
+    gap: 5px;
+    padding: 2px 10px;
+    display: flex;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#diemdanh_img a {
+    margin-top: 2px;
+}
+
+#diemdanh_img img {
+    width: 24px;
+    height: 24px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
 .diemdanh_Student-add p:nth-child(1),
 .diemdanh_Student-add p:nth-child(2),
 .diemdanh_Student p:nth-child(1),
@@ -358,6 +446,29 @@
     align-items: center;
     background-color: white;
     border-bottom: 1px solid rgb(198, 198, 198);
+    gap: 10px;
+}
+
+.checkin_note {
+    display: flex;
+    justify-content: center;
+    flex: .5;
+    cursor: pointer;
+
+}
+
+.checkin_note:hover i {
+    background: #e5e5e5;
+}
+
+.checkin_note i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .diemdanh_listStudent>div,
@@ -555,7 +666,9 @@
 
 /* Thêm Class */
 #addClass-wrap,
-#addStudent {
+#addStudent,
+.popup_note,
+.popup_input {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -570,7 +683,9 @@
 }
 
 #addClass-wrap input,
-#addStudent input {
+#addStudent input,
+.popup_note input,
+.popup_input input {
     width: 100%;
     outline: none;
     border-radius: 3px;
@@ -581,12 +696,15 @@
 }
 
 #addClass-wrap p,
-#addStudent p {
+#addStudent p,
+.popup_input p {
     font-size: 24px;
 }
 
 #addClass-wrap button,
-#addStudent button {
+#addStudent button,
+.popup_note button,
+.popup_input button {
     padding: 8px 25px;
     font-size: 16px;
     color: white;
