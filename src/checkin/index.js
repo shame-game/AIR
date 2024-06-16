@@ -3,20 +3,22 @@ function listclass(dataClass) {
     let items = ''
     dataClass.forEach((t) => {
         items +=
-            `<div class="checkin_class">
-                <img src="https://lh3.googleusercontent.com/d/1xaA7E-XNGzEI9SsfY4i1k9CgjRjMiqKF">
+            `<div class="class_banner">
+                <div class="class-banner_img">
+                    <img src="https://lh3.googleusercontent.com/d/1xaA7E-XNGzEI9SsfY4i1k9CgjRjMiqKF">
+                    <h4>${t['NameClass']}</h4>
+                </div>
                 <div class="chechin_more" >
                     <div class="class_more">
                         <i class="bi bi-three-dots-vertical"></i>
                     </div>
                     <div class="class_more-content">
-                        <p class="checking_diemdanh" data-class="${t['NameClass']}"  data-id="${t['ID']}">Điểm danh</p>
-                        <p class="checking_detail" data-class="${t['NameClass']}">Thông tin lớp</p>
+                        <p class="managerClass" data-class="${t['NameClass']}">Quản lý lớp</p>
                     </div>
                 </div>
-                <div class="checkin_class-content">
-                    <h1>Lớp: <span>${t['NameClass']}</span></h1>
-                    <p>Khu vực giảng dạy: ${t['Address']}</p>
+                <div class="class_banner_information">
+                    <p>Khu vực: ${t['Address']}</p>
+                    <p>GVCN: ${t['formTeacher']}</p>
                     <p>Khóa: <span>20${t['NameClass'].slice(0, 2)}</span></p>
                 </div>
             </div>`
@@ -24,6 +26,7 @@ function listclass(dataClass) {
     return items
 }
 
+// Chức năng quản lý lớp
 
 // Thông tin cơ bản lớp học 
 function classdetail(data, idclass) {
@@ -308,33 +311,44 @@ function addStudent(className) {
 function AddClass() {
     vam('#addclass').onclick = () => {
         vam('#popup').setAttribute('style', 'display:block')
-        SetAttibute('.popup_main', 'style', 'width:600px')
+        SetAttribute('.popup_main', 'style', 'width:600px')
         vam('.popup_background').onclick = () => {
             vam('#popup').setAttribute('style', 'display:none')
         }
     }
+
     vam('.popup_main').innerHTML =
-        `
-    <div id="addClass-wrap">
-        <div> <p>Thêm lớp học</p></div>
-        <form id="addClass">
-            <input name="nameclass" type="text" placeholder="Tên Lớp">
-            <input name="address" type="text" placeholder="Địa chỉ">
-        </form>
-        <button id="add_class">Thêm Lớp</button>
-    </div>`
+        `<div id="addClass-wrap">
+            <div> <p>Thêm lớp học</p></div>
+            <form id="addClass">
+                <input name="nameclass" type="text" placeholder="Tên Lớp">
+                <input name="address" type="text" placeholder="Địa chỉ">
+                <input name="gvcn" type="text" placeholder="Giáo viên chủ nhiệm">
+            </form>
+            <button id="add_class">Thêm Lớp</button>
+        </div>`
 
 
     vam('#add_class').onclick = () => {
-        SetAttibute('.load', 'style', 'display:block')
+        SetAttribute('.load', 'style', 'display:block')
         let nameclass = vam('#addClass>input[name="nameclass"]').value
         let address = vam('#addClass>input[name="address"]').value
-        var url = urlBackend + "?" + `name=${nameclass}&address=${address}&action=addClass`;
+        let gvcn = vam('#addClass>input[name="gvcn"]').value
+        var url = urlBackend + "?" + `name=${nameclass}&address=${address}&gvcn=${gvcn}&action=addClass`;
         fetch(url, {
             method: 'GET'
-        }).then((data) => {
-            alert(data['message'])
-            SetAttibute('.load', 'style', 'display:none')
-        }).catch(error => alert('Lỗi: ' + error));
+        }).then(response => response.json())
+            .then((data) => {
+                if (data['status'] == 'error') {
+                    SetAttribute('.load', 'style', 'display:none')
+                    alert(`Lỗi tạo lớp: ${data['message']}`)
+                } else if (data['status'] == 'success') {
+                    SetAttribute('.load', 'style', 'display:none')
+                    vam('#popup').setAttribute('style', 'display:none')
+                    alert(`${data['message']}`)
+                    Class()
+                }
+            })
+            .catch(error => alert('Lỗi: ' + error));
     }
 }

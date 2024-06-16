@@ -1,19 +1,343 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 #main {
-    padding: 16px;
     background-color: rgb(249, 249, 249);
 }
 
-#checkin {
-    padding: 16px;
+/* V0 */
+#class {
     width: 100%;
     height: 100%;
     font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
+
+/* V0_Nav */
+#class-nav {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+    position: relative;
+    min-height: 60px;
+    padding: 0 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#class-nav .nav-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: var(--color-title-nav);
+    font-weight: 700;
+    font-family: var(--font-roboto);
+}
+
+#class-nav .nav-back {
+    display: flex;
+    gap: 7px;
+    color: var(--color-title-nav);
+    transition: all .3s linear;
+}
+
+#class-nav .nav-back p {
+    font-size: 20px;
+}
+
+#class-nav .nav-back i {
+    font-size: 20px;
+}
+
+#class-nav .nav-back:hover {
+    cursor: pointer;
+    gap: 10px;
+    color: var(--color-primary);
+}
+
+/* V0-content */
+
+#class-content {
+    padding: 10px;
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 20%;
+}
+
+@keyframes nextV {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+
+    75% {
+        display: flex;
+        opacity: .5;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-100%);
+        display: none;
+    }
+}
+
+@keyframes backV {
+    0% {
+        opacity: 1;
+        transform: translateX(-100%);
+        display: none;
+
+    }
+
+    75% {
+        display: flex;
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* class_banner */
+
+.class-banner_img {
+    position: relative;
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+.class-banner_img>img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.class-banner_img>h4 {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-family: var(--font-roboto);
+    color: #292929;
+}
+
+.class_banner {
+    width: 24%;
+    height: max-content;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+}
+
+.class_banner_information {
+    padding: 10px;
+}
+
+#addclass {
+    aspect-ratio: 1/1;
+}
+
+.class_banner:nth-last-child(1) {
+    background-color: rgb(249, 249, 249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s linear;
+}
+
+.class_banner:nth-last-child(1) i {
+    font-size: 36px;
+    transition: all .3s linear;
+}
+
+.class_banner:nth-last-child(1):hover>i {
+    transform: scale(1.1);
+}
+
+#addclass:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.class_banner img {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+}
+
+.class_banner-content {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: white;
+    transition: all .3s linear;
+    position: relative;
+    z-index: 2;
+}
+
+.class_banner h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.class_banner:hover .class_more {
+    animation: more .3s linear forwards;
+}
+
+/* manager*/
+#manager-class-content {
+    opacity: 0;
+    transform: translateX(100%);
+    display: none;
+    padding: 10px;
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#manager-class-content::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#manager-class-content::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class-student {
+    padding: 10px;
+    flex: 1;
+    overflow: hidden;
+    display: none;
+}
+
+#Class-student>div {
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#Class_student-wrap {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#Class_student-wrap::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#Class_student-wrap::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class_student-nav {
+    display: flex;
+    justify-content: space-between;
+    max-height: 40px;
+    height: 40px;
+}
+
+#Class_student-nav h1 {
+    font-size: 20px;
+    font-family: var(--font-roboto);
+    font-weight: 700;
+    margin: 0;
+}
+
+#Class_student-nav #add_Student {
+    font-size: 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all .3s linear;
+}
+
+#Class_student-nav #add_Student:hover {
+    background-color: rgb(242, 242, 242);
+}
+
+#Class_student-nav>div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+@keyframes OpenV {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    75% {
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ClouseV {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+    75% {
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
 
 #checkin_nk {
     display: flex;
@@ -21,33 +345,69 @@
     align-items: center;
 }
 
-#nienkhoa {
-    padding: 10px 16px;
-    font-size: 18px;
+.Class_student {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    height: 60px;
     background-color: white;
-    border-radius: 3px;
-    cursor: pointer;
+    overflow: hidden;
+    padding: 0 32px;
+    justify-content: space-between;
+}
+
+.Class_student>.information_Right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     width: max-content;
-    font-family: "Roboto", sans-serif;
-    gap: 10px;
-    align-items: center;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-#nienkhoa h1 {
-    font-size: 18px;
+.information_Left {
     display: flex;
     gap: 10px;
-    margin: 0;
-    font-weight: 500;
     align-items: center;
+    width: max-content;
 }
 
-#nienkhoa i {
+.information_Left_lack {
+    position: relative;
+    font-size: 20px;
+}
+
+.information_Left_lack>p {
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
     display: flex;
+    justify-content: center;
     align-items: center;
+    color: white;
+    font-weight: 700;
+}
+
+.Class_student>.information_Right>div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #e2e2e2;
+    overflow: hidden;
+}
+
+.Class_student>.information_Right>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Class_student:hover {
+    cursor: pointer;
+    background-color: #ededed;
+    border-radius: 3px;
 }
 
 #moreg0 i {
@@ -102,15 +462,6 @@
     background-color: rgb(236, 236, 236);
 }
 
-#checkin_listclass-wrap {
-    flex: 1;
-    background-color: white;
-    border-radius: 3px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 16px;
-    height: 100%;
-}
-
 #checkin_listclass {
     background-color: white;
     border-radius: 3px;
@@ -135,62 +486,6 @@
     border-radius: 5px;
 }
 
-.checkin_class {
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    width: 24%;
-    height: max-content;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 3px;
-    overflow: hidden;
-    margin: 10px 0;
-    position: relative;
-}
-
-.checkin_class:nth-last-child(1) {
-    background-color: rgb(249, 249, 249);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .3s linear;
-}
-
-.checkin_class:nth-last-child(1) i {
-    font-size: 36px;
-    transition: all .3s linear;
-}
-
-.checkin_class:nth-last-child(1):hover>i {
-    transform: scale(1.1);
-}
-
-#addclass:hover {
-    background-color: rgb(236, 236, 236);
-}
-
-.checkin_class img {
-    width: 100%;
-    aspect-ratio: 2/1;
-    object-fit: cover;
-}
-
-.checkin_class-content {
-    padding: 16px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    background-color: white;
-    transition: all .3s linear;
-    position: relative;
-    z-index: 2;
-}
-
-.checkin_class h1 {
-    font-size: 20px;
-    font-weight: 600;
-}
 
 
 .checkin_more button {
@@ -222,9 +517,7 @@
     color: white
 }
 
-.checkin_class:hover .class_more {
-    animation: more .3s linear forwards;
-}
+
 
 @keyframes more {
     0% {
@@ -242,14 +535,40 @@
     }
 }
 
+#addCourse_listStudent {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    margin: 10px 0;
+}
+
+#addCourse_listStudent::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#addCourse_listStudent>.Class_student .addCourse_radio {
+    box-shadow: none !important;
+}
+
+#addCourse_listStudent::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#addCourse_listStudent>.Class_student p {
+    font-size: 14px;
+}
+
 .class_more-content::after {
     content: '';
     position: absolute;
-    top: -25%;
-    right: -25%;
-    height: 150%;
+    top: -20px;
+    right: -20px;
+    height: calc(100% + 40px);
     z-index: -1;
-    width: 150%;
+    width: calc(100% + 40px);
 }
 
 .class_more-content {
@@ -486,6 +805,7 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin: 15px 0;
     transition: all .3s linear;
+    margin-top: 0;
 }
 
 .Class-detail_detailClass>div {
@@ -553,7 +873,8 @@
 
 }
 
-#Class-detail_allStudent_listWrap {
+#Class-detail_allStudent_listWrap,
+#Class-detail_course_listWrap {
     padding: 16px;
     display: flex;
     gap: 8px;
@@ -582,16 +903,19 @@
     padding: 16px
 }
 
-#Class-detail_allStudent_listWrap i {
+#Class-detail_allStudent_listWrap i,
+#Class-detail_course_listWrap i {
     font-size: 20px;
 }
 
-#Class-detail_allStudent_listWrap p {
+#Class-detail_allStudent_listWrap p,
+#Class-detail_course_listWrap p {
     font-size: 16px;
     margin: 0;
 }
 
-#Class-detail_allStudent_listWrap:hover {
+#Class-detail_allStudent_listWrap:hover,
+#Class-detail_course_listWrap:hover {
     background-color: #f1f1f1;
     cursor: pointer;
 }
@@ -602,6 +926,7 @@
     overflow: hidden;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin: 15px 0;
+    margin-bottom: 0;
 }
 
 .Class-detail_course>div {
@@ -760,4 +1085,103 @@
     width: 40px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+#update_Student {
+    padding: 5px;
+    background-color: #3742fa;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    border: none;
+}
+
+/* khóa học */
+#Class-course>div {
+    margin: 10px;
+}
+
+#Class-student>#Class-course {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#Class-student>#Class-course::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#Class-student>#Class-course::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class-course h4 {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Class_course-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: .62%;
+}
+
+.Class_course-list>div {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 19.5%;
+    height: max-content;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: rgb(225, 225, 225);
+}
+
+.Class_course-list>div>img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.Class_course-list>div>.course-tt {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Class_course-list>div>.course-tt>h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    font-family: var(--font-roboto);
+}
+
+.Class_course-list>div>.course-tt>p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    font-family: var(--font-roboto);
+}
+
+.Class_course-list>div:hover .class_more {
+    animation: more .3s linear forwards;
+}
+
+#calender>.Wrap_Content {
+    flex-direction: column;
+}
+
+#calender .nav-title {
+    font-size: 22px;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
 }

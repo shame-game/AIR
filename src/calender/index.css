@@ -1,0 +1,246 @@
+#LearnToday {
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+}
+
+#calender p {
+    margin: 0;
+}
+
+#LearnToday_nav {
+    padding: 16px;
+    border-bottom: thin solid rgba(0, 0, 0, .12);
+}
+
+#LearnToday_nav>h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+}
+
+#LearnToday_title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    border-bottom: 2px solid rgba(0, 0, 0, .12);
+}
+
+#LearnToday_title>p {
+    padding: 10px 25px;
+    flex: 1;
+}
+
+#LearnToday_title>p:nth-last-child(1) {
+    text-align: center;
+}
+
+#LearnToday_list>div>p:nth-last-child(1) {
+    text-align: center;
+}
+
+#LearnToday_list>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: thin solid rgba(0, 0, 0, .12);
+}
+
+#LearnToday_list>div:nth-last-child(1) {
+    border: none;
+}
+
+#LearnToday_list>div>p {
+    flex: 1;
+    padding: 10px 25px;
+}
+
+.checkin {
+    display: flex;
+    justify-content: center;
+}
+
+.checkin>i {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkin:hover i {
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+
+#checkin_wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* Vào trang điểm danh */
+#informationCheckin {
+    margin: 10px;
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#checkin_StudentList {
+    margin: 10px;
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#informationCheckin_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#informationCheckin_title h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#informationCheckin_title a {
+    padding: 5px 25px;
+    background-color: #3742fa;
+    color: white;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+#informationCheckin_input {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+#checkin_title {
+    padding: 16px 0;
+}
+
+#checkin_title h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#informationCheckin_input input:nth-child(1) {
+    width: 200px;
+}
+
+#informationCheckin_input input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px 25px;
+    font-size: 16px;
+}
+
+.checkin_Student>div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#checkin_StudentWrap {
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+}
+
+.checkin_Student.title {
+    background-color: #ebebeb;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.checkin_Student.conte {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: thin solid rgba(0, 0, 0, .12);
+    transition: all .2s linear;
+}
+
+.checkin_Student.conte:hover {
+    background-color: #f3f3f3;
+    cursor: pointer;
+}
+
+.checkin_Student>div:nth-child(1) {
+    width: 300px;
+}
+
+.checkin_Student>div:nth-child(1)>p {
+    flex: 1;
+}
+
+.checkin_Student>div:nth-last-child(1) {
+    width: 400px;
+}
+
+.checkin_Student>div:nth-last-child(1)>p {
+    flex: 1;
+    text-align: center;
+}
+
+#calender .nav-back {
+    display: flex;
+    gap: 7px;
+    color: var(--color-title-nav);
+    transition: all .3s linear;
+}
+
+#calender .nav-back p {
+    font-size: 20px;
+}
+
+#calender .nav-back i {
+    font-size: 20px;
+}
+
+#calender .nav-back:hover {
+    cursor: pointer;
+    gap: 10px;
+    color: var(--color-primary);
+}
+
+.Checkin_input {
+    width: 100%;
+}
+
+
+#celender_more {
+    display: flex;
+    gap: 16px;
+}
+
+#celender_more>div {
+    padding: 5px 20px;
+    font-size: 17px;
+    font-weight: 600;
+    width: max-content;
+    border-radius: 5px;
+    background-color: #3742fa;
+    color: white;
+    cursor: pointer;
+}

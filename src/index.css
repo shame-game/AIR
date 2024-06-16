@@ -5,12 +5,13 @@
     --color-border: #e5e7eb;
     --default-space: 1.5rem;
     --default-radius: 0.25rem;
+    --color-title-nav: #666;
+    /* font */
+    --font-roboto: "Roboto", sans-serif
 }
 
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    /* color: var(--color-dark); */
     fill: var(--color-dark);
 }
 
@@ -474,7 +475,8 @@ p {
 .main__container {
     position: absolute;
     right: 20px;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     top: 0;
     width: calc(80% - 20px);
     display: flex;
@@ -1376,4 +1378,152 @@ table#example {
         height: 100vh;
         overflow: hidden;
     }
+}
+
+/* nút chọn niên khóa */
+
+.filter-wrap {
+    padding: 10px 16px;
+    font-size: 18px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    gap: 10px;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: var(--color-title-nav);
+}
+
+.filter-wrap h1 {
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    font-weight: 500;
+    align-items: center;
+}
+
+.filter-wrap i {
+    display: flex;
+    align-items: center;
+}
+
+/* main - danh sách dạng hộp  */
+.list-box {
+    flex: 1;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* search */
+.search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrap>input {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    background-color: #ebecfe;
+    border: none;
+    outline: none;
+    border-radius: calc(2.5rem / 2);
+    padding: 5px 20px;
+    font-size: 1rem;
+    color: #374151;
+    width: 2.5rem;
+    padding: 0;
+    transition: all .3s linear;
+}
+
+.search-wrap>button,
+.search-wrap>p {
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background-color: #ebecfe;
+    aspect-ratio: 1 / 1;
+    z-index: 3;
+    width: 2.5rem;
+    height: 2.5rem;
+    right: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.search-wrap>p {
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+}
+
+.search-wrap>.hiden {
+    right: calc(20rem - 2.5rem);
+}
+
+.search-wrap>.hide {
+    width: 20rem;
+    padding-left: 3rem;
+}
+
+.dot {
+    background-color: #eeeeee;
+    margin: 10px 0;
+    width: 100%;
+    height: 1px;
+}
+
+/* new */
+
+.Wrap_Main {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.Wrap_Nav {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+    position: relative;
+    min-height: 60px;
+    padding: 0 16px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.Wrap_Content {
+    padding: 10px;
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.Wrap_Nav>h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: var(--color-title-nav);
+    font-weight: 700;
+    font-family: var(--font-roboto);
 }

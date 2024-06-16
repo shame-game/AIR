@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="./src/checkin/index.css">
     <link rel="stylesheet" href="./src/popup.css">
     <link rel="stylesheet" href="./src/manager/index.css">
+    <link rel="stylesheet" href="./src/checkin/ttct.css">
+    <link rel="stylesheet" href="./src/calender/index.css">
 </head>
 
 <body>
@@ -25,7 +27,6 @@
             </p>
         </div>
     </div>
-
 
     <div class="loadweb">
         <div></div>
@@ -64,8 +65,10 @@
         <div class="sidebar__container">
             <div class="sidebar">
                 <div class="sidebar__items">
-                    <a class="sidebar__item sidebar__item--actived" get-data="checkin"><i
-                            class="bi bi-house-fill"></i>Lớp học</a>
+                    <a class="sidebar__item sidebar__item--actived" get-data="calendar"><i
+                            class="bi bi-calendar-date"></i>Lịch dạy</a>
+                    <a class="sidebar__item" get-data="class"><i class="bi bi-house-fill"></i>Lớp
+                        học</a>
                     <a class="sidebar__item  " get-data="manager"><i class="bi bi-info-circle-fill"></i>Tuyển sinh</a>
 
                 </div>
@@ -82,7 +85,7 @@
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                     </svg>
                 </button>
-                <h3 class="topbar__title">Quản lý lớp học</h3>
+                <h3 class="topbar__title">Quản lý lịch dạy</h3>
             </div>
             <!-- content -->
             <main class="main" id="main"></main>
@@ -93,9 +96,16 @@
     <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
     <!-- All -->
     <script src="./src/index.js"></script>
+    <script src="./src/components.js"></script>
+    <!-- Calender -->
+    <script src="./src/calender/Component.js"> </script>
+    <script src="./src/calender/index.js"></script>
+    <script src="./src/calender/Calender.js"></script>
+    <script src="./src/calender/CreateCalender.js"></script>
     <!-- Checkin -->
     <script src="./src/checkin/index.js"></script>
     <script src="./src/checkin/components.js"></script>
+    <script src="./src/checkin/ManagerClass.js"></script>
     <!-- Data -->
     <script src="./src/manager/index.js"></script>
     <script src="./src/manager/components.js"></script>
