@@ -43,13 +43,15 @@ function calenderToday(dataCelender, dataClass, dataStudent, dataCourse) {
                     })
                     vams('.checkin').forEach((t) => {
                         t.onclick = () => {
+                            let dataCnew = []
                             let classN = t.getAttribute('data-class')
                             for (i = 0; i < dataClass.length; i++) {
+                                console.log(dataClass[i]['NameClass']);
                                 if (dataClass[i]['NameClass'] == classN) {
-                                    dataClass = dataClass[i]
+                                    dataCnew = dataClass[i]
                                 }
                             }
-                            checkinnow(t, dataClass, dataStudent)
+                            checkinnow(t, dataCnew, dataStudent)
                         }
                     })
                 })
@@ -154,6 +156,7 @@ function checkinnow(t, dataClass, dataStudent) {
     vam('#calender .nav-back').onclick = () => {
         SetAttribute('#checkin_wrap', 'style', 'display:none')
         vam('#calender .nav-back').remove()
+        vam('#calender .nav-title').innerText = 'Lịch dạy'
         SetAttribute('#calender-learn', 'style', 'display:flex')
     }
 }

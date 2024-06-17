@@ -75,22 +75,40 @@ function CreateCelender(dataCelender, dataClass, dataStudent, dataCourse) {
             </div>
         </div>`
     let dateInput = document.querySelector('#createCelender_days>input');
-
     // Lấy ngày hôm nay
     let today = new Date();
-
     // Chuyển đổi ngày hôm nay thành chuỗi định dạng YYYY-MM-DD
     let todayString = today.toISOString().slice(0, 10);
     dateInput.value = todayString;
+
     vam('#calender .nav-back').onclick = () => {
         vam('#calender .nav-back').remove()
         SetAttribute('#calender-learn', 'style', 'display:flex')
         SetAttribute('#createCelender', 'style', 'display:none')
     }
+    LoadW(dataCelender)
+    vam('#createCelender_days>input').onchange = () => {
+        console.log('đúng');
+        LoadW(dataCelender)
+    }
+    vam('#startWeek')
+
+}
+function WtoD(day, add) {
+    let tu = Number(day) + add
+    if (tu < 10) {
+        tu = '0' + tu
+    }
+    return tu = tu + startDate.slice(2)
+}
+
+function LoadW(dataCelender) {
+    let today = new Date();
     for (let i = 0; i < dataCelender.length; i++) {
         startDate = dataCelender[i]['Week'].slice(0, 10)
         endDate = dataCelender[i]['Week'].slice(-10)
         if (isDateInRange(formatDate(today), startDate, endDate)) {
+            console.log(startDate);
             vam('#mo-days').innerText = startDate
             vam('#tu-days').innerText = WtoD(startDate.slice(0, 2), 1)
             vam('#we-days').innerText = WtoD(startDate.slice(0, 2), 2)
@@ -102,12 +120,4 @@ function CreateCelender(dataCelender, dataClass, dataStudent, dataCourse) {
             vam('#endWeek').innerText = endDate
         }
     }
-    vam('#startWeek')
-}
-function WtoD(day, add) {
-    let tu = Number(day) + add
-    if (tu < 10) {
-        tu = '0' + tu
-    }
-    return tu = tu + startDate.slice(2)
 }
