@@ -90,7 +90,24 @@ function CreateCelender(dataCelender, dataClass, dataStudent, dataCourse) {
                         .fetch({
                             gSheetId: dataCelender[i]['ID']
                         }).then((day) => {
-                            updateC(day, t.getAttribute('id'))
+                            SetAttribute('#popup', 'style', 'display:block;width:400px')
+                            vam('.popup_main').innerHTML =
+                                `<div id="List-SetC"></div>`
+                            SetAttribute('.popup_background', 'style', 'display:block')
+                            let g = updateC(day, t.getAttribute('id')).split('-')
+                            for (i = 0; i < g.length; i++) {
+                                let gl = g[i].split('|')
+                                vam('#List-SetC').innerHTML +=
+                                    `<div>
+                                        <p>${gl[0]}</p>
+                                        <p>${gl[1]}</p>
+                                        <p>${gl[2]}</p>
+                                    </div>`
+                            }
+                            // Out
+                            vam('.popup_background').onclick = () => {
+                                SetAttribute('#popup', 'style', 'display:none')
+                            }
                         })
                     break;
                 }
@@ -235,5 +252,5 @@ function updateC(day, c) {
         g = 1
         h = 'Chủ Nhật'
     }
-    console.log(day[g][h]);
+    return day[g][h];
 }

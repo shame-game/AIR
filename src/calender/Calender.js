@@ -46,7 +46,6 @@ function calenderToday(dataCelender, dataClass, dataStudent, dataCourse) {
                             let dataCnew = []
                             let classN = t.getAttribute('data-class')
                             for (i = 0; i < dataClass.length; i++) {
-                                console.log(dataClass[i]['NameClass']);
                                 if (dataClass[i]['NameClass'] == classN) {
                                     dataCnew = dataClass[i]
                                 }

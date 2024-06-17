@@ -289,11 +289,6 @@ function ManagerClass_Course(dataClass, dataStudent, dataCourse) {
                 <div class="Class_course-ip-wrap Class_course-list">
                 </div>
             </div>
-            <div id="Class_course-fn">
-                <h4>Khóa học hoàn thành</h4>
-                <div class="Class_course-fn-wrap Class_course-list">
-                </div>
-            </div>
             <div id="Class_course-kh">
                 <h4>Các khóa học khác</h4>
                 <div class="Class_course-kh-wrap Class_course-list">
@@ -328,18 +323,7 @@ function ManagerClass_Course(dataClass, dataStudent, dataCourse) {
             Object.keys(detailClass[0]).forEach((t) => {
                 for (i = 0; i < listCourse.length; i++) {
                     if (t == listCourse[i]) {
-                        if (detailClass[0][t] == 1) {
-                            cfn++
-                            boxcfn = boxcfn.concat(t)
-                            vam('.Class_course-fn-wrap').innerHTML +=
-                                `<div>
-                                    <img src='https://lh3.googleusercontent.com/d/1rNSkgezY2nqDtPOIzFKLTPEa0s6fNXNN'>
-                                    <div class="course-tt">
-                                        <h2>Tên khóa học: ${t}</h2>
-                                        <p>Số tiết: 12</p>
-                                    </div>
-                                </div>`
-                        } else if (detailClass[0][t] == 0) {
+                        if (detailClass[0][t] == 0) {
                             cip++
                             boxcfn = boxcfn.concat(t)
                             vam('.Class_course-ip-wrap').innerHTML +=
@@ -406,8 +390,7 @@ function ManagerClass_Course(dataClass, dataStudent, dataCourse) {
                                 </div>`
                 }
             })
-            vam('#Class_course-kh>h4').innerText = `Khóa học đã hoàn thành (${ckh})`
-            vam('#Class_course-fn>h4').innerText = `Khóa học đã hoàn thành (${cfn})`
+            vam('#Class_course-kh>h4').innerText = `Tất cả khóa học đang có (${ckh})`
             vam('#Class_course-ip>h4').innerText = `Khóa học đang học (${cip})`
             vams('.addCourse').forEach((t) => {
                 t.onclick = () => {
