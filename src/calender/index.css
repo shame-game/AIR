@@ -303,6 +303,11 @@
     padding: 10px;
 }
 
+#createCelender_main-content>div>p:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
+}
+
 #createCelender_days,
 #saveCreateCelender {
     padding: 5px 20px;

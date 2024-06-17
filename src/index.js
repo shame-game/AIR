@@ -8,10 +8,10 @@ for (let i = 0; i < g.length; i++) {
         h++
     }
 }
-
+/*
 if (h == 0) {
     window.location.href = "https://shame-game.github.io/AIR/Login/"
-}
+}*/
 
 
 const vam = document.querySelector.bind(document);
@@ -43,7 +43,7 @@ else {
     });
 }
 
-const urlBackend = 'https://script.google.com/macros/s/AKfycbwzQJwN0rt2_wiY-0zEc-Gjn4vOUlATMJggr8WgJc6aTlqpgO-LqgJOI673dqGWvmAn1Q/exec'
+const urlBackend = 'https://script.google.com/macros/s/AKfycbyUDsk2JBuTRaaHWLJTOAAYpqQiI-HJb_m2qyEG8cQHlQxnWCsmTkMkBx48rOvkW2Ae-Q/exec'
 
 
 window.onload = () => document.querySelector('.loadweb').remove();
@@ -79,6 +79,7 @@ function Class() {
                                 return trimmedObj;
                             });
                             classN(dataClass, dataStudent, dataCourse)
+                            SetAttribute('.load', 'style', 'display:none')
                         })
                 })
         })
@@ -126,7 +127,9 @@ function Calendar() {
                                         }
                                         return trimmedObj;
                                     });
+
                                     CalendarNav(Calender, dataClass, dataStudent, dataCourse)
+                                    SetAttribute('.load', 'style', 'display:none')
                                 })
                         })
                 })
@@ -138,6 +141,7 @@ Calendar()
 vam('.sidebar__item[get-data="calendar"]').onclick = () => {
     let t = vam('.sidebar__item[get-data="calendar"]');
     if (t.getAttribute('class') == 'sidebar__item') {
+        SetAttribute('.load', 'style', 'display:block')
         vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
         t.classList.add('sidebar__item--actived')
         vam('.topbar__title').innerText = 'Lịch dạy học'
@@ -148,6 +152,7 @@ vam('.sidebar__item[get-data="calendar"]').onclick = () => {
 vam('.sidebar__item[get-data="class"]').onclick = () => {
     let t = vam('.sidebar__item[get-data="class"]');
     if (t.getAttribute('class') == 'sidebar__item') {
+        SetAttribute('.load', 'style', 'display:block')
         vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
         t.classList.add('sidebar__item--actived')
         vam('.topbar__title').innerText = 'Quản lý lớp học'
