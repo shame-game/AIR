@@ -187,7 +187,7 @@
 }
 
 .checkin_Student>div:nth-child(1) {
-    width: 300px;
+    width: 400px;
 }
 
 .checkin_Student>div:nth-child(1)>p {
@@ -243,4 +243,100 @@
     background-color: #3742fa;
     color: white;
     cursor: pointer;
+}
+
+/* */
+#createCelender_wrap {
+    padding: 10px;
+}
+
+#createCelender {
+    width: 100%;
+    flex-direction: column;
+
+}
+
+#createCelender_more {
+    display: flex;
+    gap: 16px;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+#createCelender_main {
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+}
+
+#createCelender_main-title,
+#createCelender_main-day {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#createCelender_main-day>p {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border: thin solid rgba(0, 0, 0, .12);
+}
+
+#createCelender_main-title>div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border: thin solid rgba(0, 0, 0, .12);
+}
+
+#createCelender_main-content>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#createCelender_main-content>div>p {
+    flex: 1;
+    text-align: center;
+    border: thin solid rgba(0, 0, 0, .12);
+    padding: 10px;
+}
+
+#createCelender_days,
+#saveCreateCelender {
+    padding: 5px 20px;
+    font-size: 17px;
+    font-weight: 600;
+    width: max-content;
+    border-radius: 5px;
+    background-color: #3742fa;
+    cursor: pointer;
+    color: white;
+}
+
+#createCelender_days>input {
+    border: none;
+    outline: none;
+    background-color: #3742fa;
+    color: white;
+    color-scheme: white;
+}
+
+#createCelender_days>input::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(2);
+    cursor: pointer;
+}
+
+#createCelender_week {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: thin solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    padding: 0 25px;
+}
+
+#createCelender_week>p {
+    font-size: 18px;
 }

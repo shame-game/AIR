@@ -25,6 +25,7 @@ function CalendarNav(dataCelender, dataClass, dataStudent, dataCourse) {
                 </div>
             </div>
             <div id="checkin_wrap" style="display:none"></div>
+            <div id="createCelender" style="display:none"></div>
         </div>`
 
     calenderToday(dataCelender, dataClass, dataStudent, dataCourse)
