@@ -209,8 +209,6 @@
 
 /* manager*/
 #manager-class-content {
-    opacity: 0;
-    transform: translateX(100%);
     display: none;
     padding: 10px;
     gap: 16px;

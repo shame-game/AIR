@@ -90,23 +90,44 @@ function CreateCelender(dataCelender, dataClass, dataStudent, dataCourse) {
                         .fetch({
                             gSheetId: dataCelender[i]['ID']
                         }).then((day) => {
-                            SetAttribute('#popup', 'style', 'display:block;width:400px')
-                            vam('.popup_main').innerHTML =
-                                `<div id="List-SetC"></div>`
-                            SetAttribute('.popup_background', 'style', 'display:block')
                             let g = updateC(day, t.getAttribute('id')).split('-')
-                            for (i = 0; i < g.length; i++) {
-                                let gl = g[i].split('|')
-                                vam('#List-SetC').innerHTML +=
-                                    `<div>
-                                        <p>${gl[0]}</p>
-                                        <p>${gl[1]}</p>
-                                        <p>${gl[2]}</p>
+                            if (g != '') {
+                                SetAttribute('#popup', 'style', 'display:block')
+                                SetAttribute('.popup_main', 'style', 'width: 600px;')
+                                vam('.popup_main').innerHTML =
+                                    `<div id="List-SetC"></div>`
+                                SetAttribute('.popup_background', 'style', 'display:block')
+                                for (i = 0; i < g.length; i++) {
+                                    let gl = g[i].split('|')
+                                    vam('#List-SetC').innerHTML +=
+                                        `<div>
+                                            <p>Tên lớp: ${gl[0]}</p>
+                                            <p>Tên khóa: ${gl[1]}</p>
+                                            <p>Địa chỉ: ${gl[2]}</p>
+                                        </div>`
+                                }
+                                vam('.popup_main').innerHTML +=
+                                    `<div id="add_Celender">
+                                        <p>Thêm lịch dạy </p> <i class="bi bi-cloud-plus"></i>
                                     </div>`
-                            }
-                            // Out
-                            vam('.popup_background').onclick = () => {
-                                SetAttribute('#popup', 'style', 'display:none')
+                                // Out
+                                vam('.popup_background').onclick = () => {
+                                    SetAttribute('#popup', 'style', 'display:none')
+                                }
+                            } else {
+                                SetAttribute('#popup', 'style', 'display:block')
+                                SetAttribute('.popup_main', 'style', 'width: 600px;')
+                                vam('.popup_main').innerHTML =
+                                    `<div id="List-SetC"></div>`
+                                SetAttribute('.popup_background', 'style', 'display:block')
+                                vam('.popup_main').innerHTML +=
+                                    `<div id="add_Celender">
+                                        <p>Thêm lịch dạy </p> <i class="bi bi-cloud-plus"></i>
+                                    </div>`
+                                // Out
+                                vam('.popup_background').onclick = () => {
+                                    SetAttribute('#popup', 'style', 'display:none')
+                                }
                             }
                         })
                     break;

@@ -9,12 +9,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Style -->
-    <link rel="stylesheet" href="./src/index.css">
-    <link rel="stylesheet" href="./src/checkin/index.css">
-    <link rel="stylesheet" href="./src/popup.css">
-    <link rel="stylesheet" href="./src/manager/index.css">
-    <link rel="stylesheet" href="./src/checkin/ttct.css">
+    <link rel="stylesheet" href="./src/All/index.css">
+    <link rel="stylesheet" href="./src/All/popup.css">
     <link rel="stylesheet" href="./src/calender/index.css">
+    <link rel="stylesheet" href="./src/class/index.css">
+    <link rel="stylesheet" href="./src/class/ttct.css">
 </head>
 
 <body>
@@ -65,11 +64,11 @@
         <div class="sidebar__container">
             <div class="sidebar">
                 <div class="sidebar__items">
-                    <a class="sidebar__item sidebar__item--actived" get-data="calendar"><i
-                            class="bi bi-calendar-date"></i>Lịch dạy</a>
-                    <a class="sidebar__item" get-data="class"><i class="bi bi-house-fill"></i>Lớp
+                    <a class="sidebar__item" get-data="calendar"><i class="bi bi-calendar-date"></i>Lịch dạy</a>
+                    <a class="sidebar__item sidebar__item--actived" get-data="class"><i class="bi bi-house-fill"></i>Lớp
                         học</a>
-                    <a class="sidebar__item  " get-data="manager"><i class="bi bi-info-circle-fill"></i>Tuyển sinh</a>
+                    <a class="sidebar__item" get-data="course"><i class="bi bi-house-fill"></i>Khóa học</a>
+                    <a class="sidebar__item" get-data="manager"><i class="bi bi-info-circle-fill"></i>Tuyển sinh</a>
 
                 </div>
             </div>
@@ -91,24 +90,27 @@
             <main class="main" id="main"></main>
         </div>
     </div>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdn.statically.io/gh/tr1nh/fetch-sheet.js/master/fetch-sheet.min.js"></script>
+    <script src="./Login/index.js"></script>
     <!-- All -->
-    <script src="./src/index.js"></script>
-    <script src="./src/components.js"></script>
+    <script src="./src/All/index.js"></script>
+    <script src="./src/All/com.js"></script>
+    <script src="./src/All/fun.js"></script>
+    <script src="./src/All/nav.js"></script>
     <!-- Calender -->
-    <script src="./src/calender/Component.js"> </script>
-    <script src="./src/calender/index.js"></script>
-    <script src="./src/calender/Calender.js"></script>
+    <script src="./src/calender/Calender.js"> </script>
+    <script src="./src/calender/Component.js"></script>
     <script src="./src/calender/CreateCalender.js"></script>
-    <!-- Checkin -->
-    <script src="./src/checkin/index.js"></script>
-    <script src="./src/checkin/components.js"></script>
-    <script src="./src/checkin/ManagerClass.js"></script>
+    <script src="./src/calender/index.js"></script>
+    <!-- Class -->
+    <script src="./src/class/index.js"></script>
+    <script src="./src/class/Manager.js/index.js"></script>
+    <script src="./src/class/Manager.js/Course.js"></script>
+    <script src="./src/class/Manager.js/Student.js"></script>
     <!-- Data -->
-    <script src="./src/manager/index.js"></script>
-    <script src="./src/manager/components.js"></script>
 </body>
 
 </html>

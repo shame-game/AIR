@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+
+p,
+h4,
+h1 {
+    margin: 0;
+}
+
+header {
+    height: 60px;
+    width: 100%;
+    background-color: #014aac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header>h1 {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 30px 0;
+}
+
+#ListStudent {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#ListStudent::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fbfbfb;
+}
+
+#ListStudent::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: #014aac;
+    border-radius: 3px;
+}
+
+#ListStudent>.Student_Wrap {
+    padding: 10px 25px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Student_Wrap>.iden {
+    display: flex;
+    gap: 10px;
+}
+
+#ListStudent>.Student_Wrap:hover {
+    background-color: #e8f2ff;
+}
+
+#SearName {
+    flex: 1;
+}
+
+#Searc {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    gap: 16px;
+    width: 800px;
+}
+
+
+#Class {
+    position: relative;
+}
+
+#Class #ListClass {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 100%;
+    background-color: white;
+    padding: 5px 0;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#ListClass::after {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 20px;
+    background-color: red;
+    content: '';
+}
+
+#Class #ListClass p {
+    text-align: center;
+    padding: 5px;
+    transition: all .3s linear;
+    border-radius: 3px;
+}
+
+#Class #ListClass p:hover {
+    background-color: rgb(187, 213, 255);
+    cursor: pointer;
+}
+
+.Sear {
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 0;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.Sear input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+#Class input:focus+#ListClass {
+    display: block;
+}
+
+#Class:hover #ListClass {
+    display: block;
+}

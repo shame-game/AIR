@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(233, 236, 239);
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+:root {
+    --color-main: #014aac;
+}
+
+#Form_Login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#Form_Login input {
+    width: calc(100% - 50px);
+    outline: blue;
+    padding: 13px 25px;
+    color: #6e6e6e;
+    border: 1px solid;
+    border-color: #dae1e3;
+    font-size: 16px;
+}
+
+#Teacher,
+#Parent {
+    position: relative;
+    border-radius: 5px;
+}
+
+#Teacher:hover img {
+    width: 100%;
+}
+
+#Teacher:hover h1 {
+    bottom: calc(50% - 10px);
+    padding: 5px 25px;
+    font-size: 22px;
+}
+
+#Parent:hover h1 {
+    bottom: calc(50% - 10px);
+    padding: 5px 25px;
+    font-size: 22px;
+}
+
+#Parent::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all .3s linear;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 0;
+}
+
+#Teacher::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all .3s linear;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 0;
+}
+
+#Parent:hover img {
+    width: 100%;
+}
+
+
+#Parent:hover::after {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#Teacher:hover::after {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#Teacher>img,
+#Parent>img {
+    position: absolute;
+    width: 90%;
+    aspect-ratio: 1/1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .3s linear;
+}
+
+#Teacher>h1,
+#Parent>h1 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: rgb(255, 255, 255);
+    color: var(--color-main);
+    font-weight: 600;
+    border-radius: 5px;
+    width: max-content;
+    transition: all .3s linear;
+    height: max-content;
+    z-index: 1;
+
+}
+
+#login_wrap {
+    height: calc(100vh - 170px);
+    position: relative;
+}
+
+#Chonncc {
+    width: 500px;
+    margin: auto;
+    height: calc(100vh - 270px);
+    min-height: max-content;
+    padding: 50px 0;
+    display: block;
+    align-items: center;
+    background-color: rgb(233, 236, 239);
+}
+
+#Chonncc>h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #6e6e6e;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    background-color: var(--color-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    gap: 10px;
+}
+
+header>div {
+    height: 100%;
+    width: max-content;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 25px;
+}
+
+header>div>img {
+    height: 80%;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#icon_f {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    color: var(--color-main);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .1s linear;
+}
+
+#icon_y {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    color: var(--color-main);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+footer {
+    height: 100px;
+    width: 100%;
+    background-color: var(--color-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img {
+    height: 40%;
+    object-fit: cover;
+    width: auto;
+}
+
+footer p {
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+#Chonncc>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#Chonncc>div>div {
+    flex: 1;
+    aspect-ratio: 1/1;
+    background-color: var(--color-main);
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#Chonncc>div>div:hover {
+    cursor: pointer;
+}
+
+#Form_Login>input:nth-child(1) {
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+#Form_Login>input:nth-child(2) {
+    border-radius: 0 0 5px 5px;
+}
+
+#Form_Submit {
+    padding-top: 16px;
+
+}
+
+#login {
+    padding: 8px 16px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.main {
+    position: fixed;
+    width: 500px;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(233, 236, 239);
+}
+
+#Form_Title {
+    padding: 16px 0;
+    position: relative;
+}
+
+#Form_Title h1 {
+    text-align: center;
+    font-size: 22px;
+    color: #6e6e6e;
+}
+
+#Form_Title p {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+#Form_Title p:hover {
+    color: var(--color-main);
+}

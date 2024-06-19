@@ -345,3 +345,42 @@
 #createCelender_week>p {
     font-size: 18px;
 }
+
+/* */
+#List-SetC {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: max-content;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#List-SetC>div {
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ebebeb;
+}
+
+#add_Celender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #3742fa;
+    gap: 10px;
+    color: white;
+    height: 40px;
+    margin-top: 10px;
+}
+
+#add_Celender i {
+    font-size: 20px;
+}
+
+#add_Celender p {
+    font-size: 16px;
+}

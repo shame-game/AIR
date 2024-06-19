@@ -1,4 +1,4 @@
-function CalendarNav(dataCelender, dataClass, dataStudent, dataCourse) {
+function CalendarNav(dataCelender) {
     vam('#main').innerHTML =
         `<div id="calender" class="Wrap_Main">
             <div id="calender-nav" class="Wrap_Nav">
@@ -28,8 +28,8 @@ function CalendarNav(dataCelender, dataClass, dataStudent, dataCourse) {
             <div id="createCelender" style="display:none"></div>
         </div>`
 
-    calenderToday(dataCelender, dataClass, dataStudent, dataCourse)
+    calenderToday(dataCelender)
     vam('#CreateCelender').onclick = () => {
-        CreateCelender(dataCelender, dataClass, dataStudent, dataCourse)
+        CreateCelender(dataCelender)
     }
 }

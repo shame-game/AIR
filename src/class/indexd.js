@@ -1,30 +1,5 @@
 // Hiển thị danh sách lớp
-function listclass(dataClass) {
-    let items = ''
-    dataClass.forEach((t) => {
-        items +=
-            `<div class="class_banner">
-                <div class="class-banner_img">
-                    <img src="https://lh3.googleusercontent.com/d/1xaA7E-XNGzEI9SsfY4i1k9CgjRjMiqKF">
-                    <h4>${t['NameClass']}</h4>
-                </div>
-                <div class="chechin_more" >
-                    <div class="class_more">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </div>
-                    <div class="class_more-content">
-                        <p class="managerClass" data-class="${t['NameClass']}">Quản lý lớp</p>
-                    </div>
-                </div>
-                <div class="class_banner_information">
-                    <p>Khu vực: ${t['Address']}</p>
-                    <p>GVCN: ${t['formTeacher']}</p>
-                    <p>Khóa: <span>20${t['NameClass'].slice(0, 2)}</span></p>
-                </div>
-            </div>`
-    })
-    return items
-}
+
 
 // Chức năng quản lý lớp
 
@@ -308,47 +283,3 @@ function addStudent(className) {
     }
 }
 
-function AddClass() {
-    vam('#addclass').onclick = () => {
-        vam('#popup').setAttribute('style', 'display:block')
-        SetAttribute('.popup_main', 'style', 'width:600px')
-        vam('.popup_background').onclick = () => {
-            vam('#popup').setAttribute('style', 'display:none')
-        }
-    }
-
-    vam('.popup_main').innerHTML =
-        `<div id="addClass-wrap">
-            <div> <p>Thêm lớp học</p></div>
-            <form id="addClass">
-                <input name="nameclass" type="text" placeholder="Tên Lớp">
-                <input name="address" type="text" placeholder="Địa chỉ">
-                <input name="gvcn" type="text" placeholder="Giáo viên chủ nhiệm">
-            </form>
-            <button id="add_class">Thêm Lớp</button>
-        </div>`
-
-
-    vam('#add_class').onclick = () => {
-        SetAttribute('.load', 'style', 'display:block')
-        let nameclass = vam('#addClass>input[name="nameclass"]').value
-        let address = vam('#addClass>input[name="address"]').value
-        let gvcn = vam('#addClass>input[name="gvcn"]').value
-        var url = urlBackend + "?" + `name=${nameclass}&address=${address}&gvcn=${gvcn}&action=addClass`;
-        fetch(url, {
-            method: 'GET'
-        }).then(response => response.json())
-            .then((data) => {
-                if (data['status'] == 'error') {
-                    SetAttribute('.load', 'style', 'display:none')
-                    alert(`Lỗi tạo lớp: ${data['message']}`)
-                } else if (data['status'] == 'success') {
-                    SetAttribute('.load', 'style', 'display:none')
-                    vam('#popup').setAttribute('style', 'display:none')
-                    alert(`${data['message']}`)
-                    Class()
-                }
-            })
-            .catch(error => alert('Lỗi: ' + error));
-    }
-}

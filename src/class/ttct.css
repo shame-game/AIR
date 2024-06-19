@@ -166,3 +166,8 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+#profile_student {
+    display: flex;
+    gap: 10px;
+}

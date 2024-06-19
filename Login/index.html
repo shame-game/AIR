@@ -5,73 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIR Login</title>
-    <style>
-        #Form_Login {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #Form_Login input {
-            width: calc(100% - 50px);
-            outline: blue;
-            padding: 13px 25px;
-            color: #6e6e6e;
-            border: 1px solid;
-            border-color: #dae1e3;
-            font-size: 16px;
-        }
-
-        #Form_Login>input:nth-child(1) {
-            border-bottom: 0;
-            border-radius: 5px 5px 0 0;
-        }
-
-        #Form_Login>input:nth-child(2) {
-            border-radius: 0 0 5px 5px;
-        }
-
-        #Form_Submit {
-            padding-top: 16px;
-
-        }
-
-        #login {
-            padding: 8px 16px;
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-        }
-
-        .main {
-            position: fixed;
-            width: 320px;
-            height: 50%;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        main {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background-color: rgb(233, 236, 239);
-        }
-
-        #Form_Title {
-            padding: 16px 0;
-        }
-
-        #Form_Title h1 {
-            text-align: center;
-            font-size: 20px;
-            color: #6e6e6e;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="../src/popup.css">
+    <link rel="stylesheet" href="../src/All/popup.css">
 </head>
 
 <body>
@@ -84,9 +21,37 @@
             </p>
         </div>
     </div>
-    <main>
+    <header>
+        <div>
+            <img src="https://lh3.googleusercontent.com/d/1zfCe52xWj702SjieKrev4-kWctE9O3Qy">
+            <h1>AI Robotic - Khóa học cho trẻ</h1>
+        </div>
+        <div>
+            <a id="icon_f" href="https://www.facebook.com/lhub304" target="_blank">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a id="icon_y" href="https://www.youtube.com/@airobotic2024" target="_blank">
+                <i class="bi bi-youtube"></i>
+            </a>
+        </div>
+    </header>
+    <div id="Chonncc">
+        <h1>Bạn là ai?</h1>
+        <div>
+            <div id="Teacher" data-g="teacher">
+                <img src="https://lh3.googleusercontent.com/d/1e82ZT_FtcYmV6PRJbMAUKHzrL-K4HKC3">
+                <h1>Giáo viên</h1>
+            </div>
+            <div id="Parent" data-g="parents">
+                <img src="https://lh3.googleusercontent.com/d/1RTQrl6M175WQqS8-0wAbjoTT7o9niILj">
+                <h1>Phụ huynh</h1>
+            </div>
+        </div>
+    </div>
+    <main id="login_wrap" style="display: none;">
         <div class="main">
             <div id="Form_Title">
+                <p>Quay lại</p>
                 <h1>Đăng nhập</h1>
             </div>
             <form id="Form_Login">
@@ -98,12 +63,30 @@
             </div>
         </div>
     </main>
+    <footer>
+        <img src="https://lhu.edu.vn/ViewPage/LHUVNB4/_default/image/Logo_ChimLac_W.png">
+        <p>2024 - LHU - T&A Lab</p>
+    </footer>
+    <script src="./index.js"></script>
     <script>
+        let type = ''
+        document.querySelectorAll('#Chonncc>div>div').forEach((t) => {
+            t.onclick = () => {
+                type = t.getAttribute('data-g')
+                document.querySelector('#Chonncc').setAttribute('style', 'display:none')
+                document.querySelector('#login_wrap').setAttribute('style', 'display:block')
+            }
+        })
+        document.querySelector('#Form_Title p').onclick = () => {
+            type = ''
+            document.querySelector('#Chonncc').setAttribute('style', 'display:block')
+            document.querySelector('#login_wrap').setAttribute('style', 'display:none')
+        }
         document.querySelector('#login').onclick = () => {
             document.querySelector('.load').setAttribute('style', 'display:block')
             let tk = document.querySelector('#Form_Login>input[name="tk"]').value
             let mk = document.querySelector('#Form_Login>input[name="mk"]').value
-            fetch(`https://script.google.com/macros/s/AKfycbxdQjmmNKWVD4mbBsskbIvNFMuyRmSMwuwQH_yynMcn6EQv-nC8tC9Bbc6_VzHCTSzJNQ/exec?tk=${tk}&mk=${mk}`, { method: 'Get' })
+            fetch(`${url}?tk=${tk}&mk=${mk}&action=${type}`, { method: 'Get' })
                 .then(response => response.json())
                 .then((data) => {
                     document.querySelector('.load').setAttribute('style', 'display:none')
@@ -111,26 +94,23 @@
                         alert(data.message)
                     }
                     else if (data.status != 'error') {
-                        function checkCookie() {
-                            const characters = 'vamnaone';
-                            let result = '';
-                            const charactersLength = characters.length;
-                            for (let i = 0; i < 24; i++) {
-                                result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                            }
-                            const date = new Date();
-                            date.setTime(date.getTime() + (30 * 1000));
-                            expires = "; expires=" + date.toUTCString();
-                            document.cookie = 'vamnaone' + "=" + (result || "") + expires + "; path=/";
-                            return
+                        var date = new Date();
+                        date.setTime(date.getTime() + (4 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                        document.cookie = 'vamnaone' + "=" + data.token + '|' + tk + expires + "; path=/";
+                        document.cookie = 'type' + "=" + type + expires + "; path=/";
+                        if (type == 'teacher') {
+                            window.location.href = "https://shame-game.github.io/AIR"
+                        } else if (type == 'parents') {
+                            window.location.href = "https://shame-game.github.io/AIR/Parents"
                         }
-                        checkCookie()
-                        window.location.href = "https://shame-game.github.io/AIR"
+
                     }
                 })
                 .catch(error => alert('Lỗi: ' + error));
         }
     </script>
+
 </body>
 
 </html>
