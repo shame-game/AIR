@@ -1,4 +1,3 @@
-Check()
 
 
 const vam = document.querySelector.bind(document);

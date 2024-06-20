@@ -1,5 +1,4 @@
 function calenderToday(dataCelender, dataClass, dataStudent, dataCourse) {
-
     let today = new Date()
     today = formatDate(today)
     let startDate = ''

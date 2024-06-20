@@ -6,6 +6,10 @@
     --default-space: 1.5rem;
     --default-radius: 0.25rem;
     --color-title-nav: #666;
+    --color-vamx: #eff0f4;
+    --color-vamb: #014aac;
+    --color-vamm: #0866FF;
+    --color-vamblur: #ebf5ff;
     /* font */
     --font-roboto: "Roboto", sans-serif
 }
@@ -341,7 +345,6 @@ p {
     width: calc(20%);
     height: 100%;
     flex-shrink: 0;
-    background-color: #ebecfe;
     z-index: 99;
 
 }
@@ -504,7 +507,6 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-primary);
     color: white;
 }
 

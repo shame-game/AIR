@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script defer src="./index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIR Login</title>
@@ -67,7 +68,7 @@
         <img src="https://lhu.edu.vn/ViewPage/LHUVNB4/_default/image/Logo_ChimLac_W.png">
         <p>2024 - LHU - T&A Lab</p>
     </footer>
-    <script src="./index.js"></script>
+
     <script>
         let type = ''
         document.querySelectorAll('#Chonncc>div>div').forEach((t) => {
@@ -94,14 +95,18 @@
                         alert(data.message)
                     }
                     else if (data.status != 'error') {
+                        console.log(data);
                         var date = new Date();
                         date.setTime(date.getTime() + (4 * 60 * 60 * 1000));
                         expires = "; expires=" + date.toUTCString();
                         document.cookie = 'vamnaone' + "=" + data.token + '|' + tk + expires + "; path=/";
                         document.cookie = 'type' + "=" + type + expires + "; path=/";
                         if (type == 'teacher') {
-                            window.location.href = "https://shame-game.github.io/AIR"
+                            window.location.href = "https://shame-game.github.io/AIR/"
                         } else if (type == 'parents') {
+                            document.cookie = 'id' + "=" + data.student + expires + "; path=/";
+                            document.cookie = 'detail' + "=" + data.detail + expires + "; path=/";
+                            document.cookie = 'classN' + "=" + data.classN + expires + "; path=/";
                             window.location.href = "https://shame-game.github.io/AIR/Parents"
                         }
 
