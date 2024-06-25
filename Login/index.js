@@ -2,33 +2,33 @@ let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_
 
 function Check() {
     let currentUrl = window.location.href;
-    if (currentUrl == 'https://shame-game.github.io/AIR/Login/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Login/' || currentUrl == 'https://shame-game.github.io/AIR/index.html' || currentUrl == 'https://shame-game.github.io/AIR/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/index.html') {
+    if (currentUrl == 'http://127.0.0.1:5500/Login/index.html' || currentUrl == 'http://127.0.0.1:5500/Login/' || currentUrl == 'http://127.0.0.1:5500/Teacher/index.html' || currentUrl == 'http://127.0.0.1:5500/Teacher/' || currentUrl == 'http://127.0.0.1:5500/Parents/' || currentUrl == 'http://127.0.0.1:5500/Parents/index.html') {
         if (getCookie("vamnaone")) {
             fetch(`${url}?user=${getCookie("vamnaone").split('|')[1]}&token=${getCookie("vamnaone").split('|')[0]}&type=${getCookie('type')}&action=check`, { method: 'Get' })
                 .then(response => response.json())
                 .then((data) => {
                     if (data.status != 'success') {
-                        window.location.href = "https://shame-game.github.io/AIR/Login/"
+                        window.location.href = "http://127.0.0.1:5500/Login/"
                     } else {
                         if (data.message.split(' ')[2] == 'parents') {
-                            if (currentUrl == 'https://shame-game.github.io/AIR/Parents/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/index.html') {
+                            if (currentUrl == 'http://127.0.0.1:5500/Parents/' || currentUrl == 'http://127.0.0.1:5500/Parents/index.html') {
                             } else {
-                                window.location.href = 'https://shame-game.github.io/AIR/Parents/'
+                                window.location.href = 'http://127.0.0.1:5500/Parents/'
                             }
                         }
                         else if (data.message.split(' ')[2] == 'teacher') {
-                            if (currentUrl == 'https://shame-game.github.io/AIR/index.html' || currentUrl == 'https://shame-game.github.io/AIR/') {
+                            if (currentUrl == 'http://127.0.0.1:5500/index.html' || currentUrl == 'http://127.0.0.1:5500/') {
                             } else {
-                                window.location.href = 'https://shame-game.github.io/AIR/'
+                                window.location.href = 'http://127.0.0.1:5500/'
                             }
                         }
                     }
                 })
                 .catch(error => alert('Lỗi: ' + error));
         } else {
-            if (currentUrl == 'https://shame-game.github.io/AIR/Login/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Login/') {
+            if (currentUrl == 'http://127.0.0.1:5500/Login/index.html' || currentUrl == 'http://127.0.0.1:5500/Login/') {
             } else {
-                window.location.href = "https://shame-game.github.io/AIR/Login/"
+                window.location.href = "http://127.0.0.1:5500/Login/"
             }
         }
     }
@@ -57,7 +57,7 @@ if (document.querySelector('.logout')) {
         document.cookie = 'vamnaone' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'type' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'id' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        window.location.href = "https://shame-game.github.io/AIR/Login/"
+        window.location.href = "http://127.0.0.1:5500/Login/"
     }
 }
 

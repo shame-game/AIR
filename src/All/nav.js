@@ -1,4 +1,4 @@
-Class()
+Celender()
 vam('.sidebar__item[get-data="calendar"]').onclick = () => {
     let t = vam('.sidebar__item[get-data="calendar"]');
     if (t.getAttribute('class') == 'sidebar__item') {
@@ -6,7 +6,7 @@ vam('.sidebar__item[get-data="calendar"]').onclick = () => {
         vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
         t.classList.add('sidebar__item--actived')
         vam('.topbar__title').innerText = 'Lịch dạy học'
-        Calendar()
+        Celender()
     }
 
 }

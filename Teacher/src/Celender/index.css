@@ -7,6 +7,60 @@
     margin: 0;
 }
 
+#calender-nav {
+    height: 65px;
+    border-bottom: thin solid var(--color-title-nav);
+    display: flex;
+    justify-content: start;
+    position: relative;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.nav-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-title-nav);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#Img_Drive {
+    display: flex;
+    background-color: white !important;
+    gap: 10px;
+    align-items: center;
+    color: var(--color-title-nav) !important;
+    border-radius: 5px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#Img_Drive img {
+    height: 30px;
+}
+
+#calender-learn {
+    width: 100%;
+    min-height: 100vh;
+    height: max-content;
+    padding: 32px;
+    background-color: var(--color-vamx);
+}
+
+#calender #now {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    min-height: 100%;
+    height: 100%;
+}
+
 #LearnToday_nav {
     padding: 16px;
     border-bottom: thin solid rgba(0, 0, 0, .12);
@@ -106,6 +160,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#informationCheckin_title>div {
+    display: flex;
+    gap: 16px;
 }
 
 #informationCheckin_title h1 {
@@ -250,10 +309,21 @@
     padding: 10px;
 }
 
+::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
 #createCelender {
     width: 100%;
     flex-direction: column;
+}
 
+#CreateCelender>input {
+    background: #3742fa;
+    border: 0;
+    color: white;
+    outline: none;
+    cursor: pointer;
 }
 
 #createCelender_more {

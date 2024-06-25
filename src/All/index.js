@@ -50,26 +50,22 @@ function Class() {
         SetAttribute('.load', 'style', 'display:none')
     }
 }
-// Mở trang lịch dạy
-let datacelender = []
-function Calendar() {
-
-    if (datacelender.length === 0) {
-        fetchSheet
-            .fetch({
-                gSheetId: '10gFyuirBHeIg-x17xqvOmNrJMmdnV5B2wZmjQt7qXx0',
-                wSheetName: 'Calender',
-            }).then((dataClass) => {
-                datacelender = strim(dataClass)
-                CalendarNav(datacelender)
+let calendarNow = []
+function Celender() {
+    let Daystart = new Date()
+    if (calendarNow.length === 0) {
+        fetch(`https://script.google.com/macros/s/AKfycbw1w3ZTtVQo1wk2KaFIFSg8KR6ZA9hK8HJjolzM3ZonSDfoJad5FvUHYtI1ZcE_ywCC-g/exec?Daystart=${Daystart}&Dayend=${Daystart}`, { method: 'Get' })
+            .then(response => response.json())
+            .then((data) => {
+                calendarNow = data
+                CalendarNav(calendarNow)
                 SetAttribute('.load', 'style', 'display:none')
             })
+            .catch(error => alert('Lỗi: ' + error));
     } else {
-        console.log('không cần load')
-        CalendarNav(datacelender)
+        CalendarNav(calendarNow)
         SetAttribute('.load', 'style', 'display:none')
     }
 }
-
-
+// Mở trang lịch dạy
 

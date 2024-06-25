@@ -102,12 +102,12 @@
                         document.cookie = 'vamnaone' + "=" + data.token + '|' + tk + expires + "; path=/";
                         document.cookie = 'type' + "=" + type + expires + "; path=/";
                         if (type == 'teacher') {
-                            window.location.href = "https://shame-game.github.io/AIR/"
+                            window.location.href = "http://127.0.0.1:5500/"
                         } else if (type == 'parents') {
                             document.cookie = 'id' + "=" + data.student + expires + "; path=/";
                             document.cookie = 'detail' + "=" + data.detail + expires + "; path=/";
                             document.cookie = 'classN' + "=" + data.classN + expires + "; path=/";
-                            window.location.href = "https://shame-game.github.io/AIR/Parents"
+                            window.location.href = "http://127.0.0.1:5500/Parents"
                         }
 
                     }

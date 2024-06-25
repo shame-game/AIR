@@ -1,4 +1,5 @@
-function CalendarNav(dataCelender) {
+
+function CalendarNav(data) {
     vam('#main').innerHTML =
         `<div id="calender" class="Wrap_Main">
             <div id="calender-nav" class="Wrap_Nav">
@@ -6,8 +7,7 @@ function CalendarNav(dataCelender) {
             </div>
             <div id="calender-learn" class="Wrap_Content">
                 <div id="celender_more">
-                    <div id="CreateCelender">Tạo lịch dạy</div>
-                    <div>Báo nghỉ</div>
+                    <div id="CreateCelender">Xem lịch dạy</div>
                 </div>
                 <div id="LearnToday">
                     <div id="LearnToday_nav">
@@ -15,10 +15,11 @@ function CalendarNav(dataCelender) {
                     </div>
                     <div id="LearnToday_title">
                         <p>Ngày</p>
-                        <p>Buổi</p>
                         <p>Lớp</p>
+                        <p>Số tiết</p>
+                        <p>Phòng học</p>
+                        <p>Thời gian</p>
                         <p>Khóa học</p>
-                        <p>Địa điểm</p>
                         <p>Điểm danh</p>
                     </div>
                     <div id="LearnToday_list"></div>
@@ -27,9 +28,5 @@ function CalendarNav(dataCelender) {
             <div id="checkin_wrap" style="display:none"></div>
             <div id="createCelender" style="display:none"></div>
         </div>`
-
-    calenderToday(dataCelender)
-    vam('#CreateCelender').onclick = () => {
-        CreateCelender(dataCelender)
-    }
+    NowCelender(data)
 }

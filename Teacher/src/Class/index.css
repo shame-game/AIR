@@ -1,0 +1,1185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+#main {
+    background-color: rgb(249, 249, 249);
+}
+
+/* V0 */
+#class {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* V0_Nav */
+#class-nav {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background-color: white;
+    position: relative;
+    min-height: 60px;
+    padding: 0 16px;
+    border-bottom: thin solid var(--color-title-nav);
+}
+
+#class-nav .nav-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: var(--color-title-nav);
+    font-weight: 700;
+    font-family: var(--font-roboto);
+}
+
+#class-nav .nav-back {
+    display: flex;
+    gap: 7px;
+    color: var(--color-title-nav);
+    transition: all .3s linear;
+}
+
+#class-nav .nav-back p {
+    font-size: 20px;
+}
+
+#class-nav .nav-back i {
+    font-size: 20px;
+}
+
+#class-nav .nav-back:hover {
+    cursor: pointer;
+    gap: 10px;
+    color: var(--color-primary);
+}
+
+/* V0-content */
+
+#class-content {
+    padding: 32px;
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 20%;
+}
+
+@keyframes nextV {
+    0% {
+        display: flex;
+        opacity: 1;
+    }
+
+    75% {
+        display: flex;
+        opacity: .5;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-100%);
+        display: none;
+    }
+}
+
+@keyframes backV {
+    0% {
+        opacity: 1;
+        transform: translateX(-100%);
+        display: none;
+
+    }
+
+    75% {
+        display: flex;
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* class_banner */
+
+.class-banner_img {
+    position: relative;
+    aspect-ratio: 16/9;
+    width: 100%;
+}
+
+.class-banner_img>img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.class-banner_img>h4 {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-family: var(--font-roboto);
+    color: #292929;
+}
+
+.class_banner {
+    width: 19.3%;
+    height: max-content;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+}
+
+.class_banner_information {
+    padding: 10px;
+}
+
+#addclass {
+    aspect-ratio: 1/1;
+}
+
+.class_banner:nth-last-child(1) {
+    background-color: rgb(249, 249, 249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s linear;
+}
+
+.class_banner:nth-last-child(1) i {
+    font-size: 36px;
+    transition: all .3s linear;
+}
+
+.class_banner:nth-last-child(1):hover>i {
+    transform: scale(1.1);
+}
+
+#addclass:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.class_banner img {
+    width: 100%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+}
+
+.class_banner-content {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: white;
+    transition: all .3s linear;
+    position: relative;
+    z-index: 2;
+}
+
+.class_banner h1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.class_banner:hover .class_more {
+    animation: more .3s linear forwards;
+}
+
+/* manager*/
+#manager-class-content {
+    display: none;
+    padding: 10px;
+    gap: 16px;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#manager-class-content::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#manager-class-content::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class-student {
+    padding: 10px;
+    flex: 1;
+    overflow: hidden;
+    display: none;
+}
+
+#Class-student>div {
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 16px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#Class_student-wrap {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#Class_student-wrap::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#Class_student-wrap::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class_student-nav {
+    display: flex;
+    justify-content: space-between;
+    max-height: 40px;
+    height: 40px;
+}
+
+#Class_student-nav h1 {
+    font-size: 20px;
+    font-family: var(--font-roboto);
+    font-weight: 700;
+    margin: 0;
+}
+
+#Class_student-nav #add_Student {
+    font-size: 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all .3s linear;
+}
+
+#Class_student-nav #add_Student:hover {
+    background-color: rgb(242, 242, 242);
+}
+
+#Class_student-nav>div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+@keyframes OpenV {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    75% {
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ClouseV {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+    75% {
+        opacity: .5;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
+
+#checkin_nk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Class_student {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background-color: white;
+    overflow: hidden;
+    padding: 0 32px;
+    justify-content: space-between;
+}
+
+.Class_student>.information_Right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: max-content;
+}
+
+.information_Left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: max-content;
+}
+
+.information_Left_lack {
+    position: relative;
+    font-size: 20px;
+}
+
+.information_Left_lack>p {
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+}
+
+.Class_student>.information_Right>div {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #e2e2e2;
+    overflow: hidden;
+}
+
+.Class_student>.information_Right>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Class_student:hover {
+    cursor: pointer;
+    background-color: #ededed;
+    border-radius: 3px;
+}
+
+#moreg0 i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+}
+
+#moreg0 {
+    position: relative;
+}
+
+#moreg0 i:hover~div,
+#moreg0>div:hover {
+    display: block;
+}
+
+#moreg0>div {
+    position: absolute;
+    top: calc(100% + 10px);
+    display: none;
+    width: max-content;
+    right: 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 2;
+}
+
+#moreg0>div::after {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 160%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#moreg0>div>p {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#moreg0>div>p:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+#checkin_listclass {
+    background-color: white;
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8%;
+    height: 100%;
+    padding: 0 3px;
+    overflow-y: auto;
+}
+
+#checkin_listclass::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+}
+
+#checkin_listclass::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: rgb(194, 194, 194);
+    border-radius: 5px;
+}
+
+
+
+.checkin_more button {
+    padding: 5px 25px;
+    background-color: #ffffff;
+    color: rgb(35, 35, 35);
+    font-size: 24px;
+    border-radius: 8px;
+    border: none;
+    transition: all .3s linear;
+}
+
+.checkin_more button:hover {
+    transform: scale(1.03);
+}
+
+.class_more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    aspect-ratio: 1 / 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0;
+    color: white
+}
+
+
+
+@keyframes more {
+    0% {
+        opacity: 0;
+
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        background-color: rgba(13, 13, 13, 0.212);
+    }
+}
+
+#addCourse_listStudent {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    margin: 10px 0;
+}
+
+#addCourse_listStudent::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#addCourse_listStudent>.Class_student .addCourse_radio {
+    box-shadow: none !important;
+}
+
+#addCourse_listStudent::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#addCourse_listStudent>.Class_student p {
+    font-size: 14px;
+}
+
+.class_more-content::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: calc(100% + 40px);
+    z-index: -1;
+    width: calc(100% + 40px);
+}
+
+.class_more-content {
+    position: absolute;
+    background-color: white;
+    top: 45px;
+    right: 10px;
+    min-width: 120px;
+    height: max-content;
+    width: max-content;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 99;
+    flex-direction: column;
+    display: none;
+    z-index: 10;
+}
+
+
+.class_more:hover+.class_more-content {
+    display: flex;
+}
+
+.class_more-content:hover {
+    display: flex;
+}
+
+.class_more-content>p {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.class_more-content>p:hover {
+    background-color: #00000014;
+}
+
+/* 
+/* Điểm danh ------------------- */
+/* 
+
+/* điểm danh - nav */
+.diemdanh_nav {
+    padding: 12px;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.diemdanh_nav>div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: max-content;
+}
+
+.diemdanh_nav_left {
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.diemdanh_nav_left:hover {
+    color: #3742fa;
+    gap: 13px;
+}
+
+#diemdanh_update {
+    padding: 5px 25px;
+    background: #3742fa;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.popup_updatecheckin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.popup_updatecheckin input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px 25px;
+    font-size: 16px;
+}
+
+.popup_updatecheckin button {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #3742fa;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    transition: all .3s linear;
+    box-shadow: 0;
+}
+
+.popup_updatecheckin button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* điểm danh - list */
+.diemdanh_listStudent,
+.quanlylop_listStudent {
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.diemdanh_listStudent>div::-webkit-scrollbar {
+    background: rgba(255, 255, 255, 0.058);
+    width: 5px;
+}
+
+.diemdanh_listStudent>div::-webkit-scrollbar-thumb {
+    background: #3742fa;
+    border-radius: 5px;
+    width: 5px;
+}
+
+.diemdanh_Student-add {
+    padding: 5px;
+    background-color: rgb(215, 215, 215);
+    height: 50px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    gap: 10px;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+}
+
+
+.diemdanh_Student-add p,
+.diemdanh_Student p {
+    font-size: 16px;
+    flex: .5;
+    text-align: center;
+}
+
+.diemdanh_Student input {
+    cursor: pointer;
+    accent-color: red;
+    flex: .5
+}
+
+#diemdanh_img {
+    gap: 5px;
+    padding: 2px 10px;
+    display: flex;
+    width: max-content;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#diemdanh_img a {
+    margin-top: 2px;
+}
+
+#diemdanh_img img {
+    width: 24px;
+    height: 24px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.diemdanh_Student-add p:nth-child(1),
+.diemdanh_Student-add p:nth-child(2),
+.diemdanh_Student p:nth-child(1),
+.diemdanh_Student p:nth-child(2) {
+    text-align: start;
+    padding: 0 10px;
+}
+
+.diemdanh_Student {
+    padding: 16px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: 1px solid rgb(198, 198, 198);
+    gap: 10px;
+}
+
+.checkin_note {
+    display: flex;
+    justify-content: center;
+    flex: .5;
+    cursor: pointer;
+
+}
+
+.checkin_note:hover i {
+    background: #e5e5e5;
+}
+
+.checkin_note i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diemdanh_listStudent>div,
+.quanlylop_listStudent>div {
+    height: 100%;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+}
+
+/* Class-detail_detailClass */
+.Class-detail_detailClass {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+    transition: all .3s linear;
+    margin-top: 0;
+}
+
+.Class-detail_detailClass>div {
+    height: max-content;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+}
+
+.Class-detail_detailClass .detailclass_tt h1 {
+    font-size: 16px;
+}
+
+.Class-detail_detailClass .detailclass_title {
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+#Class-detail_detailClass-avt {
+    width: 15%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Class-detail_detailClass_content {
+    flex: 1;
+    padding: 0 16px;
+}
+
+#Class-detail_detailClass-avt img {
+    width: 90%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* Class-detail_allStudent */
+.Class-detail_allStudent {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+    transition: all .3s linear;
+}
+
+.Class-detail_allStudent>div {
+    height: max-content;
+    background-color: white;
+}
+
+#Class-detail_allStudent_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdfdfd;
+    padding: 16px;
+    cursor: pointer;
+}
+
+#Class-detail_allStudent_title h1 {
+    font-size: 20px;
+    margin: 0;
+
+}
+
+#Class-detail_allStudent_listWrap,
+#Class-detail_course_listWrap {
+    padding: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    transition: all .3s linear;
+}
+
+#Class-detail_allStudent_listWrap.g1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    display: flex;
+    padding: 0;
+}
+
+#Class-detail_allStudent_listWrap.g1:hover {
+    background-color: white;
+}
+
+#Class-detail_allStudent_listWrap.g1>div {
+    border-bottom: 1px solid rgb(240, 240, 240);
+    gap: 10px;
+    justify-content: start;
+    display: flex;
+    width: 100%;
+    padding: 16px
+}
+
+#Class-detail_allStudent_listWrap i,
+#Class-detail_course_listWrap i {
+    font-size: 20px;
+}
+
+#Class-detail_allStudent_listWrap p,
+#Class-detail_course_listWrap p {
+    font-size: 16px;
+    margin: 0;
+}
+
+#Class-detail_allStudent_listWrap:hover,
+#Class-detail_course_listWrap:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Khóa học */
+.Class-detail_course {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 15px 0;
+    margin-bottom: 0;
+}
+
+.Class-detail_course>div {
+    height: max-content;
+    background-color: white;
+}
+
+#Class-detail_course_title h1 {
+    font-size: 20px;
+    margin: 0;
+
+}
+
+#Class-detail_course_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 16px;
+}
+
+/* */
+
+#Class-detail_course_listWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: .5%;
+}
+
+#Class-detail_course_listWrap>div {
+    width: 33%;
+    padding: 16px;
+}
+
+.Class-detail_course_box {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+}
+
+#checkin.course {
+    overflow-y: auto;
+    display: block;
+}
+
+#checkin.course::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#checkin.course::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: rgb(48, 110, 255);
+    border-radius: 3px;
+}
+
+/* Thêm Class */
+#addClass-wrap,
+#addStudent,
+.popup_note,
+.popup_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#addClass {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#addClass-wrap input,
+#addStudent input,
+.popup_note input,
+.popup_input input {
+    width: 100%;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 8px 25px;
+    font-size: 16px;
+}
+
+#addClass-wrap p,
+#addStudent p,
+.popup_input p {
+    font-size: 24px;
+}
+
+#addClass-wrap button,
+#addStudent button,
+.popup_note button,
+.popup_input button {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #3742fa;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    transition: all .3s linear;
+}
+
+/* Danh sách học sinh */
+#Class-detail_allStudent_list {
+    margin: 16px 0;
+}
+
+#Class-detail_allStudent_list-add p {
+    margin: 0;
+
+}
+
+#Class-detail_allStudent_list-add {
+    background-color: #eaedf0;
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#Class-detail_allStudent_list-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+
+.Class-detail_allStudent_list-mainbox {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+.Class-detail_allStudent_list-mainbox img {
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#update_Student {
+    padding: 5px;
+    background-color: #3742fa;
+    border-radius: 3px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    border: none;
+}
+
+/* khóa học */
+#Class-course>div {
+    margin: 10px;
+}
+
+#Class-student>#Class-course {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#Class-student>#Class-course::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#Class-student>#Class-course::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: #3742fa;
+    border-radius: 5px;
+}
+
+#Class-course h4 {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Class_course-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: .62%;
+}
+
+.Class_course-list>div {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 19.5%;
+    height: max-content;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: rgb(225, 225, 225);
+}
+
+.Class_course-list>div>img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+}
+
+.Class_course-list>div>.course-tt {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.Class_course-list>div>.course-tt>h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    font-family: var(--font-roboto);
+}
+
+.Class_course-list>div>.course-tt>p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    font-family: var(--font-roboto);
+}
+
+.Class_course-list>div:hover .class_more {
+    animation: more .3s linear forwards;
+}
+
+#calender>.Wrap_Content {
+    flex-direction: column;
+}
+
+#calender .nav-title {
+    font-size: 22px;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+}
