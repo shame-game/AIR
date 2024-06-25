@@ -1,5 +1,5 @@
 let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_tf5pc6XZtI9HRwpLFiHRl81UE8AbLKEp-ldkIp/exec'
-
+/*
 function Check() {
     let currentUrl = window.location.href;
     if (currentUrl == 'https://shame-game.github.io/AIR/Login/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Login/' || currentUrl == 'https://shame-game.github.io/AIR/Teacher/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Teacher/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/index.html') {
@@ -34,7 +34,11 @@ function Check() {
     }
 }
 
-Check()
+Check()*/
+
+if (!getCookie("vamnaone")) {
+    window.location.href = "https://shame-game.github.io/AIR/Login/"
+}
 
 function getCookie(name) {
     var cookieName = name + "=";
