@@ -3,6 +3,11 @@
     border-radius: 5px;
 }
 
+#calender {
+    height: 100vh;
+    overflow: hidden;
+}
+
 #calender p {
     margin: 0;
 }
@@ -154,6 +159,10 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    flex: 1;
 }
 
 #informationCheckin_title {
