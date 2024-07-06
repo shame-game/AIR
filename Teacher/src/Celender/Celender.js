@@ -14,13 +14,11 @@ function CelenderNow(today, data) {
     })
     room.forEach((o) => {
         if (Data[o] != '') {
-            console.log(Data[o]);
             if (Data[o].includes("=")) {
                 let DataRoom = Data[o].split('=')
                 for (i = 0; i < DataRoom.length; i++) {
                     Getnotebook(formatDate(today), DataRoom[i], o)
                 }
-
             } else {
                 Getnotebook(formatDate(today), Data[o], o)
             }
@@ -59,6 +57,7 @@ function Getnotebook(date, data, o) {
             gSheetId: data[2],
             wSheetName: data[1]
         }).then((dataCourse) => {
+            console.log(dataCourse);
             dataCourse.forEach((t) => {
                 if (formatDate(t['Days']) == date) {
                     let keysStartingWithAI = Object.keys(t).filter(key => key.startsWith('AI'));
