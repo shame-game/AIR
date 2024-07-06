@@ -18,11 +18,8 @@ function Student(data, datac) {
                 <div id="inforStudent_right">
                     <div id="inforStudent_more">
                         <div id="inforStudent_update" class="button">
-                            <i class="bi bi-pencil-square"></i>
-                            Chỉnh sửa thông tin
-                        </div>
-                        <div id="inforStudent_offp" class="button">
-                            Nghỉ Phép
+                            <i class="bi bi-person-bounding-box"></i>
+                            Hồ sơ điện tử
                         </div>
                     </div>
                 </div>
@@ -138,6 +135,7 @@ function Course_M(dataa, datac) {
                 vam('#Course_fn .list').innerHTML +=
                     `<div class="sourse">
                         <img src="${T['Banner']}">
+                      
                         <div id="infor_course">
                             <h4>${T['Name']}</h4>
                             <p>Tiến độ: Đã hoàn thành</p>
@@ -147,8 +145,9 @@ function Course_M(dataa, datac) {
             } else {
                 let f = datac[`${T['ID']}`] * 100
                 vam('#Course_ip .list').innerHTML +=
-                    `<div class="sourse">
+                    `<div class="sourse ip">
                         <img src="${T['Banner']}">
+                        <div class="sodaubai"><h1>Sổ đầu bài</h1></div>
                         <div id="infor_course">
                             <h4>${T['Name']}</h4>
                             <p>Tiến độ: ${f}%</p>

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!--<script defer src="./index.js"></script>-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIR Login</title>
@@ -71,6 +70,46 @@
 
     <script>
         let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_tf5pc6XZtI9HRwpLFiHRl81UE8AbLKEp-ldkIp/exec'
+
+        const currentUrl = window.location.href;
+        const urls = new URL(currentUrl);
+        const rootPath = `${urls.protocol}//${urls.host}`;
+
+        function Check() {
+            fetch(`${url}?user=${getCookie("vamnaone").split('|')[1]}&token=${getCookie("vamnaone").split('|')[0]}&type=${getCookie('type')}&action=check`, { method: 'Get' })
+                .then(response => response.json())
+                .then((data) => {
+                    if (data.status != 'success') { }
+                    else {
+                        if (data.message.split(' ')[2] == 'parents') {
+                            if (currentUrl == `${rootPath}/Parents/` || currentUrl == `${rootPath}/Parents/index.html`) { }
+                            else window.location.href = `${rootPath}/Parents/`
+                        }
+                        else if (data.message.split(' ')[2] == 'teacher') {
+                            if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
+                            } else window.location.href = `${rootPath}/Teacher/`
+                        }
+
+                    }
+                })
+                .catch(error => alert('Lỗi: ' + error));
+        }
+
+        if (!getCookie("vamnaone")) { } else Check()
+
+        function getCookie(name) {
+            var cookieName = name + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(';');
+
+            for (var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i].trim();
+                if (cookie.indexOf(cookieName) == 0) {
+                    return cookie.substring(cookieName.length, cookie.length);
+                }
+            }
+            return "";
+        }
         let type = ''
         document.querySelectorAll('#Chonncc>div>div').forEach((t) => {
             t.onclick = () => {
@@ -103,12 +142,12 @@
                         document.cookie = 'vamnaone' + "=" + data.token + '|' + tk + expires + "; path=/";
                         document.cookie = 'type' + "=" + type + expires + "; path=/";
                         if (type == 'teacher') {
-                            window.location.href = "https://shame-game.github.io/AIR/Teacher"
+                            window.location.href = `${rootPath}/Teacher`
                         } else if (type == 'parents') {
                             document.cookie = 'id' + "=" + data.student + expires + "; path=/";
                             document.cookie = 'detail' + "=" + data.detail + expires + "; path=/";
                             document.cookie = 'classN' + "=" + data.classN + expires + "; path=/";
-                            window.location.href = "https://shame-game.github.io/AIR/Parents"
+                            window.location.href = `${rootPath}/Parents`
                         }
 
                     }

@@ -65,6 +65,19 @@ function classN(dataClass) {
             LoadStudent(dataClass_main)
         }
     })
+    vams('.class_banner').forEach((e) => {
+        e.onclick = () => {
+            let className = e.getAttribute('data-class')
+
+            let dataClass_main = []
+            dataClass.forEach((classN) => {
+                if (classN['NameClass'] == className) {
+                    dataClass_main = classN
+                }
+            })
+            LoadStudent(dataClass_main)
+        }
+    })
     // Thêm class
     vam('#addclass').onclick = () => {
         vam('#popup').setAttribute('style', 'display:block')
@@ -100,7 +113,7 @@ function listclass(dataClass) {
         if (t.NameClass != 0) {
             console.log(t);
             items +=
-                `<div class="class_banner">
+                `<div class="class_banner" data-class="${t['NameClass']}">
                 <div class="class-banner_img">
                     <img src="https://lh3.googleusercontent.com/d/1xaA7E-XNGzEI9SsfY4i1k9CgjRjMiqKF">
                     <h4>${t['NameClass']}</h4>
@@ -139,6 +152,26 @@ function AddClass() {
 
 
     vam('#add_class').onclick = () => {
+        const data = {
+            "tk": 'value1',
+            "mk": 'value2',
+            "ps": 'Teacher'
+        };
+        fetch('https://air-system-git-master-shame-games-projects.vercel.app/api/Login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        /*
         SetAttribute('.load', 'style', 'display:block')
         let nameclass = vam('#addClass>input[name="nameclass"]').value
         let address = vam('#addClass>input[name="address"]').value
@@ -159,6 +192,7 @@ function AddClass() {
                 }
             })
             .catch(error => alert('Lỗi: ' + error));
+            */
     }
 }
 

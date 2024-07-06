@@ -1,12 +1,9 @@
 window.onload = () => {
     document.querySelector('.topbar__action').innerText = getCookie("vamnaone").split('|')[1];
     document.querySelector('.loadweb').remove();
-    let student = getCookie("id")
-    let detail = getCookie("detail")
-    let classN = getCookie("classN")
-    Getstudent(detail, classN, student)
-
 }
+let g = []
+let k = []
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
 let wid = screen.width
@@ -40,21 +37,42 @@ else {
         $('.sidebar').toggleClass('hide')
     });
 }
-let g = []
-let k = []
-function Getstudent(detail, classN, student) {
+
+let student = getCookie("id")
+let detail = getCookie("detail")
+let classN = getCookie("classN")
+Getstudent(detail)
+
+
+function getCookie(name) {
+    var cookieName = name + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.indexOf(cookieName) == 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+function Getstudent(detail) {
     if (g.length === 0) {
         fetchSheet
             .fetch({
                 gSheetId: detail,
                 wSheetName: 'Infor',
             }).then((infor) => {
+                console.log(infor);
                 g = strim(infor)
                 fetchSheet
                     .fetch({
                         gSheetId: detail,
                         wSheetName: 'Course',
                     }).then((Course) => {
+                        console.log(Course);
                         k = strim(Course)
                         Student(g[0], k[0])
                         SetAttribute('.load', 'style', 'display:none')
@@ -64,4 +82,18 @@ function Getstudent(detail, classN, student) {
         Student(g[0], k[0])
         SetAttribute('.load', 'style', 'display:none')
     }
+}
+let l = 'SL1'
+function Celenders() {
+    Celender(l)
+}
+vam('.sidebar__item[get-data="course"]').onclick = () => {
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    vam('.sidebar__item[get-data="course"]').classList.add('sidebar__item--actived')
+    Celenders(l)
+}
+vam('.sidebar__item[get-data="student"]').onclick = () => {
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
+    Getstudent(getCookie("detail"))
 }

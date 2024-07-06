@@ -1,43 +1,33 @@
 let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_tf5pc6XZtI9HRwpLFiHRl81UE8AbLKEp-ldkIp/exec'
-/*
+
+const currentUrl = window.location.href;
+const urls = new URL(currentUrl);
+const rootPath = `${urls.protocol}//${urls.host}`;
+
 function Check() {
-    let currentUrl = window.location.href;
-    if (currentUrl == 'https://shame-game.github.io/AIR/Login/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Login/' || currentUrl == 'https://shame-game.github.io/AIR/Teacher/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Teacher/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/index.html') {
-        if (getCookie("vamnaone")) {
-            fetch(`${url}?user=${getCookie("vamnaone").split('|')[1]}&token=${getCookie("vamnaone").split('|')[0]}&type=${getCookie('type')}&action=check`, { method: 'Get' })
-                .then(response => response.json())
-                .then((data) => {
-                    if (data.status != 'success') {
-                        window.location.href = "https://shame-game.github.io/AIR/Login/"
-                    } else {
-                        if (data.message.split(' ')[2] == 'parents') {
-                            if (currentUrl == 'https://shame-game.github.io/AIR/Parents/' || currentUrl == 'https://shame-game.github.io/AIR/Parents/index.html') {
-                            } else {
-                                window.location.href = 'https://shame-game.github.io/AIR/Parents/'
-                            }
-                        }
-                        else if (data.message.split(' ')[2] == 'teacher') {
-                            if (currentUrl == 'https://shame-game.github.io/AIR/Teacher/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Teacher/') {
-                            } else {
-                                window.location.href = 'https://shame-game.github.io/AIR/Teacher/'
-                            }
-                        }
-                    }
-                })
-                .catch(error => alert('Lỗi: ' + error));
-        } else {
-            if (currentUrl == 'https://shame-game.github.io/AIR/Login/index.html' || currentUrl == 'https://shame-game.github.io/AIR/Login/') {
+    fetch(`${url}?user=${getCookie("vamnaone").split('|')[1]}&token=${getCookie("vamnaone").split('|')[0]}&type=${getCookie('type')}&action=check`, { method: 'Get' })
+        .then(response => response.json())
+        .then((data) => {
+            if (data.status != 'success') {
+                window.location.href = `${rootPath}/Login/`
             } else {
-                window.location.href = "https://shame-game.github.io/AIR/Login/"
+                if (data.message.split(' ')[2] == 'parents') {
+                    if (currentUrl == `${rootPath}/Parents/` || currentUrl == `${rootPath}/Parents/index.html`) { }
+                    else window.location.href = `${rootPath}/Parents/`
+                }
+                else if (data.message.split(' ')[2] == 'teacher') {
+                    if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
+                    } else window.location.href = `${rootPath}/Teacher/`
+                }
             }
-        }
-    }
+        })
+        .catch(error => alert('Lỗi: ' + error));
 }
 
-Check()*/
-
 if (!getCookie("vamnaone")) {
-    window.location.href = "https://shame-game.github.io/AIR/Login/"
+    window.location.href = `${rootPath}/Login/`
+} else if (getCookie("vamnaonep")) {
+    Check()
 }
 
 function getCookie(name) {
@@ -61,7 +51,7 @@ if (document.querySelector('.logout')) {
         document.cookie = 'vamnaone' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'type' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         document.cookie = 'id' + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        window.location.href = "https://shame-game.github.io/AIR/Login/"
+        window.location.href = `${rootPath}/Login/`
     }
 }
 

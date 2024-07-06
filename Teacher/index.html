@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script defer src="../Login/index.js"></script>
+    <script async src="../Login/index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Robotic System - Teacher</title>
@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="./src/Celender/index.css">
     <link rel="stylesheet" href="./src/Class/index.css">
     <link rel="stylesheet" href="./src/Class/ttct.css">
+    <link rel="stylesheet" href="./src/Admissions/index.css">
 </head>
 
 <body>
     <div class="load" style="display: none;">
-        <div><img src="https://lh3.googleusercontent.com/d/1uoHzj9hBN0wKXGYPzC5B4UUKS5Lx914E">
+        <div>
             <p>loading
             <div id="load1"></div>
             <div id="load2"></div>
@@ -75,7 +76,9 @@
                         <a class="sidebar__item sidebar__item--actived" get-data="noteBook">
                             <i class="bi bi-calendar-date"></i><span>Sổ đầu bài</span></a>
                         <a class="sidebar__item" get-data="Class">
-                            <i class="bi bi-calendar-date"></i><span>Lớp học</span></a>
+                            <i class="bi bi-person-video3"></i><span>Lớp học</span></a>
+                        <a class="sidebar__item" get-data="Sale">
+                            <i class="bi bi-clipboard-data"></i><span>Tuyển sinh</span></a>
                     </div>
                 </div>
             </div>
@@ -104,6 +107,8 @@
     <script src="./src/Class/Manager.js/Course.js"></script>
     <script src="./src/Class/Manager.js/index.js"></script>
     <script src="./src/Class/Manager.js/Student.js"></script>
+    <!-- A -->
+    <script src="./src/Admissions/index.js"></script>
 </body>
 
 </html>

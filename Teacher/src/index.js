@@ -50,7 +50,7 @@ function Celender_page() {
         SetAttribute('.load', 'style', 'display:none')
     }
 }
-Celender_page()
+
 
 let dataclass = []
 let students = []
@@ -71,22 +71,45 @@ function Class() {
     }
 }
 
+let dataAdmissions = []
+function Admissions() {
+    if (dataAdmissions.length === 0) {
+        fetchSheet
+            .fetch({
+                gSheetId: '1ogxImxEf8z1hDZKpBti6G9KTk5sjxtdAdqzn69FppDQ'
+            }).then((data) => {
+                dataAdmissions = data
+                AdmissionsPage(dataAdmissions)
+                SetAttribute('.load', 'style', 'display:none')
+            })
+
+    } else {
+        AdmissionsPage(dataAdmissions)
+        SetAttribute('.load', 'style', 'display:none')
+    }
+}
+Celender_page()
+
 vam('.sidebar__item[get-data="Class"]').onclick = () => {
     let t = vam('.sidebar__item[get-data="Class"]');
-    if (t.getAttribute('class') == 'sidebar__item') {
-        SetAttribute('.load', 'style', 'display:block')
-        vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
-        t.classList.add('sidebar__item--actived')
-        Class()
-    }
+    SetAttribute('.load', 'style', 'display:block')
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    t.classList.add('sidebar__item--actived')
+    Class()
 
 }
 vam('.sidebar__item[get-data="noteBook"]').onclick = () => {
     let t = vam('.sidebar__item[get-data="noteBook"]');
-    if (t.getAttribute('class') == 'sidebar__item') {
-        SetAttribute('.load', 'style', 'display:block')
-        vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
-        t.classList.add('sidebar__item--actived')
-        Celender_page()
-    }
+    SetAttribute('.load', 'style', 'display:block')
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    t.classList.add('sidebar__item--actived')
+    Celender_page()
+}
+
+vam('.sidebar__item[get-data="Sale"]').onclick = () => {
+    let t = vam('.sidebar__item[get-data="Sale"]');
+    SetAttribute('.load', 'style', 'display:block')
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    t.classList.add('sidebar__item--actived')
+    Admissions()
 }

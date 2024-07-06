@@ -106,7 +106,7 @@ html {
     gap: 10px;
 }
 
-#inforStudent_offp {
+#inforStudent_update {
     background-color: var(--color-vamm);
     color: white;
 }
@@ -273,6 +273,24 @@ html {
     width: 19.5%;
     border-radius: 3px;
     overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.sourse.ip::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.423);
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.sourse:hover::after {
+    opacity: 1;
 }
 
 .sourse>img {
@@ -283,6 +301,41 @@ html {
     border-radius: 5px;
     overflow: hidden;
     border: thin solid var(--color-vamx);
+}
+
+.sourse>.sodaubai {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sodaubai>h1 {
+    width: max-content;
+    border-radius: 5px;
+    font-size: 18px;
+    color: var(--color-vamb);
+    padding: 8px 25px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.832);
+    transition: all .3s linear;
+}
+
+.sodaubai>h1:hover {
+    background-color: var(--color-vamb);
+    color: white;
+    border: thin solid white;
+}
+
+.sourse:hover .sodaubai {
+    opacity: 1;
 }
 
 #progress {
