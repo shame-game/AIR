@@ -135,6 +135,7 @@ function listdata(data, style, days, daye) {
         if (y['Ngày'] >= days && y['Ngày'] <= daye) {
             if (y['Kịch bản - Sale - Bot'] == style) {
                 if (y['Nội dung'] == '') y['Nội dung'] = 'Chưa có nội dung chăm sóc'
+                if (y['Di động'][0] != 0) y['Di động'] = '0' + y['Di động']
                 items +=
                     `<div class="Admissions_main-list_items" data-phone="${y['Di động']}" data-animation='${y['Hàng động']}' data-zalo='${y['Thông tin Zalo']}' data-phone="${y['Di động']}" data-content="${y['Nội dung']}">
                         <p>${y['Họ và tên phụ huynh']}</p>
@@ -188,6 +189,7 @@ function HistoryData(data) {
         </div>`
 }
 function UpdateStatusData(content, status, animation, phone) {
+    let o = phone.split(1)
     SetAttribute('#popup', 'style', 'display:block')
     SetAttribute('.popup_main', 'style', 'width:600px')
     vam('.popup_background').onclick = () => {
@@ -246,7 +248,7 @@ function UpdateStatusData(content, status, animation, phone) {
         let a = vam('.select_animation').options[vam('.select_animation').selectedIndex].text
         let s = vam('.select_status').options[vam('.select_status').selectedIndex].text
         let c = vam('.noidungchamsoc').value
-        fetch(`https://script.google.com/macros/s/AKfycbxj6jsx-MwszxiLks0u8Ck2ey6RY_9KE2qXqjizGFcMpS6gnYfQ9UckIbzO1bZRlQEfRg/exec?phone=${phone}&status=${s}&animation=${a}&contents=${c}`, {
+        fetch(`https://script.google.com/macros/s/AKfycbxj6jsx-MwszxiLks0u8Ck2ey6RY_9KE2qXqjizGFcMpS6gnYfQ9UckIbzO1bZRlQEfRg/exec?phone=${o}&status=${s}&animation=${a}&contents=${c}`, {
             method: 'GET'
         }).then(response => response.json())
             .then((data) => {
