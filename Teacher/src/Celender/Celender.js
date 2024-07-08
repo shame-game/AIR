@@ -57,7 +57,6 @@ function Getnotebook(date, data, o) {
             gSheetId: data[2],
             wSheetName: data[1]
         }).then((dataCourse) => {
-            console.log(dataCourse);
             dataCourse.forEach((t) => {
                 if (formatDate(t['Days']) == date) {
                     let keysStartingWithAI = Object.keys(t).filter(key => key.startsWith('AI'));

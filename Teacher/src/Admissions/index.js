@@ -27,6 +27,11 @@ function AdmissionsPage(data) {
                                 <div>
                                     <p id="act_bot_th">Data thô</p>
                                     <p id="act_bot_kb">Gửi kết bạn</p>
+                                    <p id="act_bot_kb">Đang chăm sóc chưa là bạn</p>
+                                    <p id="act_bot_kb">Đang chăm sóc đã là bạn</p>
+                                    <p id="act_bot_kb">Tái chăm sóc</p>
+                                    <p id="act_bot_kb">Đồng ý học thử</p>
+                                    <p id="act_bot_kb">Từ chối</p>
                                 </div>
                             </div>
                             <div id="avt_bot">
@@ -48,18 +53,33 @@ function AdmissionsPage(data) {
                                 <div id="Admissions_dashboard_nav">
                                     <p>Thông tin chi tiết</p>
                                 </div>
-                                <div id="Admissions_dashboard_sum" style="display:none">
+                                <div id="Admissions_dashboard_sum" >
                                     <p>Tổng số data: <span></span></p>
                                 </div>
-                                <div id="Admissions_dashboard_Detail">
+                                <div id="Admissions_dashboard_Detail" style="display:none">
                                     <div class="avt">
-                                        <img src='https://s240-ava-talk.zadn.vn/e/5/7/c/4/240/3362a2dbc12990e8def78d5f6f907a98.jpg'>
+                                        <img src=''>
                                     </div>
                                     <div class="name">
-                                        <h1>Minh Dung</h1>
+                                        <h1></h1>
                                     </div>
                                     <div class="status">
-                                        <h1><i class="bi bi-graph-up"></i>Tình trạng: Gửi kết bạn</h1>
+                                        <h1><i class="bi bi-graph-up"></i>Tình trạng hiện tại: </h1>    
+                                        <p></p>                                    
+                                    </div>
+                                    <div class="animation">
+                                        <h1><i class="bi bi-inboxes"></i>Hành động gần nhất:</h1>
+                                        <p></p>
+                                    </div>
+                                    <div class="content">
+                                        <h1><i class="bi bi-chat-square-text"></i>Nội dung chăm sóc gần nhất </h1>
+                                        <p></p>
+                                    </div>
+                                    <div class="history">
+                                        <h1><i class="bi bi-clock-history"></i>Lịch sử chăm sóc </h1>
+                                    </div>
+                                    <div class="updateStatus">
+                                        <h1>Cập nhập trạng thái chăm sóc </h1>
                                     </div>
                                 </div>
                             </div>
@@ -108,17 +128,18 @@ function AdmissionsPage(data) {
 }
 
 function listdata(data, style, days, daye) {
-    console.log(data);
     let items = ''
     let i = 0
+    let k = []
     data.forEach((y) => {
         if (y['Ngày'] >= days && y['Ngày'] <= daye) {
             if (y['Kịch bản - Sale - Bot'] == style) {
+                if (y['Nội dung'] == '') y['Nội dung'] = 'Chưa có nội dung chăm sóc'
                 items +=
-                    `<div class="Admissions_main-list_items" data-zalo='${y['Thông tin Zalo']}'>
+                    `<div class="Admissions_main-list_items" data-phone="${y['Di động']}" data-animation='${y['Hàng động']}' data-zalo='${y['Thông tin Zalo']}' data-phone="${y['Di động']}" data-content="${y['Nội dung']}">
                         <p>${y['Họ và tên phụ huynh']}</p>
                         <p>${y['Di động']}</p>
-                        <p>${y['Kết quả - bot'].split(',')[0]}</p>
+                        <p>${y['Nội dung']}</p>
                     </div>`
                 i++
             }
@@ -127,15 +148,115 @@ function listdata(data, style, days, daye) {
     vam('#Admissions_dashboard_sum span').innerText = i
     vam('#Admissions_main-list_data').innerHTML = items
     vams('.Admissions_main-list_items').forEach((t) => {
+        let g = data
         t.onclick = () => {
-            let data = t.getAttribute('data-zalo').split
-            vam('.Admissions_main-list_items.ac').classList.remove('ac')
+            let k = []
+            g.forEach((f) => {
+                if (f['Di động'] == t.getAttribute('data-phone')) {
+                    k = k.concat(f)
+                }
+            })
+            let data = t.getAttribute('data-zalo').toString().split('|')
+            if (vam('.Admissions_main-list_items.ac')) vam('.Admissions_main-list_items.ac').classList.remove('ac')
             t.classList.add('ac')
+            vam('#Admissions_dashboard_Detail>.avt>img').src = `${data[0]}`
+            vam('#Admissions_dashboard_Detail>.name>h1').innerText = data[1]
+            vam('#Admissions_dashboard_Detail>.animation>p').innerText = k[k.length - 1]['Hàng động']
+            vam('#Admissions_dashboard_Detail>.status p').innerText = k[k.length - 1]['Kịch bản - Sale - Bot']
+            vam('#Admissions_dashboard_Detail>.content>p').innerText = t.getAttribute('data-content')
             SetAttribute('#Admissions_dashboard_sum', 'style', 'display:none')
             SetAttribute('#Admissions_dashboard_Detail', 'style', 'display:block')
-
+            vam('#Admissions_dashboard_Detail>.updateStatus').onclick = () => UpdateStatusData(t.getAttribute('data-content'), k[k.length - 1]['Kịch bản - Sale - Bot'], k[k.length - 1]['Hàng động'], t.getAttribute('data-phone'))
+            vam('#Admissions_dashboard_Detail>.history').onclick = () => HistoryData(k)
         }
     })
+}
+function HistoryData(data) {
+    SetAttribute('#popup', 'style', 'display:block')
+    SetAttribute('.popup_main', 'style', 'width:600px')
+    vam('.popup_background').onclick = () => {
+        vam('#popup').setAttribute('style', 'display:none')
+    }
+    let items = ''
+    data.forEach((t) => {
+        items += `<div>${t['Ngày']} - ${t['Kịch bản - Sale - Bot']} - ${t['Hàng động']}</div>`
+    })
+    vam('.popup_main').innerHTML =
+        `<div id="updateStatus">
+            <h1>Lịch sử chăm sóc</h1>
+            ${items}
+        </div>`
+}
+function UpdateStatusData(content, status, animation, phone) {
+    SetAttribute('#popup', 'style', 'display:block')
+    SetAttribute('.popup_main', 'style', 'width:600px')
+    vam('.popup_background').onclick = () => {
+        vam('#popup').setAttribute('style', 'display:none')
+    }
+    vam('.popup_main').innerHTML =
+        `<div id="updateStatus">
+            <h1>Cập nhập chăm sóc</h1>
+            <div class="Status">
+                <p><i class="bi bi-graph-up"></i>Trạng thái chăm sóc:</p>
+                <select class="select_status">
+                    <option>Từ chối</option>
+                    <option>Gửi kết bạn</option>
+                    <option>Đang chăm sóc chưa là bạn</option>
+                    <option>Đang chăm sóc đã là bạn</option>
+                    <option>Tái chăm sóc</option>
+                    <option>Đồng ý học thử</option>
+                    <option>Từ chối</option>
+                    <option>Đã học</option>
+                </select>
+            </div>
+            <div class="animation">
+                <p><i class="bi bi-graph-up"></i>Hành động gần nhất:</p>
+                <select class="select_animation">
+                    <option>Gửi tin giới thiệu</option>
+                    <option>Gửi tin nhắn lần 1 (Chưa kết bạn)</option>
+                    <option>Gửi tin nhắn lần 2 (Chưa kết bạn)</option>
+                    <option>Gọi điện giới thiệu</option>
+                    <option>Học thử</option>
+                    <option>Tái chăm sóc ngắn</option>
+                    <option>Đồng ý học</option>
+                    <option>Đồng ý kết bạn nhưng không tương tác</option>
+                    <option>Nhắn tin giới thiệu</option>
+                    <option>Nhắn tin thông báo</option>
+                    <option>Gửi kết bạn</option>
+                </select>
+            </div>
+            <div class="Content">
+                <p><i class="bi bi-chat-square-text"></i>Nội dung chăm sóc:</p>
+                <textarea type="text" class="noidungchamsoc" name="bd" placeholder="Nội dung chăm sóc" >${content}</textarea>
+            </div>
+            <button id="bt_updateStatus">Cập nhập</button>
+        </div>`
+    vams('.select_status>option').forEach((t) => {
+        if (t.innerText == status) {
+            t.setAttribute('selected', 'selected')
+        }
+    })
+    vams('.select_animation>option').forEach((t) => {
+        if (t.innerText == animation) {
+            t.setAttribute('selected', 'selected')
+        }
+    })
+    vam('#bt_updateStatus').onclick = () => {
+        SetAttribute('.load', 'style', 'display:block')
+        let a = vam('.select_animation').options[vam('.select_animation').selectedIndex].text
+        let s = vam('.select_status').options[vam('.select_status').selectedIndex].text
+        let c = vam('.noidungchamsoc').value
+        fetch(`https://script.google.com/macros/s/AKfycbxj6jsx-MwszxiLks0u8Ck2ey6RY_9KE2qXqjizGFcMpS6gnYfQ9UckIbzO1bZRlQEfRg/exec?phone=${phone}&status=${s}&animation=${a}&contents=${c}`, {
+            method: 'GET'
+        }).then(response => response.json())
+            .then((data) => {
+                lj = true
+                Admissions(lj)
+                SetAttribute('.load', 'style', 'display:none')
+            })
+            .catch(error => alert('Lỗi: ' + error));
+
+    }
 }
 
 function formatDate(dateString) {

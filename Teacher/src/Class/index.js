@@ -111,7 +111,6 @@ function listclass(dataClass) {
     let items = ''
     dataClass.forEach((t) => {
         if (t.NameClass != 0) {
-            console.log(t);
             items +=
                 `<div class="class_banner" data-class="${t['NameClass']}">
                 <div class="class-banner_img">

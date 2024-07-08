@@ -137,6 +137,7 @@
 
 .Admissions_main-list_items.ac {
     background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .Admissions_main-list_items {
@@ -234,6 +235,16 @@
     width: 100%;
     height: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#Admissions_dashboard_Detail {
+    display: block;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #Admissions_dashboard_nav {
@@ -270,14 +281,18 @@
     padding: 10px;
 }
 
-#Admissions_dashboard_Detail>.status {
-    padding: 10px;
+#Admissions_dashboard_Detail>.status>p {
+    font-size: 16px;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #e7e7e7;
+    gap: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
     margin: 10px;
-    border-radius: 5px;
+    margin-top: 0;
 }
 
 #Admissions_dashboard_Detail>.status>h1 {
@@ -285,4 +300,202 @@
     margin: 0;
     display: flex;
     gap: 10px;
+    padding: 10px;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+#Admissions_dashboard_Detail>.animation>p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
+    margin: 10px;
+    margin-top: 0;
+}
+
+#Admissions_dashboard_Detail>.animation>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+
+#Admissions_dashboard_Detail>.history {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Admissions_dashboard_Detail>.history>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+#Admissions_dashboard_Detail>.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+#Admissions_dashboard_Detail>.content>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    background: #e7e7e7;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+}
+
+#Admissions_dashboard_Detail>.content>p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
+}
+
+#Admissions_dashboard_Detail>.updateStatus {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-vamm);
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 32px;
+}
+
+#Admissions_dashboard_Detail>.updateStatus>h1 {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+}
+
+#Admissions_dashboard_Detail::-webkit-scrollbar {
+    width: 7px;
+    background-color: var(--color-vamx);
+}
+
+#Admissions_dashboard_Detail::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: var(--color-vamm);
+    border-radius: 5px;
+}
+
+#updateStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#updateStatus>h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-title-nav);
+    text-align: center;
+}
+
+#updateStatus p {
+    display: flex;
+    gap: 10px;
+}
+
+#updateStatus>.Status {
+    display: flex;
+    gap: 16px;
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+}
+
+#updateStatus>.Status select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+#updateStatus>.animation {
+    display: flex;
+    gap: 16px;
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+}
+
+#updateStatus>.animation select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+#updateStatus>.Content>p {
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px 5px 0 0;
+    background: #e7e7e7;
+}
+
+
+
+#updateStatus>.Content textarea {
+    border: 2px solid #e7e7e7;
+    border-top: none;
+    height: 100px;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+}
+
+#updateStatus>#bt_updateStatus {
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-vamm);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    color: white;
 }

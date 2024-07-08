@@ -72,14 +72,17 @@ function Class() {
 }
 
 let dataAdmissions = []
-function Admissions() {
-    if (dataAdmissions.length === 0) {
+let lj = true
+function Admissions(d) {
+    if (dataAdmissions.length === 0 || d == true) {
         fetchSheet
             .fetch({
                 gSheetId: '1ogxImxEf8z1hDZKpBti6G9KTk5sjxtdAdqzn69FppDQ'
             }).then((data) => {
+                console.log(data);
                 dataAdmissions = data
                 AdmissionsPage(dataAdmissions)
+                lj = false
                 SetAttribute('.load', 'style', 'display:none')
             })
 
