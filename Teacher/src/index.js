@@ -3,6 +3,19 @@ window.onload = () => {
 }
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
+
+var Student = []
+async function s12312312() {
+    if (Student.length === 0) {
+        Student = await fetchSheet
+            .fetch({
+                gSheetId: '1XsISdnmrcwbpRAgE72mN8PUUkKRj4a7miszYmRdms6w'
+            }).then((data) => { return data })
+    }
+    return Student
+}
+
+
 let wid = screen.width
 if (wid < 1100) {
     $('.main__container').addClass('hiden')
@@ -91,6 +104,31 @@ function Admissions(d) {
         SetAttribute('.load', 'style', 'display:none')
     }
 }
+let dataCourse_w = []
+let dataCourse_t = []
+function GetCourse() {
+    if (dataCourse_t.length === 0 || dataCourse_w.length === 0) {
+        fetchSheet
+            .fetch({
+                gSheetId: '1XWgdnQzRhkh7qAzYXklnC89bMHzcEYZLcVmWdrXufI4'
+            }).then((DataCourse_w) => {
+                fetchSheet
+                    .fetch({
+                        gSheetId: '1XsISdnmrcwbpRAgE72mN8PUUkKRj4a7miszYmRdms6w'
+                    }).then((DataCourse) => {
+                        dataCourse_t = strim(DataCourse)
+                        dataCourse_w = strim(DataCourse_w.slice(1))
+                        Courses(dataCourse_t, dataCourse_w)
+                        SetAttribute('.load', 'style', 'display:none')
+                    })
+            })
+    } else {
+        Courses(dataCourse_t, dataCourse_w)
+        SetAttribute('.load', 'style', 'display:none')
+    }
+}
+
+
 Celender_page()
 
 vam('.sidebar__item[get-data="Class"]').onclick = () => {
@@ -115,4 +153,12 @@ vam('.sidebar__item[get-data="Sale"]').onclick = () => {
     vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
     t.classList.add('sidebar__item--actived')
     Admissions()
+}
+
+vam('.sidebar__item[get-data="Course"]').onclick = () => {
+    let t = vam('.sidebar__item[get-data="Course"]');
+    SetAttribute('.load', 'style', 'display:block')
+    vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+    t.classList.add('sidebar__item--actived')
+    GetCourse()
 }

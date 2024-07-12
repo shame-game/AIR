@@ -1,4 +1,4 @@
-let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_tf5pc6XZtI9HRwpLFiHRl81UE8AbLKEp-ldkIp/exec'
+let url = 'https://script.google.com/macros/s/AKfycbwKBsOP0BtPs3taDZ1zKA-8nPiQh3iqr_rJh-OKek4NA39XLEt_wP7Ez6FKJOaFU9wO/exec'
 
 const currentUrl = window.location.href;
 const urls = new URL(currentUrl);
@@ -11,14 +11,20 @@ function Check() {
             if (data.status != 'success') {
                 window.location.href = `${rootPath}/Login/`
             } else {
+                window.location.href = `${rootPath + data.url}`
+                /*
                 if (data.message.split(' ')[2] == 'parents') {
                     if (currentUrl == `${rootPath}/Parents/` || currentUrl == `${rootPath}/Parents/index.html`) { }
-                    else window.location.href = `${rootPath}/Parents/`
+                    else 
                 }
                 else if (data.message.split(' ')[2] == 'teacher') {
                     if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
                     } else window.location.href = `${rootPath}/Teacher/`
                 }
+                else if (data.message.split(' ')[2] == 'teacher') {
+                    if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
+                    } else window.location.href = `${rootPath}/Teacher/`
+                }*/
             }
         })
         .catch(error => alert('Lỗi: ' + error));

@@ -69,7 +69,7 @@
     </footer>
 
     <script>
-        let url = 'https://script.google.com/macros/s/AKfycbzZLVxj9npEumaJTtKDl24gBahrl_tf5pc6XZtI9HRwpLFiHRl81UE8AbLKEp-ldkIp/exec'
+        let url = 'https://script.google.com/macros/s/AKfycbwKBsOP0BtPs3taDZ1zKA-8nPiQh3iqr_rJh-OKek4NA39XLEt_wP7Ez6FKJOaFU9wO/exec'
 
         const currentUrl = window.location.href;
         const urls = new URL(currentUrl);
@@ -130,19 +130,21 @@
             fetch(`${url}?tk=${tk}&mk=${mk}&action=${type}`, { method: 'Get' })
                 .then(response => response.json())
                 .then((data) => {
+                    console.log(data);
                     document.querySelector('.load').setAttribute('style', 'display:none')
                     if (data.status == 'error') {
                         alert(data.message)
                     }
                     else if (data.status != 'error') {
-                        console.log(data);
+
                         var date = new Date();
                         date.setTime(date.getTime() + (4 * 60 * 60 * 1000));
                         expires = "; expires=" + date.toUTCString();
                         document.cookie = 'vamnaone' + "=" + data.token + '|' + tk + expires + "; path=/";
                         document.cookie = 'type' + "=" + type + expires + "; path=/";
                         if (type == 'teacher') {
-                            window.location.href = `${rootPath}/Teacher`
+                            console.log(data.url);
+                            window.location.href = `${rootPath + data.url}`
                         } else if (type == 'parents') {
                             document.cookie = 'id' + "=" + data.student + expires + "; path=/";
                             document.cookie = 'detail' + "=" + data.detail + expires + "; path=/";

@@ -12,7 +12,7 @@ function strim(data) {
 }
 // Đổi giá trị thuộc tính element
 function SetAttribute(element, Attribute, Value) {
-    vam(element).setAttribute(Attribute, Value)
+    vam(element) ? vam(element).setAttribute(Attribute, Value) : null
 }
 // Xóa thuộc tính element
 function RemoveAttribute(element, Attribute) {

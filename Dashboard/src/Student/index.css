@@ -1,0 +1,415 @@
+#student {
+    height: 100vh;
+    overflow: hidden;
+}
+
+#student-main {
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    max-height: calc(100vh - 65px);
+    padding: 16px;
+    background-color: var(--color-vamx);
+    overflow: hidden;
+    display: flex;
+    gap: 12px;
+}
+
+#student-left {
+    width: 60%;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#student-left .nav {
+    height: 50px;
+    border-bottom: thin solid var(--color-vamx);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    min-height: 50px;
+    justify-content: space-between;
+}
+
+#typeSearch {
+    position: relative;
+}
+
+#typeSearch>div {
+    background-color: white;
+    position: absolute;
+    top: calc(100% + 5px);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    padding: 10px;
+    right: 0;
+    border-radius: 5px;
+    width: max-content;
+}
+
+#typeSearch>div>p {
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: white;
+    transition: all .3s linear;
+    border-radius: 5px;
+}
+
+#typeSearch>div>p:hover {
+    background-color: var(--color-vamx);
+}
+
+#SearchClass {
+    padding: 5px 10px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+}
+
+#student-left .list {
+    flex: 1;
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+}
+
+#student-left .list>.main {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#student-left .list>.main::-webkit-scrollbar {
+    width: 0;
+}
+
+#student-left .list>.main::-webkit-scrollbar-thumb {
+    width: 0;
+}
+
+
+#student-right {
+    flex: 1;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#student-right .nav {
+    height: 50px;
+    border-bottom: thin solid var(--color-vamx);
+}
+
+#student-left .list>.nav {
+    height: 40px;
+    background-color: #0866ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#student-left .list>.nav p {
+    flex: 1;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+#student-left .list>.nav p:nth-child(1),
+#student-left .list>.nav p:nth-child(2) {
+    max-width: 100px;
+}
+
+#student-left>.list>.main>div>p {
+    flex: 1;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-title-nav);
+}
+
+#student-left>.list>.main>div>p:nth-child(1),
+#student-left>.list>.main>div>p:nth-child(2) {
+    max-width: 100px;
+}
+
+#student_search {
+    position: relative;
+    height: 70%;
+    display: flex;
+}
+
+#student_search input {
+    width: 300px;
+    height: 100%;
+    border-radius: 5px;
+    border: thin solid #d3d3d3;
+    outline: none;
+    padding-left: 50px;
+    color: var(--color-title-nav);
+}
+
+#student_search i {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1/1;
+    background-color: red;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d3d3d3;
+    border-radius: 5px 0 0 5px;
+}
+
+#student_search>div {
+    padding: 5px 10px;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    margin-left: 16px;
+    color: var(--color-vam);
+    cursor: pointer;
+}
+
+#student-left>.list>.main>div {
+    display: flex;
+    padding: 14px 10px;
+    justify-content: space-between;
+    transition: all .3s linear;
+    align-items: center;
+    cursor: pointer;
+}
+
+#student-left>.list>.main>div.ac {
+    background-color: #c2daff;
+}
+
+#student-left>.list>.main>div:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+#student-left>.list>.main>div.ac:hover {
+    box-shadow: none;
+}
+
+#student-left>.list>.main>div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#student-right>.nav {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#student-right>.nav>h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-title-nav);
+}
+
+#student-right_main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+    height: calc(100% - 50px);
+}
+
+#student-right_main>.sum {
+    background-color: var(--color-vamx);
+    width: 100%;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+#student-right_main>.sum>p {
+    font-size: 16px;
+    color: var(--color-title-nav);
+}
+
+#student-right_main>.sum>h4 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#student-right_main>.sum span {
+    font-weight: 600;
+}
+
+#student-right_main>.sum>div {
+    display: flex;
+    margin: 12px 0;
+    height: 50px;
+    width: 100%;
+}
+
+#student-right_main>.sum .lt {
+    height: 50px;
+    width: 50%;
+    background-color: #ffd8d9;
+    position: relative;
+}
+
+#student-right_main>.sum .bh {
+    flex: 1;
+    height: 50px;
+    background-color: #ccdcff;
+    position: relative;
+}
+
+#student-right_main>.sum .lt p,
+#student-right_main>.sum .bh p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#student-right_main>.sum .detail_lt,
+#student-right_main>.sum .detail_bh {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#student-right_main>.sum .detail_lt>div {
+    width: 20px;
+    height: 20px;
+    background-color: #ffd8d9;
+}
+
+
+#student-right_main>.sum .detail_bh>div {
+    width: 20px;
+    height: 20px;
+    background-color: #ccdcff;
+}
+
+#back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    padding: 3px 15px;
+    margin: 0 12px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s linear;
+    font-weight: 700;
+}
+
+#back i {
+    display: flex;
+    align-items: center;
+}
+
+#back:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#student-right_main>detail {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#student-right_main>detail::-webkit-scrollbar {
+    width: 7px;
+    background-color: white;
+}
+
+#student-right_main>detail::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: var(--color-vamm);
+    border-radius: 5px;
+}
+
+#student-right_main>detail .avt {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-vamx);
+    margin-bottom: 10px;
+}
+
+#student-right_main>detail .avt>img {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#student-right_main>detail .lable {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 7px 15px;
+    background-color: var(--color-vamx);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s linear;
+    margin: 5px 0;
+    display: flex;
+    gap: 10px;
+}
+
+#student-right_main>detail .lable i {
+    font-size: 22px;
+    color: var(--color-title-nav);
+}
+
+#student-right_main>detail .detail {
+    margin-left: 26px;
+    border-left: 2px solid var(--color-vamx);
+    height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: all .3s linear;
+    opacity: 0;
+}
+
+#student-right_main>detail .detail.hien {
+    height: max-content;
+    padding: 10px;
+    opacity: 1;
+}
+
+#student-right_main>detail .course .detail>div {
+    padding: 5px 10px;
+    background: #ebebeb;
+    width: 100%;
+    position: relative;
+}
+
+#student-right_main>detail .course .detail>div>div {
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+#student-right_main>detail .course .detail>div>div>div {
+    width: 30%;
+    height: 100%;
+    background-color: green;
+}
