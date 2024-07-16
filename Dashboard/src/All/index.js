@@ -231,4 +231,5 @@ function LoadMap(data) {
             backgroundColor: 'rgba(255, 255, 255, 0.8)' // Thêm màu nền
         }
     });
+    SetAttribute('.load', 'style', 'display:none')
 }

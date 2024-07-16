@@ -39,8 +39,8 @@ function Student(data) {
                     <div id="student-right_main">
                         <div class="sum" >
                             <p>Tổng số học sinh</p>
-                            <h4>203</h4>
-                            <p>Trong đó có <span>2 học sinh nghỉ học</span></p>
+                            <h4>0</h4>
+                            <p>Trong đó có <span class="nghihoc">2 học sinh nghỉ học</span></p>
                             <div>
                                 <div class="lt"><p>Long Thành</p></div>
                                 <div class="bh"><p>Biên Hòa</p></div>
@@ -67,18 +67,18 @@ function Student(data) {
                             <div class="infor">
                                 <p class="lable" data="infor"><i class="fa-solid fa-circle-user"></i>Thông tin chi tiết</p>
                                 <div class="detail">
-                                    <p>Ngày sinh: <span>14/03/2024</span></p>
-                                    <p>Lớp: <span>24PR001</span></p>
-                                    <p>Liên hệ: <span>0912837128</span></p>
+                                    <p>Ngày sinh: <span></span></p>
+                                    <p>Lớp: <span></span></p>
+                                    <p>Liên hệ: <span></span></p>
+                                    <p>Địa chỉ: <span></span></p>
+                                    <p>Tình trạng học: <span></span></p>
+                                    <p>Nợ học phí: <span></span></p>
                                 </div>
                             </div>
                             <div class="course">
-                                <p class="lable" data="course"><i class="fa-solid fa-book"></i> Khóa học (3)</p>
+                                <p class="lable" data="course"><i class="fa-solid fa-book"></i> Khóa học <span></span></p>
                                 <div class="detail">
-                                    <div>
-                                        <p>AI Fantasy Zoo 1 (6 buổi)</p>
-                                        <div><div></div></div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </detail>
@@ -88,7 +88,6 @@ function Student(data) {
         </div>`
     vams('#student-right_main>detail .lable').forEach(t => {
         t.onclick = () => {
-
             if (!vam(`.${t.getAttribute('data')}>.detail.hien`)) vam(`.${t.getAttribute('data')}>.detail`).classList.add('hien')
             else vam(`.${t.getAttribute('data')}>.detail`).classList.remove('hien')
         }
@@ -123,11 +122,12 @@ function Student(data) {
             else t.setAttribute('style', 'display:none')
         })
     }
+    SetAttribute('.load', 'style', 'display:none')
 }
 
 let backe = `<p id="back"><i class="fa-solid fa-angle-left"></i>Quay lại</p>`
 
-function detailStudent(e, data) {
+async function detailStudent(e, data) {
     let id = e.getAttribute('data-id')
     let f = []
     for (i = 0; i < data.length; i++) {
@@ -136,22 +136,61 @@ function detailStudent(e, data) {
             break;
         }
     }
+    vam('#student-right>.nav h1').innerText = 'Chi tiết học sinh'
     SetAttribute('#student-right_main>detail', 'style', 'display:block')
     SetAttribute('#student-right_main>.sum', 'style', 'display:none')
     if (!vam('#back')) vam('#student-right .nav').innerHTML += backe
     vam('#student-right_main>detail .avt>img').src = f.avt
     vam('#student-right_main>detail .avt .id').innerText = f.ID
     vam('#student-right_main>detail .avt .name').innerText = f.Name
+    vams('#student-right_main>detail .infor .detail p span')[0].innerText = f.BD
+    vams('#student-right_main>detail .infor .detail p span')[1].innerText = f.Class
+    vams('#student-right_main>detail .infor .detail p span')[2].innerText = f.PhoneMom
+    vams('#student-right_main>detail .infor .detail p span')[3].innerText = f.Address
+    vams('#student-right_main>detail .infor .detail p span')[4].innerText = f.Status
+    vams('#student-right_main>detail .infor .detail p span')[5].innerText = f.StatusPay
+    let course = ''
+    let soluongc = 0
+    let itemscourse = f['Course'].split('=')
+    if (itemscourse[0] == '') course = `<div>Chưa tham gia khóa học nào</div>`
+    else {
+        for (let i in itemscourse) {
+            let g = await getLoadCourse()
+            for (let p in g) {
+                if (g[p]['Mã khóa'] == itemscourse[i].split('-')[0]) {
+                    let tiendo = g[p]['Tiến độ'].split('/')
+                    tiendo = Number(tiendo[0]) / Number(tiendo[1]) * 100
+                    let pay = ''
+                    itemscourse[i].split('-')[1] == 'T' ? pay = '#e8ffe6' : pay = '#ffe1e1'
+                    course +=
+                        `<div style="background-color: ${pay}">
+                            <p>${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% </p>
+                            <div><div style="width:${tiendo}%"></div></div>
+                        </div>`
+                    soluongc++
+                    break
+                }
+            }
+        }
+    }
+
+    vam('#student-right_main>detail .course .lable span').innerText = '(' + soluongc + ')'
+    vam('#student-right_main>detail .course .detail').innerHTML = course
     vam('#back').onclick = () => {
         vam('#back').remove()
         e.classList.remove('ac')
         SetAttribute('#student-right_main>detail', 'style', 'display:none')
         SetAttribute('#student-right_main>.sum', 'style', 'display:block')
+        vam('#student-right>.nav h1').innerText = 'Tổng quan học sinh'
     }
 
 }
 
 function ListStudent(data) {
+    vam('#student-right_main>.sum>h4').innerText = data.length
+    let nghihoc = 0
+    let bienhoa = 0
+    let longthanh = 0
     data.forEach(e => {
         if (e.ID != '') {
             if (e.PhoneMom == '') e.PhoneMom = 'Không có sđt'
@@ -163,5 +202,10 @@ function ListStudent(data) {
                 <p>${e.PhoneMom}</p>
             </div>`
         }
+        if (e.Status == 'Nghỉ học') nghihoc++
+        e.area.trim() == 'Biên Hòa' ? bienhoa++ : longthanh++
     });
+    vam('#student-right_main>.sum>p>.nghihoc').innerText = nghihoc + ' học sinh đã nghỉ học'
+    vam('#student-right_main>.sum .detail_lt>p').innerText = `Tổng ${longthanh} học sinh`
+    vam('#student-right_main>.sum .detail_bh>p').innerText = `Tổng ${bienhoa} học sinh`
 }

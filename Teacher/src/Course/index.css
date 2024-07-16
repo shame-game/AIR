@@ -119,7 +119,12 @@
     cursor: pointer;
 }
 
-#create_id>.create_id_wrap {
+#create_id>.create_id_wrap.gd2 {
+    transform: translateX(-35%)
+}
+
+#create_id>.create_id_wrap,
+#create_ce>.create_ce_wrap {
     position: fixed;
     width: 60%;
     right: 0;
@@ -132,11 +137,33 @@
     padding: 16px;
 }
 
-#create_id>.create_id_wrap.hide {
+#create_id>.create_id_wrap.hide,
+#create_ce>.create_ce_wrap.hide {
     transform: translateX(0)
 }
 
-#create_id>.create_id_background {
+#create_ce>.create_ce_wrap .xn_cre {
+    background-color: var(--color-vamm);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 7px 20px;
+    text-align: center;
+}
+
+#create_ce>.create_ce_wrap .box {
+    display: flex;
+    margin: 10px 0;
+    padding: 10px;
+    justify-content: space-between;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#create_id>.create_id_background,
+#create_ce>.create_ce_background {
     background-color: rgba(0, 0, 0, 0.6);
     position: fixed;
     width: 100%;
@@ -154,7 +181,8 @@
     bottom: 0;
 }
 
-#create_id>.create_id_wrap>h1 {
+#create_id>.create_id_wrap>h1,
+#create_ce>.create_ce_wrap>h1 {
     font-size: 28px;
     text-align: center;
     font-weight: 600;
@@ -164,4 +192,122 @@
 #create_id>.create_id_wrap>p {
     font-size: 20px;
     font-weight: 600;
+}
+
+#create_id>.create_id_wrap>.list_student {
+    border-radius: 5px;
+    border: 1px solid var(--color-title-nav);
+}
+
+#create_id>.create_id_wrap>.list_student>div {
+    padding: 10px;
+    border-top: thin solid var(--color-title-nav);
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#create_id>.create_id_wrap>.list_student>input {
+    border: none;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding: 5px 20px;
+}
+
+#create_id>.create_id_wrap .listStudent {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+}
+
+#create_id>.create_id_wrap>.list_student>div>.listStudent:hover {
+    background-color: var(--color-vamx);
+}
+
+#create_id>.create_id_wrap>.list-chon {
+    padding: 10px;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: thin solid black;
+}
+
+#create_id>.create_id_wrap .next {
+    padding: 5px 10px;
+    background-color: var(--color-vamm);
+    color: white;
+    width: max-content;
+    border-radius: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+#create_ce .add {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--color-vamx);
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s linear;
+    border-radius: 5px;
+}
+
+#create_ce>.create_ce_wrap>h1 {
+    padding-bottom: 30px;
+}
+
+#create_ce .add:hover i {
+    transform: scale(1.05);
+}
+
+#form_popup {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+#form_popup h1 {
+    font-size: 20px;
+    color: var(--color-title-nav);
+    text-align: center;
+}
+
+#form_popup p {
+    padding: 5px;
+    width: max-content;
+}
+
+#form_popup>div {
+    display: flex;
+    gap: 16px;
+}
+
+#form_popup input,
+#form_popup select {
+    flex: 1;
+    border: none;
+    outline: none;
+    border-bottom: thin solid var(--color-title-nav);
+}
+
+#form_popup input[type="date"]::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+#form_popup #xn_popup {
+    background-color: var(--color-vamm);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 7px 15px;
+    margin-top: 16px;
 }

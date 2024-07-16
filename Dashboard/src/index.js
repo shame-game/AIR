@@ -21,8 +21,7 @@ if (wid < 1100) {
             vam('.bg').classList.remove('hide')
         })
     };
-}
-else {
+} else {
     $('.topbar__leading').on('mousedown', e => {
         $('#app_nav').toggleClass('hide')
         $('.title-todo h1').toggleClass('hide')
@@ -34,9 +33,21 @@ else {
         $('.sidebar').toggleClass('hide')
     });
 }
+let Course = []
+async function getLoadCourse() {
+    if (!Course.length) {
+        Course = await
+            fetchSheet
+                .fetch({
+                    gSheetId: '1XsISdnmrcwbpRAgE72mN8PUUkKRj4a7miszYmRdms6w'
+                }).then((data) => { return data })
+    }
+    return Course
+}
 
 let all = []
 function GetAll() {
+    SetAttribute('.load', 'style', 'display:display:block')
     if (all.length === 0) {
         fetchSheet
             .fetch({
@@ -44,42 +55,38 @@ function GetAll() {
             }).then((data) => {
                 all = strim(data)
                 LoadAll(all)
-                SetAttribute('.load', 'style', 'display:none')
             })
     } else {
         LoadAll(all)
-        SetAttribute('.load', 'style', 'display:none')
     }
 }
 GetAll()
 let student = []
 function GetStudent() {
+    SetAttribute('.load', 'style', 'display:display:block')
     if (student.length === 0) {
         fetchSheet
             .fetch({
-                gSheetId: '10HZ2XKw97d21uyI_gdmBgN7dI_DbRQAa0EUlPSfZIkc'
+                gSheetId: '1Ph6KE5iz0JAJejKNq9pVO55wDdBqpPGGCG2hcipzLaA'
             }).then((data) => {
                 student = strim(data).slice(1)
                 Student(student)
-                SetAttribute('.load', 'style', 'display:none')
             })
     } else {
         Student(student)
-        SetAttribute('.load', 'style', 'display:none')
     }
 }
 
 vam('.sidebar__item[get-data="overview"]').onclick = () => {
     if (!vam('.sidebar__item.sidebar__item--actived[get-data="overview"]')) {
-        SetAttribute('.load', 'style', 'display:display:block')
         vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
         vam('.sidebar__item[get-data="overview"]').classList.add('sidebar__item--actived')
         GetAll()
     }
 }
+
 vam('.sidebar__item[get-data="student"]').onclick = () => {
     if (!vam('.sidebar__item.sidebar__item--actived[get-data="student"]')) {
-        SetAttribute('.load', 'style', 'display:display:block')
         vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
         vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
         GetStudent()

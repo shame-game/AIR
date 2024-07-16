@@ -4,7 +4,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 997;
+    z-index: 1000;
 }
 
 .popup_main {
@@ -18,14 +18,14 @@
     padding: 16px;
     border-radius: 8px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    z-index: 999;
+    z-index: 99999;
     overflow: hidden;
     border: 1px solid #c8dfff;
 }
 
 .popup_background {
     position: fixed;
-    z-index: 998;
+    z-index: 99998;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);

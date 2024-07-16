@@ -397,6 +397,7 @@
     background: #ebebeb;
     width: 100%;
     position: relative;
+    margin: 10px 0;
 }
 
 #student-right_main>detail .course .detail>div>div {

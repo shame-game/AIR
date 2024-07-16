@@ -6,11 +6,11 @@ const vams = document.querySelectorAll.bind(document);
 
 var Student = []
 async function s12312312() {
-    if (Student.length === 0) {
+    if (!Student.length) {
         Student = await fetchSheet
             .fetch({
-                gSheetId: '1XsISdnmrcwbpRAgE72mN8PUUkKRj4a7miszYmRdms6w'
-            }).then((data) => { return data })
+                gSheetId: '1Ph6KE5iz0JAJejKNq9pVO55wDdBqpPGGCG2hcipzLaA'
+            }).then((data) => { return strim(data).slice(1) })
     }
     return Student
 }
