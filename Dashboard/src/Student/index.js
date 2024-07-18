@@ -150,6 +150,7 @@ async function detailStudent(e, data) {
     vams('#student-right_main>detail .infor .detail p span')[4].innerText = f.Status
     vams('#student-right_main>detail .infor .detail p span')[5].innerText = f.StatusPay
     let course = ''
+    let detailcourse = ''
     let soluongc = 0
     let itemscourse = f['Course'].split('=')
     if (itemscourse[0] == '') course = `<div>Chưa tham gia khóa học nào</div>`
@@ -159,23 +160,60 @@ async function detailStudent(e, data) {
             for (let p in g) {
                 if (g[p]['Mã khóa'] == itemscourse[i].split('-')[0]) {
                     let tiendo = g[p]['Tiến độ'].split('/')
-                    tiendo = Number(tiendo[0]) / Number(tiendo[1]) * 100
                     let pay = ''
-                    itemscourse[i].split('-')[1] == 'T' ? pay = '#e8ffe6' : pay = '#ffe1e1'
+                    itemscourse[i].split('-')[1] == 'T' ? pay = ['#e8ffe6', 'Đã thanh toán'] : pay = ['#ffe1e1', 'Chưa thanh toán']
+                    detailcourse +=
+                        `<div class="row">
+                            <p>${g[p]['Tên khóa học']}</p>
+                            <p>${tiendo[1]}</p>
+                            <p>2.500.000 vnđ</p>
+                            <p>${pay[1]}</p>
+                            <p class="thanhtoan" data-course='${f.ID + '|' + g[p]['Mã khóa']}'><i class="fa-solid fa-qrcode"></i></p>
+                        </div>`
+                    tiendo = Number(tiendo[0]) / Number(tiendo[1]) * 100
                     course +=
-                        `<div style="background-color: ${pay}">
+                        `<div style="background-color: ${pay[0]}">
                             <p>${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% </p>
                             <div><div style="width:${tiendo}%"></div></div>
                         </div>`
                     soluongc++
+
                     break
                 }
             }
         }
+        course +=
+            `<div class="course_detail_pay">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>Chi tiết học phí</p>
+            </div>`
     }
-
     vam('#student-right_main>detail .course .lable span').innerText = '(' + soluongc + ')'
     vam('#student-right_main>detail .course .detail').innerHTML = course
+    EventCourse(detailcourse, e, data)
+    vams('#student-left>.list>.main>div').forEach(e => {
+        e.onclick = () => {
+            if (vam('#student-left>.list>.main>.ac')) vam('#student-left>.list>.main>.ac').classList.remove('ac')
+            e.classList.add('ac')
+            detailStudent(e, data)
+        }
+    })
+    nav_root()
+    vam('#student-right_main>detail .avt>img').onclick = () => {
+        SetAttribute('#popup', 'style', 'display:block')
+        SetAttribute('.popup_main', 'style', 'width:max-content')
+        vam('.popup_background').onclick = () => {
+            vam('#popup').setAttribute('style', 'display:none')
+        }
+        vam('.popup_main').innerHTML =
+            `<div id="avtStudent_popup">
+                <img src="${vam('#student-right_main>detail .avt>img').src}">
+            </div>`
+    }
+}
+
+function EventCourse(detailcourse, e, data) {
+    vam('#student-right_main>detail .course_detail_pay').onclick = () => detailpay(detailcourse, e, data)
     vam('#back').onclick = () => {
         vam('#back').remove()
         e.classList.remove('ac')
@@ -183,7 +221,84 @@ async function detailStudent(e, data) {
         SetAttribute('#student-right_main>.sum', 'style', 'display:block')
         vam('#student-right>.nav h1').innerText = 'Tổng quan học sinh'
     }
+}
 
+function detailpay(detailcourse, e, data) {
+    SetAttribute('#popup', 'style', 'display:block')
+    SetAttribute('.popup_main', 'style', 'width:1100px')
+    vam('.popup_background').onclick = () => {
+        detailStudent(e, data)
+        vam('#popup').setAttribute('style', 'display:none')
+    }
+    vam('.popup_main').innerHTML =
+        `<div id="form_popup">
+                                <h1>Chi tiết học phí</h1>
+                                <div class="row col">
+                                    <p>Tên khóa học</p>
+                                    <p>Số tiết</p>
+                                    <p>Số tiền nợ</p>
+                                    <p>Trạng thái</p>
+                                    <p>Thanh toán</p>
+                                </div>
+                                ${detailcourse}
+                            </div>`
+    if (vam('#form_popup>.row')) {
+        attachClickEventToThanhtoanElements(detailcourse, e, data)
+    }
+}
+
+function attachClickEventToThanhtoanElements(detailcourse, e, data) {
+    vams('#form_popup>.row>.thanhtoan').forEach(t => {
+        t.onclick = () => {
+            let datac = t.getAttribute('data-course').split('|')
+            vam('body').innerHTML +=
+                `<div id="xn_pay">
+                    <div class="xn_pay-main">
+                        <div id="form">
+                            <h1>Xác nhận thanh toán khóa ${datac[1]}</h1>
+                            <p>Mã học sinh: ${datac[0]}</p>
+                            <p>Số tiền cần thanh toán: 2.500.000</p>
+                            <p>Phương thức thanh toán: <select id="xn_pttt">
+                                <option>Chuyển khoản</option>
+                                <option>Tiền mặt</option>
+                            </select></p>
+                            <p>Chọn voicher: <select id="xn_voch">
+                                <option>0%</option>
+                                <option>10%</option>
+                                <option>100%</option>
+                            </select></p>
+                            <button class="xn_pay-button">Xác nhận thanh toán</button>
+                        </div>
+                    </div>
+                    <div class="xn_pay-background"></div>
+                </div>`
+            vam('#xn_pay .xn_pay-button').onclick = () => {
+                SetAttribute('.load', 'style', 'display:block')
+                let pttt = vam('#xn_pttt').value
+                let vocher = vam('#xn_voch').value
+                let urlds = 'https://script.google.com/macros/s/AKfycbxQX4jRd9Ofl_Aql7cwRD3-bZQjdAofg70YMcjckZ2it4smD6B4SkBtgGmjNiqwUF_R/exec'
+                fetch(`${urlds}?pttt=${pttt}&idcourse=${datac[1]}&idstudent=${datac[0]}&vocher=${vocher.slice(0, -1)}`, { method: 'Get' })
+                    .then(response => response.json())
+                    .then((datar) => {
+                        if (datar.status == 'success') {
+                            SetAttribute('.load', 'style', 'display:none')
+                            alert(datar.message)
+                            detailpay(detailcourse, e, data)
+                            vam('#xn_pay').remove()
+                        } else {
+                            alert(datar.message)
+                            SetAttribute('.load', 'style', 'display:none')
+                        }
+                    })
+                    .catch(error => alert('Lỗi: ' + error));
+
+            }
+            vam('#xn_pay>.xn_pay-background').onclick = () => {
+                detailpay(detailcourse, e, data)
+                vam('#xn_pay').remove()
+            }
+        }
+    })
 }
 
 function ListStudent(data) {
@@ -206,6 +321,7 @@ function ListStudent(data) {
         e.area.trim() == 'Biên Hòa' ? bienhoa++ : longthanh++
     });
     vam('#student-right_main>.sum>p>.nghihoc').innerText = nghihoc + ' học sinh đã nghỉ học'
+    SetAttribute('#student-right_main>.sum .lt', 'style', `width: ${(longthanh / (bienhoa + longthanh)) * 100}%`)
     vam('#student-right_main>.sum .detail_lt>p').innerText = `Tổng ${longthanh} học sinh`
     vam('#student-right_main>.sum .detail_bh>p').innerText = `Tổng ${bienhoa} học sinh`
 }

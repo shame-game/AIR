@@ -347,6 +347,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid var(--color-vamx);
     margin-bottom: 10px;
+
 }
 
 #student-right_main>detail .avt>img {
@@ -355,6 +356,7 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 #student-right_main>detail .lable {
@@ -413,4 +415,139 @@
     width: 30%;
     height: 100%;
     background-color: green;
+}
+
+.course_detail_pay {
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    align-items: center;
+    cursor: pointer;
+    background: white !important;
+    border: 1px solid var(--color-title-nav);
+    transition: all .3s linear;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.course_detail_pay i {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.course_detail_pay:hover {
+    background: var(--color-vamm) !important;
+    border: 1px solid var(--color-vamm);
+    color: white;
+}
+
+#form_popup .row p:nth-child(1) {
+    flex: 2;
+    width: max-content;
+    padding: 7px 10px;
+}
+
+#form_popup .row p:nth-child(2) {
+    flex: .5;
+}
+
+#form_popup .row p:nth-last-child(1) {
+    flex: .5;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#form_popup .row p>i {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: 1/1;
+    transition: all .3s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#form_popup .row p>i:hover {
+    background-color: var(--color-vamx);
+}
+
+#xn_pay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+#xn_pay>.xn_pay-main {
+    position: fixed;
+    width: 500px;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 99999;
+    overflow: hidden;
+    border: 1px solid #c8dfff;
+}
+
+#xn_pay>.xn_pay-background {
+    position: fixed;
+    z-index: 99998;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+}
+
+#xn_pay>.xn_pay-main h1 {
+    font-size: 20px;
+    color: var(--color-title-nav);
+    text-align: center;
+}
+
+#xn_pay .xn_pay-button {
+    background-color: var(--color-vamm);
+    border: none;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#xn_pay p {
+    padding: 4px 0;
+}
+
+#xn_pay input,
+#xn_pay select {
+    border: none;
+    border-bottom: thin solid var(--color-title-nav);
+    cursor: pointer;
+    outline: none;
+}
+
+#avtStudent_popup {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+#avtStudent_popup img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }

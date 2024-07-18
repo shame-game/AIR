@@ -60,7 +60,7 @@ function GetAll() {
         LoadAll(all)
     }
 }
-GetAll()
+
 let student = []
 function GetStudent() {
     SetAttribute('.load', 'style', 'display:display:block')
@@ -76,19 +76,40 @@ function GetStudent() {
         Student(student)
     }
 }
+GetAll()
+nav_root()
+function nav_root() {
 
-vam('.sidebar__item[get-data="overview"]').onclick = () => {
-    if (!vam('.sidebar__item.sidebar__item--actived[get-data="overview"]')) {
-        vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
-        vam('.sidebar__item[get-data="overview"]').classList.add('sidebar__item--actived')
-        GetAll()
+    vam('.sidebar__item[get-data="overview"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="overview"]')) {
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="overview"]').classList.add('sidebar__item--actived')
+            GetAll()
+        }
+    }
+
+    vam('.sidebar__item[get-data="student"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="student"]')) {
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
+            GetStudent()
+        }
+    }
+
+    vam('.sidebar__item[get-data="book"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="book"]')) {
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="book"]').classList.add('sidebar__item--actived')
+            CourseMain()
+        }
     }
 }
+window.onpopstate = function (event) {
+    event.preventDefault();
+    alert("Sorry, you can't go back to the previous page.");
+};
 
-vam('.sidebar__item[get-data="student"]').onclick = () => {
-    if (!vam('.sidebar__item.sidebar__item--actived[get-data="student"]')) {
-        vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
-        vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
-        GetStudent()
-    }
-}
+window.onbeforeunload = function (event) {
+    event.preventDefault();
+    event.returnValue = "";
+};

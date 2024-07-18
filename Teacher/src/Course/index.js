@@ -110,7 +110,6 @@ function Courses(data_t, data_w) {
                                         alert(data.message)
                                     })
                                     .catch(error => alert('Lỗi: ' + error));
-
                             }
                         }
                     }

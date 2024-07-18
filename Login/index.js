@@ -12,19 +12,6 @@ function Check() {
                 window.location.href = `${rootPath}/Login/`
             } else {
                 window.location.href = `${rootPath + data.url}`
-                /*
-                if (data.message.split(' ')[2] == 'parents') {
-                    if (currentUrl == `${rootPath}/Parents/` || currentUrl == `${rootPath}/Parents/index.html`) { }
-                    else 
-                }
-                else if (data.message.split(' ')[2] == 'teacher') {
-                    if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
-                    } else window.location.href = `${rootPath}/Teacher/`
-                }
-                else if (data.message.split(' ')[2] == 'teacher') {
-                    if (currentUrl == `${rootPath}/Teacher/` || currentUrl == `${rootPath}/Teacher/index.hmtl`) {
-                    } else window.location.href = `${rootPath}/Teacher/`
-                }*/
             }
         })
         .catch(error => alert('Lỗi: ' + error));

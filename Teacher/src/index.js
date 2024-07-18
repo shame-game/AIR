@@ -1,5 +1,8 @@
 window.onload = () => {
     document.querySelector('.loadweb').remove();
+    window.addEventListener('popstate', function (event) {
+        window.history.pushState(null, document.title, window.location.href);
+    });
 }
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);

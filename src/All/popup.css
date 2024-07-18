@@ -121,3 +121,67 @@
     font-size: 32px;
     font-weight: 600;
 }
+
+
+#form_popup {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+#form_popup h1 {
+    font-size: 20px;
+    color: var(--color-title-nav);
+    text-align: center;
+}
+
+#form_popup p {
+    padding: 5px;
+    width: max-content;
+}
+
+#form_popup>div {
+    display: flex;
+    gap: 16px;
+}
+
+#form_popup input,
+#form_popup select {
+    flex: 1;
+    border: none;
+    outline: none;
+    border-bottom: thin solid var(--color-title-nav);
+}
+
+#form_popup input[type="date"]::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+#form_popup #xn_popup {
+    background-color: var(--color-vamm);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 7px 15px;
+    margin-top: 16px;
+}
+
+#form_popup .row {
+    display: flex;
+
+}
+
+#form_popup .row.col {
+    background-color: var(--color-vamx);
+}
+
+#form_popup .row p {
+    flex: 1;
+    width: max-content;
+    padding: 7px 10px;
+}
