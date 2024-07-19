@@ -4,35 +4,7 @@ window.onload = () => {
 const vam = document.querySelector.bind(document);
 const vams = document.querySelectorAll.bind(document);
 let wid = screen.width
-if (wid < 1100) {
-    $('.main__container').addClass('hiden')
-    vam('.topbar__leading').onclick = () => {
-        $('#app_nav').toggleClass('hide')
-        $('.account').toggleClass('hide')
-        $('.bg').toggleClass('hide')
-        vam('.bg').addEventListener('click', () => {
-            vam('.sidebar').classList.remove('hide')
-            vam('.account').classList.remove('hide')
-            vam('.bg').classList.remove('hide')
-        })
-        vam('.title-todo>i').addEventListener('click', () => {
-            vam('.sidebar').classList.remove('hide')
-            vam('.account').classList.remove('hide')
-            vam('.bg').classList.remove('hide')
-        })
-    };
-} else {
-    $('.topbar__leading').on('mousedown', e => {
-        $('#app_nav').toggleClass('hide')
-        $('.title-todo h1').toggleClass('hide')
-        $('.account-main').toggleClass('hide')
-        $('.account__container').toggleClass('hide')
-        $('.sidebar__item span').toggleClass('hide')
-        $('.sidebar__item').toggleClass('hide')
-        $('.main__container').toggleClass('hiden')
-        $('.sidebar').toggleClass('hide')
-    });
-}
+
 let Course = []
 async function getLoadCourse() {
     if (!Course.length) {
@@ -44,10 +16,20 @@ async function getLoadCourse() {
     }
     return Course
 }
-
+let Students = []
+async function getLoadStudent() {
+    if (!Students.length) {
+        Students = await
+            fetchSheet
+                .fetch({
+                    gSheetId: '1Ph6KE5iz0JAJejKNq9pVO55wDdBqpPGGCG2hcipzLaA'
+                }).then((data) => { return data })
+    }
+    return Students
+}
 let all = []
 function GetAll() {
-    SetAttribute('.load', 'style', 'display:display:block')
+    SetAttribute('.load', 'style', 'display:block')
     if (all.length === 0) {
         fetchSheet
             .fetch({
@@ -63,7 +45,7 @@ function GetAll() {
 
 let student = []
 function GetStudent() {
-    SetAttribute('.load', 'style', 'display:display:block')
+    SetAttribute('.load', 'style', 'display:block')
     if (student.length === 0) {
         fetchSheet
             .fetch({
@@ -79,7 +61,6 @@ function GetStudent() {
 GetAll()
 nav_root()
 function nav_root() {
-
     vam('.sidebar__item[get-data="overview"]').onclick = () => {
         if (!vam('.sidebar__item.sidebar__item--actived[get-data="overview"]')) {
             vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
@@ -98,18 +79,47 @@ function nav_root() {
 
     vam('.sidebar__item[get-data="book"]').onclick = () => {
         if (!vam('.sidebar__item.sidebar__item--actived[get-data="book"]')) {
+            SetAttribute('.load', 'style', 'display:block')
             vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
             vam('.sidebar__item[get-data="book"]').classList.add('sidebar__item--actived')
             CourseMain()
         }
     }
+    if (wid < 1100) {
+        $('.main__container').addClass('hiden')
+        vam('.topbar__leading').onclick = () => {
+            $('#app_nav').toggleClass('hide')
+            $('.account').toggleClass('hide')
+            $('.bg').toggleClass('hide')
+            vam('.bg').addEventListener('click', () => {
+                vam('.sidebar').classList.remove('hide')
+                vam('.account').classList.remove('hide')
+                vam('.bg').classList.remove('hide')
+            })
+            vam('.title-todo>i').addEventListener('click', () => {
+                vam('.sidebar').classList.remove('hide')
+                vam('.account').classList.remove('hide')
+                vam('.bg').classList.remove('hide')
+            })
+        };
+    } else {
+        $('.topbar__leading').on('mousedown', e => {
+            $('#app_nav').toggleClass('hide')
+            $('.title-todo h1').toggleClass('hide')
+            $('.account-main').toggleClass('hide')
+            $('.account__container').toggleClass('hide')
+            $('.sidebar__item span').toggleClass('hide')
+            $('.sidebar__item').toggleClass('hide')
+            $('.main__container').toggleClass('hiden')
+            $('.sidebar').toggleClass('hide')
+        });
+    }
 }
-window.onpopstate = function (event) {
-    event.preventDefault();
-    alert("Sorry, you can't go back to the previous page.");
-};
 
-window.onbeforeunload = function (event) {
-    event.preventDefault();
-    event.returnValue = "";
-};
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}

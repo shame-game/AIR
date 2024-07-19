@@ -394,6 +394,10 @@
     opacity: 1;
 }
 
+#student-right_main>detail .detail>.Course {
+    cursor: pointer;
+}
+
 #student-right_main>detail .course .detail>div {
     padding: 5px 10px;
     background: #ebebeb;

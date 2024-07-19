@@ -11,7 +11,7 @@ function LoadAll(data) {
                             <div class="box_wrap" id="click-student">
                                 <div>
                                     <div class="text">
-                                        <h1>12</h1>
+                                        <h1>0</h1>
                                         <p>Học sinh</p>
                                     </div>
                                     <div class="icon">
@@ -22,7 +22,7 @@ function LoadAll(data) {
                             <div class="box_wrap">
                                 <div>
                                     <div class="text">
-                                        <h1>12</h1>
+                                        <h1>9</h1>
                                         <p>Lớp học</p>
                                     </div>
                                     <div class="icon">
@@ -41,10 +41,10 @@ function LoadAll(data) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="box_wrap">
+                            <div class="box_wrap" id="click-course">
                                 <div>
                                     <div class="text">
-                                        <h1>15</h1>
+                                        <h1></h1>
                                         <p>Khóa học</p>
                                     </div>
                                     <div class="icon">
@@ -97,6 +97,20 @@ function LoadAll(data) {
         vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
         GetStudent()
     }
+    vam('#click-course').onclick = () => {
+        SetAttribute('.load', 'style', 'display:block')
+        vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+        vam('.sidebar__item[get-data="book"]').classList.add('sidebar__item--actived')
+        CourseMain()
+    }
+    LoadAlls()
+}
+
+async function LoadAlls() {
+    let dataS = await getLoadStudent()
+    let dataC = await getLoadCourse()
+    vam('#click-student h1').innerText = dataS.length - 1
+    vam('#click-course h1').innerText = dataC.length - 1
 }
 
 function LoadMap(data) {

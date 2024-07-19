@@ -172,8 +172,8 @@ async function detailStudent(e, data) {
                         </div>`
                     tiendo = Number(tiendo[0]) / Number(tiendo[1]) * 100
                     course +=
-                        `<div style="background-color: ${pay[0]}">
-                            <p>${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% </p>
+                        `<div data-id="${g[p]['Mã khóa']}" class="Course" style="background-color: ${pay[0]}">
+                            <p  >${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% </p>
                             <div><div style="width:${tiendo}%"></div></div>
                         </div>`
                     soluongc++
@@ -199,6 +199,14 @@ async function detailStudent(e, data) {
         }
     })
     nav_root()
+    vams('#student-right_main>detail .course .detail>.Course').forEach(t => {
+        t.onclick = () => {
+            SetAttribute('.load', 'style', 'display:display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="book"]').classList.add('sidebar__item--actived')
+            CourseMain()
+        }
+    })
     vam('#student-right_main>detail .avt>img').onclick = () => {
         SetAttribute('#popup', 'style', 'display:block')
         SetAttribute('.popup_main', 'style', 'width:max-content')
@@ -210,6 +218,12 @@ async function detailStudent(e, data) {
                 <img src="${vam('#student-right_main>detail .avt>img').src}">
             </div>`
     }
+    vams('#student-right_main>detail .lable').forEach(t => {
+        t.onclick = () => {
+            if (!vam(`.${t.getAttribute('data')}>.detail.hien`)) vam(`.${t.getAttribute('data')}>.detail`).classList.add('hien')
+            else vam(`.${t.getAttribute('data')}>.detail`).classList.remove('hien')
+        }
+    })
 }
 
 function EventCourse(detailcourse, e, data) {
