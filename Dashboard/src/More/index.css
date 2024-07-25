@@ -1,0 +1,160 @@
+#more-main {
+    padding: 0;
+    background-color: var(--color-vamx);
+}
+
+#more-main .left {
+    width: 25%;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+#more-main .right {
+    width: 75%;
+    padding: 20px;
+}
+
+#more-main .left::-webkit-scrollbar {
+    width: 5px;
+}
+
+#more-main .left::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: var(--color-vamm);
+    border-radius: 5px;
+}
+
+#more-main .right>#more_detail {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+#more-main .right>#more_detail::-webkit-scrollbar {
+    width: 0;
+}
+
+#more-main>.left .ground {
+    padding: 20px;
+    position: relative;
+}
+
+#more-main>.left h4 {
+    position: relative;
+    font-size: 20px;
+    color: var(--color-title-nav);
+    background-color: white;
+    z-index: 2;
+    width: max-content;
+    margin-bottom: 15px;
+}
+
+#more-main>.left p.action {
+    background-color: var(--color-vamm);
+    color: white;
+    gap: 10px;
+}
+
+#more-main>.left .ground::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 40px);
+    background-color: var(--color-vamx);
+    top: 100%;
+    z-index: 1;
+    gap: 0px;
+}
+
+#more-main>.left p {
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+}
+
+#more-main>.left p i {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: all .3s linear;
+}
+
+#more-main>.left p.action i {
+    width: max-content;
+}
+
+#more_detail>div {
+    color: var(--color-title-nav);
+    font-size: 22px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-bottom: thin solid var(--color-vamx);
+}
+
+#more_detail .form_con h3 {
+    font-size: 16px;
+}
+
+#more_detail .form_con {
+    padding: 20px;
+}
+
+#more_detail .form_con input,
+#more_detail .form_con select {
+    padding: 7px 20px;
+    border-radius: 5px;
+    border: 2px solid var(--color-vamx);
+    outline: none;
+    width: 50%;
+}
+
+#more_detail>h6 {
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#more_detail>button {
+    margin: 10px 20px;
+}
+
+.valueVoucher {
+    display: flex;
+    gap: 0px !important;
+    align-items: center;
+    border: 2px solid #d0d0d0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.valueVoucher p {
+    background-color: var(--color-vamx);
+    height: 35px;
+    flex: 1;
+}
+
+.valueVoucher i {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s linear;
+}
+
+.valueVoucher i:hover {
+    background-color: #fafafa;
+
+}
+
+#more_detail>.listbox {
+    height: max-content;
+    border: none;
+    padding: 3px;
+}

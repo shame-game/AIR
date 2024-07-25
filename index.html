@@ -8,9 +8,7 @@
 <body>
     <script>
         let c = window.location.href
-        if (c.endsWith('/index.html')) {
-            c = c.slice(0, -10);
-        }
+        if (c.endsWith('/index.html')) c = c.slice(0, -10);
         window.location.href = `${c}Login/`
     </script>
 </body>

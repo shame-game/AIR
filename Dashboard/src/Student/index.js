@@ -72,7 +72,6 @@ function Student(data) {
                                     <p>Liên hệ: <span></span></p>
                                     <p>Địa chỉ: <span></span></p>
                                     <p>Tình trạng học: <span></span></p>
-                                    <p>Nợ học phí: <span></span></p>
                                 </div>
                             </div>
                             <div class="course">
@@ -148,7 +147,6 @@ async function detailStudent(e, data) {
     vams('#student-right_main>detail .infor .detail p span')[2].innerText = f.PhoneMom
     vams('#student-right_main>detail .infor .detail p span')[3].innerText = f.Address
     vams('#student-right_main>detail .infor .detail p span')[4].innerText = f.Status
-    vams('#student-right_main>detail .infor .detail p span')[5].innerText = f.StatusPay
     let course = ''
     let detailcourse = ''
     let soluongc = 0
@@ -159,6 +157,7 @@ async function detailStudent(e, data) {
             let g = await getLoadCourse()
             for (let p in g) {
                 if (g[p]['Mã khóa'] == itemscourse[i].split('-')[0]) {
+
                     let tiendo = g[p]['Tiến độ'].split('/')
                     let pay = ''
                     itemscourse[i].split('-')[1] == 'T' ? pay = ['#e8ffe6', 'Đã thanh toán'] : pay = ['#ffe1e1', 'Chưa thanh toán']
@@ -166,14 +165,14 @@ async function detailStudent(e, data) {
                         `<div class="row">
                             <p>${g[p]['Tên khóa học']}</p>
                             <p>${tiendo[1]}</p>
-                            <p>2.500.000 vnđ</p>
+                            <p>${g[p]['Giá khóa']} vnđ</p>
                             <p>${pay[1]}</p>
                             <p class="thanhtoan" data-course='${f.ID + '|' + g[p]['Mã khóa']}'><i class="fa-solid fa-qrcode"></i></p>
                         </div>`
-                    tiendo = Number(tiendo[0]) / Number(tiendo[1]) * 100
+                    tiendo = Math.floor(Number(tiendo[0]) / Number(tiendo[1]) * 100)
                     course +=
                         `<div data-id="${g[p]['Mã khóa']}" class="Course" style="background-color: ${pay[0]}">
-                            <p  >${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% </p>
+                            <p  >${g[p]['Tên khóa học']} / Tiến độ: ${tiendo}% / ${g[p]['Mã khóa']}</p>
                             <div><div style="width:${tiendo}%"></div></div>
                         </div>`
                     soluongc++
@@ -276,11 +275,7 @@ function attachClickEventToThanhtoanElements(detailcourse, e, data) {
                                 <option>Chuyển khoản</option>
                                 <option>Tiền mặt</option>
                             </select></p>
-                            <p>Chọn voicher: <select id="xn_voch">
-                                <option>0%</option>
-                                <option>10%</option>
-                                <option>100%</option>
-                            </select></p>
+                            <p>Chọn voicher: <input id="buybyVoucher" type="text"></p>
                             <button class="xn_pay-button">Xác nhận thanh toán</button>
                         </div>
                     </div>
@@ -289,9 +284,9 @@ function attachClickEventToThanhtoanElements(detailcourse, e, data) {
             vam('#xn_pay .xn_pay-button').onclick = () => {
                 SetAttribute('.load', 'style', 'display:block')
                 let pttt = vam('#xn_pttt').value
-                let vocher = vam('#xn_voch').value
-                let urlds = 'https://script.google.com/macros/s/AKfycbxQX4jRd9Ofl_Aql7cwRD3-bZQjdAofg70YMcjckZ2it4smD6B4SkBtgGmjNiqwUF_R/exec'
-                fetch(`${urlds}?pttt=${pttt}&idcourse=${datac[1]}&idstudent=${datac[0]}&vocher=${vocher.slice(0, -1)}`, { method: 'Get' })
+                let vocher = vam('#buybyVoucher').value
+                let urlds = 'https://script.google.com/macros/s/AKfycbyvw7UPlLZukka-lpj-oZMl-rb6hL79yGTEThZYdx3xkrBEcUBCwkW_kNf028J0BZhA/exec'
+                fetch(`${urlds}?pttt=${pttt}&idcourse=${datac[1]}&idstudent=${datac[0]}&vocher=${vocher}`, { method: 'Get' })
                     .then(response => response.json())
                     .then((datar) => {
                         if (datar.status == 'success') {
@@ -305,7 +300,6 @@ function attachClickEventToThanhtoanElements(detailcourse, e, data) {
                         }
                     })
                     .catch(error => alert('Lỗi: ' + error));
-
             }
             vam('#xn_pay>.xn_pay-background').onclick = () => {
                 detailpay(detailcourse, e, data)

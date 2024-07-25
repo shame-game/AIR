@@ -16,6 +16,29 @@ async function getLoadCourse() {
     }
     return Course
 }
+
+let Voucher = []
+async function getLoadVoucher() {
+    if (!Voucher.length) {
+        Voucher = await
+            fetchSheet
+                .fetch({
+                    gSheetId: '13axjcNvYNxh3DUFzf7sH48E9f5rk3Jp39CJh8GyKJbo'
+                }).then((data) => { return data })
+    }
+    return Voucher
+}
+let Coursew = []
+async function getLoadCoursew() {
+    if (!Coursew.length) {
+        Coursew = await
+            fetchSheet
+                .fetch({
+                    gSheetId: '1XWgdnQzRhkh7qAzYXklnC89bMHzcEYZLcVmWdrXufI4'
+                }).then((data) => { return data.slice(1) })
+    }
+    return Coursew
+}
 let Students = []
 async function getLoadStudent() {
     if (!Students.length) {
@@ -23,7 +46,7 @@ async function getLoadStudent() {
             fetchSheet
                 .fetch({
                     gSheetId: '1Ph6KE5iz0JAJejKNq9pVO55wDdBqpPGGCG2hcipzLaA'
-                }).then((data) => { return data })
+                }).then((data) => { return data.slice(1) })
     }
     return Students
 }
@@ -85,6 +108,16 @@ function nav_root() {
             CourseMain()
         }
     }
+
+    vam('.sidebar__item[get-data="more"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="more"]')) {
+            SetAttribute('.load', 'style', 'display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="more"]').classList.add('sidebar__item--actived')
+            MoreMain()
+        }
+    }
+
     if (wid < 1100) {
         $('.main__container').addClass('hiden')
         vam('.topbar__leading').onclick = () => {

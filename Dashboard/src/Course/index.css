@@ -475,3 +475,484 @@
 #form_popup>.rows.col {
     background-color: var(--color-vamx);
 }
+
+#course-main>.setting {
+    display: flex;
+    padding: 8px 15px;
+    background-color: var(--color-vamm);
+    gap: 10px;
+    position: fixed;
+    top: 75px;
+    right: 0;
+    color: white;
+    border-radius: 10px 0 0 10px;
+    transition: all .3s linear;
+    cursor: pointer;
+    z-index: 9;
+}
+
+#course-main>.setting:hover i {
+    animation: xoayf .3s linear forwards;
+    transform: rotate(-60deg)
+}
+
+#course-main>.setting:hover {
+    padding-right: 20px;
+}
+
+@keyframes xoayf {
+    0% {
+        transform: rotate(-60deg);
+    }
+
+    100% {
+        transform: rotate(60deg);
+    }
+}
+
+#course-main-wrap {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+#course_cre_1>.main,
+#course_cre_2>.main {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 80%;
+    transform: translateX(100%);
+    transition: all .3s linear;
+}
+
+#course_cre_1,
+#course_cre_2 {
+    z-index: -1;
+}
+
+#course_cre_2 .root {
+    overflow-y: scroll;
+}
+
+#course_cre_2 .root::-webkit-scrollbar {
+    width: 0;
+}
+
+.fixed>.main {
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    z-index: 8;
+    left: auto;
+}
+
+.null {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 7px 20px;
+}
+
+#more_wrap {
+    z-index: -1;
+}
+
+#more_wrap .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+#more_wrap .nav>div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+#more_wrap>.main {
+    transition: all .3s linear;
+    transform: translateX(100%);
+}
+
+.fixed>.background {
+    background-color: rgba(0, 0, 0, 0.501);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 7;
+    opacity: 0;
+    transition: all .3s linear;
+}
+
+#course-main {
+    position: relative;
+}
+
+
+.fixed>.main>.nav {
+    height: 65px;
+    width: 100%;
+    border-bottom: thin solid rgba(0, 0, 0, .12);
+    background-color: white;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    color: var(--color-title-nav);
+    padding: 0 32px;
+}
+
+.fixed>.main>.nav>i {
+    font-size: 22px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.fixed>.main>.nav>i:hover {
+    background-color: var(--color-vamx);
+}
+
+.fixed>.main>.nav>p {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+#course_cre_1>.main>.root>.warning {
+    display: flex;
+    background-color: #fef7e0;
+    padding: 8px 15px;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-title-nav);
+    margin-bottom: 20px;
+}
+
+#course_cre_1>.main>.root>.warning i {
+    color: #a85d00;
+    font-size: 18px;
+}
+
+.fixed>.main>.root .title {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border-bottom: thin solid var(--color-vamx);
+    color: var(--color-title-nav);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#course_cre_1>.main>.root .title i {
+    font-size: 16px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    transition: all .3s linear;
+}
+
+#course_cre_1>.main>.root .title i:hover {
+    cursor: pointer;
+    background-color: var(--color-vamx);
+}
+
+#course_cre_1>.main>.root {
+    font-size: 18px;
+    overflow-y: scroll;
+}
+
+#course_cre_1>.main>.root::-webkit-scrollbar {
+    width: 0;
+}
+
+.fixed>.main>.root>.course_cre_1_box {
+    overflow: hidden;
+    border-radius: 5px;
+    border: thin solid #dadce0;
+    margin-bottom: 20px;
+}
+
+.fixed>.main>.root>.course_cre_1_box>.main {
+    background-color: white;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#course_cre_1>.main>.root>.infor>.main>.name {
+    display: flex;
+    gap: 64px;
+}
+
+#course_cre_1>.main>.root>.infor>.main>.address {
+    display: flex;
+    gap: 64px;
+}
+
+#course_cre_1>.main>.root>.infor>.main span {
+    font-weight: 600;
+}
+
+#course_cre_1>.main .box {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    padding: 8px 20px;
+    min-height: 56px;
+    cursor: pointer;
+}
+
+
+#course_cre_1>.main .box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#course_cre_1>.main>.root>.course_cre_1_box.student>.main,
+#course_cre_1>.main>.root>.course_cre_1_box.celedar>.main {
+    padding: 0px;
+}
+
+.fixed>.main>.root>.course_cre_1_box #course_cre_1>.main .box {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all .3s linear;
+    min-height: 55px;
+}
+
+#course_cre_1>.main .box i.de {
+    opacity: 0;
+    transition: all .3s linear;
+    flex: 1;
+    justify-content: end;
+    color: #a80000;
+}
+
+#course_cre_1>.main .box:hover {
+    background-color: var(--color-vamx);
+}
+
+#course_cre_1>.main .box:hover i.de {
+    opacity: 1;
+}
+
+.xn {
+    background-color: var(--color-vamm);
+    padding: 7px 25px;
+    color: white;
+    width: max-content;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#course_cre_1>.main .course_cre_1_box .box {
+    gap: 32px;
+    position: relative;
+}
+
+#course_cre_1>.main .course_cre_1_box .box::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(181, 0, 0, .6);
+    content: '';
+    z-index: 1;
+    opacity: 0;
+    transition: all .3s linear;
+    left: 0;
+}
+
+#course_cre_1>.main .course_cre_1_box .box:hover::after {
+    opacity: 1;
+}
+
+#course_cre_1>.main .course_cre_1_box.celedar .box p {
+    flex: 1;
+}
+
+#course_cre_1>.main .course_cre_1_box .box i.de {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+}
+
+#course_cre_1>.main .course_cre_1_box .box i.de>p {
+    font-family: var(--font-roboto);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+#course_cre_1>.main .box>p {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.fixed>.main>.root {
+    background-color: #f1f3f4;
+    height: calc(100vh - 65px);
+    padding: 20px 32px;
+}
+
+.fixed>.main>.root>.grou {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.fixed>.main>.root>.grou>p {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-title-nav);
+}
+
+.fixed>.main>.root>.grou>div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #e2e8f0;
+}
+
+.fixed>.main>.root>.grou>div>a {
+    border: 2px solid var(--color-vamm);
+    border-radius: 10px;
+    color: var(--color-vamm);
+    font-weight: 700;
+    width: max-content;
+    padding: 6px 20px;
+    cursor: pointer;
+
+    transition: all .3s linear;
+}
+
+.fixed>.main>.root>.grou>div>a:hover {
+    background-color: var(--color-vamm);
+    color: white;
+}
+
+#course_cre_2 input,
+#course_cre_2 select {
+    border: none;
+    border-bottom: thin solid var(--color-title-nav);
+    color: var(--color-title-nav);
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+#course_cre_2 .allstudent.course_cre_1_box .main {
+    height: 400px;
+    overflow-y: scroll;
+    gap: 1px;
+}
+
+.boxStudent {
+    display: flex;
+    padding: 8px 16px;
+    gap: 32px;
+    align-items: center;
+    transition: all .3s linear;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boxStudent:hover {
+    background-color: var(--color-vamx);
+}
+
+.boxStudent img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.boxStudent>div {
+    flex: 1;
+    display: flex;
+    justify-content: end;
+}
+
+
+.boxStudent>div>i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.boxStudent>div>i:hover {
+    background-color: var(--color-vamx);
+}
+
+.boxStudent.ac {
+    background-color: var(--color-vamm);
+    color: white;
+}
+
+#course_cre_2 .allstudent.course_cre_1_box .main::-webkit-scrollbar {
+    width: 0;
+}
+
+#course_cre_1 .celedar.course_cre_1_box .add {
+    padding: 9px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    gap: 16px;
+    min-height: 57px;
+}
+
+#course_cre_1 .celedar.course_cre_1_box .add:hover {
+    background-color: var(--color-vamx);
+
+}
