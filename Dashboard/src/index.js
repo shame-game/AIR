@@ -83,17 +83,45 @@ function GetStudent() {
 }
 GetAll()
 nav_root()
+let dataAdmissions = []
+function Admissions(d) {
+    if (dataAdmissions.length === 0 || d == true) {
+        fetchSheet
+            .fetch({
+                gSheetId: '1ogxImxEf8z1hDZKpBti6G9KTk5sjxtdAdqzn69FppDQ'
+            }).then((data) => {
+                console.log(data);
+                dataAdmissions = data
+                AdmissionsPage(dataAdmissions)
+                lj = false
+            })
+
+    } else {
+        AdmissionsPage(dataAdmissions)
+    }
+}
 function nav_root() {
     vam('.sidebar__item[get-data="overview"]').onclick = () => {
         if (!vam('.sidebar__item.sidebar__item--actived[get-data="overview"]')) {
+            SetAttribute('.load', 'style', 'display:block')
             vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
             vam('.sidebar__item[get-data="overview"]').classList.add('sidebar__item--actived')
             GetAll()
         }
     }
 
+    vam('.sidebar__item[get-data="admissions"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="admissions"]')) {
+            SetAttribute('.load', 'style', 'display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="admissions"]').classList.add('sidebar__item--actived')
+            Admissions()
+        }
+    }
+
     vam('.sidebar__item[get-data="student"]').onclick = () => {
         if (!vam('.sidebar__item.sidebar__item--actived[get-data="student"]')) {
+            SetAttribute('.load', 'style', 'display:block')
             vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
             vam('.sidebar__item[get-data="student"]').classList.add('sidebar__item--actived')
             GetStudent()
@@ -106,6 +134,15 @@ function nav_root() {
             vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
             vam('.sidebar__item[get-data="book"]').classList.add('sidebar__item--actived')
             CourseMain()
+        }
+    }
+
+    vam('.sidebar__item[get-data="more"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="more"]')) {
+            SetAttribute('.load', 'style', 'display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="more"]').classList.add('sidebar__item--actived')
+            MoreMain()
         }
     }
 

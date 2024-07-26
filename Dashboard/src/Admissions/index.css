@@ -1,0 +1,501 @@
+#Admissions_wrap {
+    height: calc(100vh - 65px);
+    width: 100%;
+    overflow: hidden;
+    padding: 16px;
+    background-color: var(--color-vamx);
+}
+
+#Admissions {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 3PX;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#Admissions_nav {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var();
+    border-bottom: 2px solid var(--color-vamx);
+}
+
+#Admissions_nav>div {
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#avt_bot {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: thin solid var(--color-vamm);
+    margin-left: 10px;
+}
+
+#avt_bot>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.nav_bot {
+    padding: 5px 5px;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+}
+
+.nav_bot>i {
+    font-size: 18px;
+}
+
+.nav_bot:hover {
+    background-color: var(--color-vamx);
+}
+
+.nav_bot>div {
+    position: absolute;
+    top: calc(100% + 12px);
+    width: max-content;
+    right: 0;
+    height: max-content;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: none;
+    z-index: 9999;
+}
+
+.nav_bot>div>p {
+    padding: 8px 15px;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+}
+
+.nav_bot>div>p:hover {
+    background-color: var(--color-vamx);
+}
+
+#Admissions_main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.Act_ac {
+    padding: 5px 25px;
+    background-color: var(--color-vamx);
+    color: var(--color-vamm);
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+#Admissions_main-list {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 12px;
+}
+
+#Admissions_main-list_nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-vamx);
+    border-bottom: thin solid white;
+    padding: 12px 16px;
+    height: 50px;
+}
+
+
+
+#Admissions_main-list_nav>p {
+    flex: 1;
+    font-size: 15px;
+}
+
+.Admissions_main-list_items.ac {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.Admissions_main-list_items {
+    padding: 10px 15px;
+    display: flex;
+    background-color: var(--color-vamx);
+}
+
+.Admissions_main-list_items>p {
+    flex: 1;
+    font-size: 15px;
+}
+
+#Admissions_dashboard_Detail>.avt {
+    margin: 20px auto 10px auto;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#Admissions_dashboard_Detail>.name {
+    width: 100%;
+    height: max-content;
+}
+
+#Admissions_dashboard_Detail>.name>h1 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#Admissions_dashboard_Detail>.avt>img {
+    width: 100%;
+    height: 100%;
+}
+
+.Admissions_main-list_items>p:nth-last-child(1),
+#Admissions_main-list_nav>p:nth-last-child(1) {
+    flex: 2;
+}
+
+.Admissions_main-list_items:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+#Admissions_main-list_data {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#Admissions_main-list_data::-webkit-scrollbar {
+    background-color: var(--color-vamx);
+    width: 7px;
+}
+
+#Admissions_main-list_data::-webkit-scrollbar-thumb {
+    background-color: var(--color-vamm);
+    border-radius: 5px;
+    width: 7px;
+}
+
+#time_bot>div {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 12px);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    z-index: 9999;
+    border-radius: 5px;
+    display: none;
+}
+
+#time_bot_save {
+    text-align: center;
+    background-color: var(--color-vamx);
+}
+
+#time_bot_save:hover {
+    cursor: pointer;
+    background-color: rgb(230, 230, 230);
+}
+
+#Admissions_dashboard {
+    flex: 1;
+    padding: 12px;
+    height: 100%;
+}
+
+#Admissions_dashboard>div {
+    width: 100%;
+    height: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#Admissions_dashboard_Detail {
+    display: block;
+    flex: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#Admissions_dashboard_nav {
+    height: 50px;
+    border-bottom: 2px solid var(--color-vamx);
+    position: relative;
+}
+
+#Admissions_dashboard_nav>p {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-title-nav);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#Admissions_dashboard_sum p {
+    padding: 5px 25px;
+    background: #d8f2e4;
+    border-radius: 5px;
+    font-weight: 400;
+}
+
+#Admissions_dashboard_sum span {
+    font-weight: 600;
+}
+
+#Admissions_dashboard_sum {
+    padding: 10px;
+}
+
+#Admissions_dashboard_Detail>.status>p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
+    margin: 10px;
+    margin-top: 0;
+}
+
+#Admissions_dashboard_Detail>.status>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+#Admissions_dashboard_Detail>.animation>p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
+    margin: 10px;
+    margin-top: 0;
+}
+
+#Admissions_dashboard_Detail>.animation>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+
+#Admissions_dashboard_Detail>.history {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e7e7e7;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Admissions_dashboard_Detail>.history>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+#Admissions_dashboard_Detail>.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+#Admissions_dashboard_Detail>.content>h1 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    background: #e7e7e7;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: center;
+}
+
+#Admissions_dashboard_Detail>.content>p {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid var(--color-vamx);
+    border-top: none;
+}
+
+#Admissions_dashboard_Detail>.updateStatus {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-vamm);
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 32px;
+}
+
+#Admissions_dashboard_Detail>.updateStatus>h1 {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+}
+
+#Admissions_dashboard_Detail::-webkit-scrollbar {
+    width: 7px;
+    background-color: var(--color-vamx);
+}
+
+#Admissions_dashboard_Detail::-webkit-scrollbar-thumb {
+    width: 7px;
+    background-color: var(--color-vamm);
+    border-radius: 5px;
+}
+
+#updateStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#updateStatus>h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-title-nav);
+    text-align: center;
+}
+
+#updateStatus p {
+    display: flex;
+    gap: 10px;
+}
+
+#updateStatus>.Status {
+    display: flex;
+    gap: 16px;
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+}
+
+#updateStatus>.Status select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+#updateStatus>.animation {
+    display: flex;
+    gap: 16px;
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #e7e7e7;
+}
+
+#updateStatus>.animation select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+#updateStatus>.Content>p {
+    background: red;
+    padding: 7px 10px;
+    border-radius: 5px 5px 0 0;
+    background: #e7e7e7;
+}
+
+
+
+#updateStatus>.Content textarea {
+    border: 2px solid #e7e7e7;
+    border-top: none;
+    height: 100px;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+}
+
+#updateStatus>#bt_updateStatus {
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-vamm);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    color: white;
+}

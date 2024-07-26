@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./src/Student/index.css">
     <link rel="stylesheet" href="./src/Course/index.css">
     <link rel="stylesheet" href="./src/More/index.css">
+    <link rel="stylesheet" href="./src/Admissions/index.css">
 </head>
 
 <body>
@@ -71,8 +72,12 @@
                             <i class="fa-solid fa-graduation-cap"></i><span class="hide">Học sinh</span></a>
                         <a class="sidebar__item hide" get-data="book">
                             <i class="fa-solid fa-book-open"></i><span class="hide">Khóa học</span></a>
+                        <a class="sidebar__item hide" get-data="admissions">
+                            <i class="fa-solid fa-users-gear"></i><span class="hide">Tuyển sinh</span>
+                        </a>
                         <a class="sidebar__item hide" get-data="more">
-                            <i class="fa-solid fa-list"></i><span class="hide">Thêm</span></a>
+                            <i class="fa-solid fa-list"></i><span class="hide">Thêm</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -82,6 +87,41 @@
             <main class="main" id="main"></main>
         </div>
     </div>
+    <script src='fullcalendar/dist/index.global.js'></script>
+    <script>
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'listWeek',
+            events: [
+                {
+                    title: 'Meeting',
+                    start: '2019-08-12T14:30:00',
+                    extendedProps: {
+                        status: 'done'
+                    }
+                },
+                {
+                    title: 'Birthday Party',
+                    start: '2019-08-13T07:00:00',
+                    backgroundColor: 'green',
+                    borderColor: 'green'
+                }
+            ],
+            eventDidMount: function (info) {
+                if (info.event.extendedProps.status === 'done') {
+
+                    // Change background color of row
+                    info.el.style.backgroundColor = 'red';
+
+                    // Change color of dot marker
+                    var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+                    if (dotEl) {
+                        dotEl.style.backgroundColor = 'white';
+                    }
+                }
+            }
+
+        });
+    </script>
     <script src="https://kit.fontawesome.com/4b74ad505d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -98,6 +138,8 @@
     <script src="./src/Course/index.js"></script>
 
     <script src="./src/More/index.js"></script>
+
+    <script src="./src/Admissions/index.js"></script>
 </body>
 
 </html>

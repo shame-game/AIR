@@ -508,7 +508,7 @@ async function Detail(id, gr, idc, c) {
         }
         if (i < data.length) {
             items +=
-                `<div div class="topic ${si}" data - days="${t.Days}" >
+                `<div div class="topic ${si}" data-days="${t.Days}" >
                     <div class="dots"></div>
                     <div class="infor">
                         <h1>${i}</h1>
@@ -522,7 +522,7 @@ async function Detail(id, gr, idc, c) {
             i++
         } else if (i = data.length) {
             items +=
-                `<div div class="topic ${si}" data - days="${t.Days}" >
+                `<div div class="topic ${si}" data-days="${t.Days}" >
                     <div class="infor">
                         <h1>${i}</h1>
                         <div>
@@ -580,12 +580,12 @@ async function Detail(id, gr, idc, c) {
                 let o = ''
                 tt[StudentID[y]] == '' ? o = '' : tt[StudentID[y]] == '1' ? o = 'Có mặt' : o = 'Vắng mặt'
                 student +=
-                    `<div div class="box_wraps" >
+                    `<div class="box_wraps" >
                         <p class="avt"><img src="${t.avt}"></p>
                         <p class="id">${StudentID[y]}</p>
                         <p class="name">${t.Name}</p>
                         <p class="status">${o}</p>
-                    </div > `
+                    </div> `
                 morestudent +=
                     `<div div class="rows" >
                     <p>
@@ -597,7 +597,7 @@ async function Detail(id, gr, idc, c) {
                     <p>${vk}</p>
                     <p>${vc}</p>
                     <p>${k} vnđ</p>
-                </div > `
+                </div> `
                 break
             }
         }
@@ -607,7 +607,7 @@ async function Detail(id, gr, idc, c) {
         SetAttribute('.popup_main', 'style', 'width:1400px;height:500px')
         vam('.popup_background').onclick = () => vam('#popup').setAttribute('style', 'display:none')
         vam('.popup_main').innerHTML =
-            `<div div id = "form_popup" style = "height: 100%;overflow-y: auto;" >
+            `<div div id="form_popup" style="height: 100%;overflow-y: auto;" >
                 <h1>Chi tiết học sinh trong khóa học</h1>
                 <div class="rows col">
                     <p></p>
@@ -621,7 +621,7 @@ async function Detail(id, gr, idc, c) {
                 ${morestudent}
             </div > `
     }
-    vam('#course-main-detail>.right>.sdb').innerHTML = `<h1 h1 > Sổ đầu bài</h1 >
+    vam('#course-main-detail>.right>.sdb').innerHTML = `<h1> Sổ đầu bài</h1 >
                     <div class="title">
                         <p></p>
                         <p>ID</p>
@@ -635,6 +635,7 @@ async function Detail(id, gr, idc, c) {
             vam('#course-main-detail>.left>.flan>.topic.ac').classList.remove('ac')
             t.classList.add('ac')
             tt = getdetailcourse(data, t.getAttribute('data-days'))
+            console.log(data);
             vam('#course-main-detail>.right>h4').innerHTML = tt.STopic + ': ' + tt.Topic
             vam('#course-main-detail>.right>p').innerHTML = c
             if (tt.Cmt == '') tt.Cmt = 'Không có nhận xét từ giáo viên'
