@@ -1,4 +1,5 @@
 function CelenderNow(today, data) {
+    console.log(data);
     let Data = {}
     for (let index = 0; index < data.length; index++) {
         if (formatDate(new Date(data[index]['Days'])) == formatDate(today)) {
@@ -14,6 +15,7 @@ function CelenderNow(today, data) {
     })
     room.forEach((o) => {
         if (Data[o] != '') {
+            console.log(Data[o]);
             if (Data[o].includes("=")) {
                 let DataRoom = Data[o].split('=')
                 for (i = 0; i < DataRoom.length; i++) {

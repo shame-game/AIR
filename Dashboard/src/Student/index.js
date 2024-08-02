@@ -60,8 +60,8 @@ function Student(data) {
                             <div class="avt">
                                 <img src="">
                                 <div>
-                                    <p class="id">ID: <span>AI0001</span></p>
-                                    <p class="name">Tên: <span>Nguyên Hoàng</span></p>
+                                    <p class="id">ID: <span></span></p>
+                                    <p class="name">Tên: <span</span></p>
                                 </div>
                             </div>
                             <div class="infor">

@@ -87,41 +87,6 @@
             <main class="main" id="main"></main>
         </div>
     </div>
-    <script src='fullcalendar/dist/index.global.js'></script>
-    <script>
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'listWeek',
-            events: [
-                {
-                    title: 'Meeting',
-                    start: '2019-08-12T14:30:00',
-                    extendedProps: {
-                        status: 'done'
-                    }
-                },
-                {
-                    title: 'Birthday Party',
-                    start: '2019-08-13T07:00:00',
-                    backgroundColor: 'green',
-                    borderColor: 'green'
-                }
-            ],
-            eventDidMount: function (info) {
-                if (info.event.extendedProps.status === 'done') {
-
-                    // Change background color of row
-                    info.el.style.backgroundColor = 'red';
-
-                    // Change color of dot marker
-                    var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-                    if (dotEl) {
-                        dotEl.style.backgroundColor = 'white';
-                    }
-                }
-            }
-
-        });
-    </script>
     <script src="https://kit.fontawesome.com/4b74ad505d.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
