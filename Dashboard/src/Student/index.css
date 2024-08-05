@@ -446,6 +446,33 @@
     color: white;
 }
 
+.profile {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.ID_profile {
+    padding: 5px 15px;
+    background-color: var(--color-vamm);
+    color: white;
+    height: max-content;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.ID_profile:hover {
+    margin-right: 5px;
+}
+
+.ID_profile p {
+    display: flex;
+    gap: 10px;
+}
+
 #form_popup .row p:nth-child(1) {
     flex: 2;
     width: max-content;
@@ -554,4 +581,164 @@
     width: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+
+/* pro file */
+.profile_infor {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    background-color: white;
+    padding: 24px;
+    gap: 24px;
+}
+
+.profile_infor>.img {
+    width: 20%;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.profile_infor .input {
+    flex: 1;
+}
+
+.profile_infor .input p {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.profile_infor .input input {
+    flex: 1;
+}
+
+.profile_infor>.img>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile_infor .in>p {
+    flex-direction: column;
+}
+
+.profile_infor textarea {
+    outline: none;
+    padding: 5px 16px;
+    border: thin solid var(--color-title-nav);
+    border-radius: 5px;
+}
+
+.course_cre_1_box.project .img {
+    padding: 24px;
+    display: flex;
+    gap: 8.7px;
+    flex-wrap: wrap;
+}
+
+.course_cre_1_box.project .img>.add {
+    width: 14%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 3px;
+    transition: all .3s linear;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 32px;
+    color: var(--color-title-nav);
+}
+
+.course_cre_1_box.project .img>.img {
+    width: 14%;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 3px;
+    transition: all .3s linear;
+    padding: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.052) 0px 3px 8px;
+
+    border: thin solid var(--color-title-nav);
+}
+
+.course_cre_1_box.project .img>.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course_cre_1_box.project .img>.add:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.course_cre_1_box.project .img>.add:hover i {
+    transform: scale(1.04);
+}
+
+
+#upload-area {
+    width: 16%;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    aspect-ratio: 1/1;
+    background-color: #c8dfff3a;
+    position: relative;
+
+}
+
+#upload-area:hover {
+    background-color: #c8dfff7a;
+}
+
+#upload-area label {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#upload-area label::after {
+    content: 'Thêm hình ảnh';
+    width: max-content;
+    position: absolute;
+    top: calc(50% + 24px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#upload-area i {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+#upload-area input {
+    display: none;
+}
+
+.course_cre_1_box>.img img {
+    width: 16%;
+    aspect-ratio: 1/1;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    object-fit: cover;
+}
+
+.course_cre_1_box>.img {
+    flex-wrap: wrap;
 }

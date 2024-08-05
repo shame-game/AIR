@@ -155,6 +155,22 @@ function nav_root() {
         }
     }
 
+    vam('.sidebar__item[get-data="more"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="more"]')) {
+            SetAttribute('.load', 'style', 'display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="more"]').classList.add('sidebar__item--actived')
+            MoreMain()
+        }
+    }
+    vam('.sidebar__item[get-data="celendar"]').onclick = () => {
+        if (!vam('.sidebar__item.sidebar__item--actived[get-data="celendar"]')) {
+            SetAttribute('.load', 'style', 'display:block')
+            vam('.sidebar__item--actived').classList.remove('sidebar__item--actived')
+            vam('.sidebar__item[get-data="celendar"]').classList.add('sidebar__item--actived')
+            Celendar()
+        }
+    }
     if (wid < 1100) {
         $('.main__container').addClass('hiden')
         vam('.topbar__leading').onclick = () => {

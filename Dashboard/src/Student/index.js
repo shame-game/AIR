@@ -63,6 +63,11 @@ function Student(data) {
                                     <p class="id">ID: <span></span></p>
                                     <p class="name">Tên: <span</span></p>
                                 </div>
+                                <div class="profile">
+                                    <div class="ID_profile">
+                                        <p><i class="fa-solid fa-address-card"></i>Hồ sơ điện tử</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="infor">
                                 <p class="lable" data="infor"><i class="fa-solid fa-circle-user"></i>Thông tin chi tiết</p>
@@ -77,14 +82,26 @@ function Student(data) {
                             <div class="course">
                                 <p class="lable" data="course"><i class="fa-solid fa-book"></i> Khóa học <span></span></p>
                                 <div class="detail">
-                                    
                                 </div>
                             </div>
                         </detail>
                     </div>
                 </div>
             </div>
+            <div id="course_cre_2" class="fixed">
+            <div class="main">
+                <div class="nav">
+                    <i id="outCreateCourse_Infor" class="fa-solid fa-xmark"></i>
+                    <p>Thêm thông tin</p>
+                </div>
+                <div class="root"></div>
+            </div>
+            <div class="background"></div>
+        </div>
+
         </div>`
+
+
     vams('#student-right_main>detail .lable').forEach(t => {
         t.onclick = () => {
             if (!vam(`.${t.getAttribute('data')}>.detail.hien`)) vam(`.${t.getAttribute('data')}>.detail`).classList.add('hien')
@@ -127,6 +144,7 @@ function Student(data) {
 let backe = `<p id="back"><i class="fa-solid fa-angle-left"></i>Quay lại</p>`
 
 async function detailStudent(e, data) {
+
     let id = e.getAttribute('data-id')
     let f = []
     for (i = 0; i < data.length; i++) {
@@ -147,6 +165,142 @@ async function detailStudent(e, data) {
     vams('#student-right_main>detail .infor .detail p span')[2].innerText = f.PhoneMom
     vams('#student-right_main>detail .infor .detail p span')[3].innerText = f.Address
     vams('#student-right_main>detail .infor .detail p span')[4].innerText = f.Status
+    vam('.ID_profile').onclick = () => {
+        vam('#course_cre_2 .nav p').innerText = `Hồ sơ điện tử cá nhân của ${f.Name}`
+        vam('#course_cre_2 .root').innerHTML =
+            `<div class="infor course_cre_1_box">
+                        <div class="title">
+                            <p>Thông tin cơ bản của ${f.Name}</p>
+                        </div>
+                        <div class="profile_infor">
+                            <div class="input">
+                                <div class="name">
+                                <p>Tên học sinh: ${f.Name}</p>
+                            </div>
+                            <div class="img">
+                                <p>Hình giới thiệu: <input type="text" id="profile_input_img_infor" placeholder="Nhập link hình ảnh"/></p>
+                            </div>
+                                <div class="in">
+                                    <p>Giới thiệu bản thân: <textarea name="" id=""></textarea></p>
+                                </div>
+                            </div>
+                            <div class="img">
+                                <img id="profile_div_img_infor" src="https://lh4.googleusercontent.com/proxy/YQNzBA3l3nGs_xPVm4HT-UfA7XALpncTQ4JxJvXlFubDs8kU23MbM4uRMLOZqcD1LXf8eby-9TdcnrvOfAS842VGpBkpcRZqBHiyiE9L" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project course_cre_1_box">
+                        <div class="title">
+                            <p>Hình ảnh dự án</p>
+                        </div>
+                        <div class="img">
+                            <div id="upload-area">
+                                <input type="file" id="file-input" multiple>
+                                <i class="fa-solid fa-image"></i>
+                                <label for="file-input"></label> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project course_cre_1_box">
+                        <div class="title">
+                            <p>Video thuyết trình</p>
+                        </div>
+                        <div class="img">
+                            <div id="upload-area">
+                                <input type="file" id="file-input" multiple>
+                                <i class="fa-solid fa-video"></i>
+                                <label for="file-input"></label> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Skill course_cre_1_box">
+                        <div class="title">
+                            <p>Đánh giá 6 kĩ năng</p>
+                        </div>
+                        <div class="img">
+                            <div id="upload-area">
+                                <input type="file" id="file-input" multiple>
+                                <i class="fa-solid fa-video"></i>
+                                <label for="file-input"></label> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course course_cre_1_box">
+                        <div class="title">
+                            <p>Các khóa học hoàn thành</p>
+                        </div>
+                        <div class="img">
+                            <div id="upload-area">
+                                <input type="file" id="file-input" multiple>
+                                <i class="fa-solid fa-video"></i>
+                                <label for="file-input"></label> 
+                            </div>
+                        </div>
+                    </div>
+                    `
+
+        vam('#file-input').onchange = (event) => {
+            handleFileUpload(event)
+        }
+
+
+        vam('#profile_input_img_infor').onchange = () => {
+            vam('#profile_div_img_infor').src = vam('#profile_input_img_infor').value
+        }
+        /*
+        const uploadArea = vam('#profile_project_img');
+        uploadArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadArea.classList.add('dragging');
+        });
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragging');
+        });
+        uploadArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadArea.classList.remove('dragging');
+
+            const file = event.dataTransfer.files[0];
+            const imageUrl = URL.createObjectURL(file);
+            console.log('Image URL:', imageUrl);
+            // Bạn có thể lưu lại URL này để sử dụng sau
+        });
+        let v = 0
+        for (i = 0; i < 6; i++) {
+            uploadArea.onclick = () => {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'image/*';
+                fileInput.style.display = 'none';
+                document.body.appendChild(fileInput);
+                fileInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    const imageUrl = URL.createObjectURL(file);
+                    addIMGProject(imageUrl)
+                    document.body.removeChild(fileInput);
+                    v++
+                });
+                fileInput.click();
+            };
+            if (v == 6) break
+        }*/
+        loadHTMLCourseW()
+        setTimeout(() => {
+            SetAttribute('#course_cre_2>.background', 'style', 'opacity: 1')
+            SetAttribute('#course_cre_2>.main', 'style', 'transform: translateX(0)')
+            SetAttribute('#course_cre_1>.main', 'style', 'transform: translateX(-25%)')
+        }, 100)
+        SetAttribute('#course_cre_2', 'style', 'z-index: 1')
+        vam('#course_cre_2>.background').onclick = () => course_cre_2Out()
+        vam('#outCreateCourse_Infor').onclick = () => course_cre_2Out()
+        vam('#xn_inforCourse').onclick = () => {
+            let danhsachkhoahoc = vam('#course_cre_2 .danhsachkhoahoc').value
+            let danhsachnoihoc = vam('#course_cre_2 .danhsachnoihoc').value
+            vam('#course_cre_1>.main>.root>.infor>.main>.name span').innerText = danhsachkhoahoc
+            vam('#course_cre_1>.main>.root>.infor>.main>.address span').innerText = danhsachnoihoc
+            course_cre_2Out()
+        }
+    }
     let course = ''
     let detailcourse = ''
     let soluongc = 0
@@ -176,7 +330,6 @@ async function detailStudent(e, data) {
                             <div><div style="width:${tiendo}%"></div></div>
                         </div>`
                     soluongc++
-
                     break
                 }
             }
@@ -223,6 +376,33 @@ async function detailStudent(e, data) {
             else vam(`.${t.getAttribute('data')}>.detail`).classList.remove('hien')
         }
     })
+}
+function handleFileUpload(event) {
+    const files = event.target.files;
+    let wrap = vam('.course_cre_1_box>.img')
+    // Kiểm tra xem đã có đủ 6 ảnh chưa
+    if (wrap.children.length + files.length > 7) {
+        alert(`You can only upload a maximum of ${6} images.`);
+        return;
+    }
+
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const imageUrl = URL.createObjectURL(file);
+        wrap.innerHTML += `<img src="${imageUrl}" >`
+
+        // Nếu đã đủ 6 ảnh thì dừng lại
+        if (wrap.children.length === 7) {
+            break;
+        }
+    }
+    vam('#file-input').onchange = (event) => {
+        handleFileUpload(event)
+    }
+}
+function addIMGProject(src) {
+    vam('.course_cre_1_box.project .img').innerHTML += `<div class="img"><img src="${src}"></div>`
+    return
 }
 
 function EventCourse(detailcourse, e, data) {
