@@ -93,14 +93,28 @@ function Student(data) {
                 <div class="nav">
                     <i id="outCreateCourse_Infor" class="fa-solid fa-xmark"></i>
                     <p>Thêm thông tin</p>
+                    <button class="gia" id="ffffsa">Tạo profile</button>
                 </div>
-                <div class="root"></div>
+                <div class="root bt"></div>
             </div>
             <div class="background"></div>
         </div>
 
         </div>`
-
+    vam('#ffffsa').onclick = () => {
+        SetAttribute('.load', 'style', 'display:block')
+        setTimeout(function g() { SetAttribute('.load', 'style', 'display:none') }, 1000)
+        SetAttribute('#popup', 'style', 'display:block')
+        SetAttribute('.popup_main', 'style', 'width:500px')
+        vam('.popup_background').onclick = () => {
+            vam('#popup').setAttribute('style', 'display:none')
+        }
+        vam('.popup_main').innerHTML =
+            `<div id="form_popup">
+                            <h1>Liên kết Hồ sơ điện tử</h1>
+                            <div class="valueVoucher"><p>https://airobotic.edu.vn/e-Portfolio/?ID=AI0033TaQuangDang</p><i id="copyVoucher" class="fa-regular fa-copy"></i></div>
+                        </div>`
+    }
 
     vams('#student-right_main>detail .lable').forEach(t => {
         t.onclick = () => {
@@ -142,6 +156,7 @@ function Student(data) {
 }
 
 let backe = `<p id="back"><i class="fa-solid fa-angle-left"></i>Quay lại</p>`
+
 
 async function detailStudent(e, data) {
 
@@ -247,43 +262,6 @@ async function detailStudent(e, data) {
         vam('#profile_input_img_infor').onchange = () => {
             vam('#profile_div_img_infor').src = vam('#profile_input_img_infor').value
         }
-        /*
-        const uploadArea = vam('#profile_project_img');
-        uploadArea.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            uploadArea.classList.add('dragging');
-        });
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragging');
-        });
-        uploadArea.addEventListener('drop', (event) => {
-            event.preventDefault();
-            uploadArea.classList.remove('dragging');
-
-            const file = event.dataTransfer.files[0];
-            const imageUrl = URL.createObjectURL(file);
-            console.log('Image URL:', imageUrl);
-            // Bạn có thể lưu lại URL này để sử dụng sau
-        });
-        let v = 0
-        for (i = 0; i < 6; i++) {
-            uploadArea.onclick = () => {
-                const fileInput = document.createElement('input');
-                fileInput.type = 'file';
-                fileInput.accept = 'image/*';
-                fileInput.style.display = 'none';
-                document.body.appendChild(fileInput);
-                fileInput.addEventListener('change', (event) => {
-                    const file = event.target.files[0];
-                    const imageUrl = URL.createObjectURL(file);
-                    addIMGProject(imageUrl)
-                    document.body.removeChild(fileInput);
-                    v++
-                });
-                fileInput.click();
-            };
-            if (v == 6) break
-        }*/
         loadHTMLCourseW()
         setTimeout(() => {
             SetAttribute('#course_cre_2>.background', 'style', 'opacity: 1')

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Robotic System</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="load" style="display: none"></div>
+    <main>
+        <div class="wrap">
+            <h4>Đăng nhập</h4>
+            <input type="text" id="i" placeholder="Nhập ID học sinh">
+            <input type="text" id="m" placeholder="Mật khẩu">
+            <button id="xn_login">Đăng nhập</button>
+        </div>
+    </main>
+    <script src="./index.js"></script>
+    <script>
+        vam('#xn_login').addEventListener('click', () => {
+            SetAttribute('.load', 'style', 'display:block')
+            fetch(`${url}?t=${vam('#i').value}&m=${vam('#m').value}`, { method: 'Get' })
+                .then(response => response.json())
+                .then((data) => {
+                    SetAttribute('.load', 'style', 'display:none')
+                    data.ce ? Celendar(data.id, data.ce) : alert(data.message)
+                })
+        })
+    </script>
+</body>
+
+</html>
