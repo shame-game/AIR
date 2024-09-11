@@ -443,7 +443,7 @@ function attachClickEventToThanhtoanElements(detailcourse, e, data) {
                 SetAttribute('.load', 'style', 'display:block')
                 let pttt = vam('#xn_pttt').value
                 let vocher = vam('#buybyVoucher').value
-                let urlds = 'https://script.google.com/macros/s/AKfycbyvw7UPlLZukka-lpj-oZMl-rb6hL79yGTEThZYdx3xkrBEcUBCwkW_kNf028J0BZhA/exec'
+                let urlds = 'https://script.google.com/macros/s/AKfycbzIu3O88t-wN_BQIIb1H2NEEVwhBzbv_1DwtiuIw5UqVz08QbCWZTPdE_Y-sb14yMnt/exec'
                 fetch(`${urlds}?pttt=${pttt}&idcourse=${datac[1]}&idstudent=${datac[0]}&vocher=${vocher}`, { method: 'Get' })
                     .then(response => response.json())
                     .then((datar) => {

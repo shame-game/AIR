@@ -5,7 +5,11 @@ function SetAttribute(element, Attribute, Value) {
     vam(element) ? vam(element).setAttribute(Attribute, Value) : null
 }
 
+
+
 function Celendar(infor, data) {
+    localStorage.setItem(infor, data);
+    console.log(infor);
     vam('main').innerHTML = (
         `<div>Hello Word</div>`
     )
