@@ -534,8 +534,6 @@ async function Detail(id, gr, idc, c) {
                 </div > `
         }
     })
-    console.log(data);
-    console.log(vam('#course-main-detail>.left>.flan'));
     vam('#course-main-detail>.left>.flan').innerHTML = items
     if (!vam('#course-main-detail>.left>.flan>.topic.ac')) {
         tt = st
